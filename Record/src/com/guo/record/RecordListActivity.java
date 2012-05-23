@@ -60,9 +60,10 @@ public class RecordListActivity extends Activity {
 			   DatabaseHelper dbHelper= DatabaseHelper.getDatabaseHelper(this);
 			   SQLiteDatabase db=dbHelper.getWritableDatabase();
 			   
-			    String[] columns=new String[2];
-				columns[0]="_id";
-				columns[1]="content";
+			    String[] columns=new String[3];
+				columns[0]="id";
+				columns[1]="title";
+				columns[2]="content";
 				
 				String selection=null;
 				if(StringUtil.isNotEmpty(content)){
@@ -70,14 +71,15 @@ public class RecordListActivity extends Activity {
 				}
 				
 				// Cursor cs=db.rawQuery(" select * from test ", null);
-				Cursor cs=db.query("test", columns, selection, null, null, null, " _id desc ");
+				Cursor cs=db.query("RECORD", columns, selection, null, null, null, " id desc ");
 				
 				//获取数据库中的数据
 				Vector<RecordModel> mReord=new Vector<RecordModel>();
 				while(cs.moveToNext()){
 					RecordModel recordModel=new RecordModel();
 					recordModel.setId(cs.getInt(0));
-					recordModel.setContent(cs.getString(1));
+					recordModel.setTitle(cs.getString(1));
+					recordModel.setContent(cs.getString(2));
 					mReord.add(recordModel);
 				}
 				

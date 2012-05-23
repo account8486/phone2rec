@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.guo.model.RecordModel;
@@ -26,7 +27,8 @@ public class MyAdapter extends BaseAdapter {
 
 	class ViewHolder {
 		public TextView id;
-		public TextView content;
+		public TextView title;
+		public EditText content; 
 	}
 
 	@Override
@@ -53,23 +55,36 @@ public class MyAdapter extends BaseAdapter {
 					com.guo.record.R.layout.recorder_item, null);
 
 			vh.id = (TextView) view.findViewById(com.guo.record.R.id.v_id);
-			vh.content = (TextView) view
-					.findViewById(com.guo.record.R.id.v_content);
+			
+			vh.title = (TextView) view
+					.findViewById(com.guo.record.R.id.v_title);
+			vh.content=(EditText)view.findViewById(com.guo.record.R.id.v_content);
 
 		} else {
 			vh = (ViewHolder) view.getTag();
 		}
 		
-		if(position%2==0){
+		/**
+		if(position%2==1){
 			view.setBackgroundColor(Color.GRAY);
+			vh.content.setBackgroundColor(Color.GRAY);
 		}else{
-			view.setBackgroundColor(Color.BLUE);
-		}
+			view.setBackgroundColor(Color.GREEN);
+			vh.content.setBackgroundColor(Color.GREEN);
+		}**/
+		
+		view.setBackgroundColor(Color.GREEN);
+		vh.content.setBackgroundColor(Color.GRAY);
 		
 		RecordModel rm = mReord.elementAt(position);
 		vh.id.setText(String.valueOf(rm.getId()));
+		vh.title.setText(rm.getTitle());
+		
+		//…Ë÷√±≥æ∞…´
+		vh.id.setTextColor(Color.BLACK);
+		vh.title.setTextColor(Color.BLACK);
+		
 		vh.content.setText(rm.getContent());
-
 		view.setTag(vh);
 
 		return view;

@@ -1,7 +1,7 @@
 package com.guo.record;
 
 import com.guo.db.DatabaseHelper;
-
+import com.guo.util.StringUtil;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -20,7 +20,7 @@ import android.widget.TextView;
 public class RecordActivity extends Activity {
 	
 	private EditText etContent;
-	private TextView tvMytextView;
+	private TextView etTitle;
 	Button btnSaveInfo;
 	Button btnInfoList;
 	AlertDialog dialog;
@@ -28,28 +28,41 @@ public class RecordActivity extends Activity {
 	
     @Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		//初始化界面,指明显示的主界面为recorder的xml文件
+    	super.onCreate(savedInstanceState);
 		setContentView(R.layout.recorder);
+		//通过id查出标题
+		etTitle=(EditText)this.findViewById(R.id.et_title);
+		//内容
 		etContent = (EditText) this.findViewById(R.id.et_content);
+		//保存按钮
 		btnSaveInfo = (Button) this.findViewById(R.id.save_info);
+		//查询列表
 		btnInfoList=(Button)this.findViewById(R.id.info_list);
+		
+		//消息弹出框
 		dialog = new AlertDialog.Builder(this).setPositiveButton("确定", null)
 				.create();
 
+		
 		etContent.setOnKeyListener(new EditText.OnKeyListener() {
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				tvMytextView.setText(etContent.getText().toString());
 				return false;
 			}
 		});
 
+		//保存动作
 		btnSaveInfo.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View v) {
+				//判断是否为空
 				if (validate()) {
-					createDb(etContent.getText().toString());	
-					//dialog.setTitle("保存成功！");s
-					dialog.setMessage("保存成功！");
-					dialog.show();
+					if(createDb(etTitle.getText().toString(),etContent.getText().toString())){
+						dialog.setMessage("保存成功！");
+						dialog.show();
+					}else{
+						dialog.setMessage("保存失败！请检查程序逻辑！");
+						dialog.show();
+					}
 				}
 	           
 			}
@@ -58,18 +71,20 @@ public class RecordActivity extends Activity {
 		//跳转到列表页面
 		btnInfoList.setOnClickListener(new Button.OnClickListener(){
 			public void onClick(View v){
-				//dialog.setMessage("进入列表页面！");
-				//dialog.show();
 				doGoToList();
 			}
 		});
 	}
     
-    
+    /**
+     * 跳转到列表页面
+     */
     private void doGoToList(){
+    	//创建一个intent对象，表明是两个activity之间的跳转
     	Intent intent = new Intent(this, RecordListActivity.class);
-    	//参数
+    	//参数,类似HashMap的结构
     	intent.putExtra("A_name", this.getClass().toString());
+    	//跳转
 		this.startActivity(intent);
     }
     
@@ -78,10 +93,16 @@ public class RecordActivity extends Activity {
      * @return
      */
 	public boolean validate() {
+		String title = etTitle.getText().toString();
 		String content = etContent.getText().toString();
 		System.out.println("content:"+content);
-		if (content == null || "".equals(content)) {
-			//dialog.setTitle("内容不能为空！");
+		if (StringUtil.isEmpty(title)) {
+			dialog.setMessage("标题不能为空！");
+			dialog.show();
+			return false;
+		}
+		
+		if (StringUtil.isEmpty(content)) {
 			dialog.setMessage("内容不能为空！");
 			dialog.show();
 			return false;
@@ -89,21 +110,16 @@ public class RecordActivity extends Activity {
 		return true;
 	}
 	
-	public void createDb(String content) {
+	/**
+	 * 保存操作
+	 * @param content
+	 * @return
+	 */
+	public boolean createDb(String title,String content) {
 
-		/*
-		 * SQLiteDatabase myDb = SQLiteDatabase.create(new CursorFactory() {
-		 * 
-		 * @Override public Cursor newCursor(SQLiteDatabase db,
-		 * SQLiteCursorDriver masterQuery, String editTable, SQLiteQuery query)
-		 * {
-		 * 
-		 * return null; } });
-		
- */
 		try {
 			SQLiteDatabase myDataBase = this.openOrCreateDatabase(
-					"myDataBase.db", MODE_PRIVATE, new CursorFactory() {
+					DatabaseHelper.DATABASE_NAME, MODE_PRIVATE, new CursorFactory() {
 						// 创建新的数据库，名称myDatabase，模式MODE_PRIVATE，鼠标工厂
 						// 工厂类，一个可选工厂类，当查询时调用来实例化一个光标
 						@Override
@@ -115,19 +131,22 @@ public class RecordActivity extends Activity {
 					});
 			//判断这张表存在不？
 			 DatabaseHelper dbHelper= DatabaseHelper.getDatabaseHelper(this);
-			 if(!dbHelper.tabbleIsExist("test")){
-					myDataBase.execSQL(" CREATE TABLE test (_id INTEGER PRIMARY KEY,content VARCHAR(10) )  ; ");
+			 if(!dbHelper.tabbleIsExist("RECORD")){
+				 	//创建表
+					myDataBase.execSQL(" CREATE TABLE RECORD (id INTEGER PRIMARY KEY,title text,content text )  ; ");
 			 }
-			 
-			myDataBase.execSQL(" INSERT INTO test (content) values('"+content+"');");
+			//插入数据
+			myDataBase.execSQL(" INSERT INTO RECORD (title,content) values('"+title+"','"+content+"');");
 			
 			myDataBase.close();
+			
+			return true;
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 
-		// myDb=SQLiteDatabase.openOrCreateDatabase(file, factory);
 	}
 	
 	
