@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="glass">#00000000</color>
+	<color name="white">#FFFFFF</color>
+	<color name="red">#FF0000</color>
+	<color name="black">#000000</color>
+	<color name="green">#00ff00</color>
+	<color name="blue">#0000ff</color>
+	<color name="gray">#ffC3C7CC</color>
+	<color name="title_text_color">#FFFFFF</color>
+	<color name="banner_text_color">#cdcbd6</color>
+	<color name="index_item_title_text_color">#b6b7c9</color>
+	<color name="login_title_text_color">#004162</color>
+	<color name="login_edit_text_color">#006ca2</color>
+	<color name="login_checkbox_text_color">#5c5c5c</color>
+	<color name="download_item_length_text_color_normal">#6a6a76</color>
+	<color name="transpant">#ffffffff</color>
+	<color name="lightgrayblue">#ff3D7C9B</color>
+	
+	<color name="communicate_name">#37a6d7</color>
+	<color name="communicate_job">#9a9a9a</color>
+	  <color name="viewfinder_frame">#ff000000</color>
+  <color name="viewfinder_laser">#ffff0000</color>
+  <color name="viewfinder_mask">#60000000</color>
+  <color name="result_points">#c000ff00</color>
+  <color name="result_text">#ffffffff</color>
+  <color name="result_view">#b0000000</color>
+  <color name="possible_result_points">#c0ffff00</color>  
+  <color name="meeting_item_title_text_color">#00aaff</color>
+  <color name="meeting_item_actor_text_color">#575757</color>
+  <color name="item_text_title_color">#00aaff</color>
+  <color name="item_text_des_color">#575757</color>
+  <color name="bottom_text_color">#FFFFFF</color>
+  <color name="transparent_background">#A0000000</color>
+  <color name="group_name_color">#ffF7F7F7</color>
+  
+  <color name="group_name_highlight_color">#ffE35D5D</color>
+</resources>

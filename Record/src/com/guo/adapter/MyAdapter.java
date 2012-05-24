@@ -28,7 +28,7 @@ public class MyAdapter extends BaseAdapter {
 	class ViewHolder {
 		public TextView id;
 		public TextView title;
-		public EditText content; 
+		public TextView content; 
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class MyAdapter extends BaseAdapter {
 			
 			vh.title = (TextView) view
 					.findViewById(com.guo.record.R.id.v_title);
-			vh.content=(EditText)view.findViewById(com.guo.record.R.id.v_content);
+			vh.content=(TextView)view.findViewById(com.guo.record.R.id.v_content);
 
 		} else {
 			vh = (ViewHolder) view.getTag();
