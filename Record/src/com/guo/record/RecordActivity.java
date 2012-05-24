@@ -59,12 +59,14 @@ public class RecordActivity extends Activity {
 					if(createDb(etTitle.getText().toString(),etContent.getText().toString())){
 						dialog.setMessage("保存成功！");
 						dialog.show();
+						
+						//进行跳转
+						doGoToList();
 					}else{
 						dialog.setMessage("保存失败！请检查程序逻辑！");
 						dialog.show();
 					}
 				}
-	           
 			}
 		});
 		

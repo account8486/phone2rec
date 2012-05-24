@@ -108,6 +108,8 @@ public class RecordListActivity extends Activity {
 		   if(content!=null&&!"".equals(content)){
 			   //½øÐÐ²éÑ¯
 			   initDbListToControl(this.ltView , content);
+		   }else{
+			   initDbListToControl(this.ltView , null); 
 		   }
 	   }
 	   
