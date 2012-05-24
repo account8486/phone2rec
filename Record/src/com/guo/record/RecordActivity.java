@@ -22,7 +22,7 @@ public class RecordActivity extends Activity {
 	private EditText etContent;
 	private TextView etTitle;
 	Button btnSaveInfo;
-	Button btnInfoList;
+	Button btnCancel;
 	AlertDialog dialog;
 	
 	
@@ -33,12 +33,14 @@ public class RecordActivity extends Activity {
 		setContentView(R.layout.recorder);
 		//通过id查出标题
 		etTitle=(EditText)this.findViewById(R.id.et_title);
+		etTitle.setHint("请输入备忘标题");
 		//内容
 		etContent = (EditText) this.findViewById(R.id.et_content);
+		etContent.setHint("请输入备忘内容");
 		//保存按钮
 		btnSaveInfo = (Button) this.findViewById(R.id.save_info);
-		//查询列表
-		btnInfoList=(Button)this.findViewById(R.id.info_list);
+		//取消
+		btnCancel=(Button)this.findViewById(R.id.btn_cancel);
 		
 		//消息弹出框
 		dialog = new AlertDialog.Builder(this).setPositiveButton("确定", null)
@@ -71,9 +73,9 @@ public class RecordActivity extends Activity {
 		});
 		
 		//跳转到列表页面
-		btnInfoList.setOnClickListener(new Button.OnClickListener(){
+		btnCancel.setOnClickListener(new Button.OnClickListener(){
 			public void onClick(View v){
-				doGoToList();
+				doGoToIndex();
 			}
 		});
 	}
@@ -83,7 +85,20 @@ public class RecordActivity extends Activity {
      */
     private void doGoToList(){
     	//创建一个intent对象，表明是两个activity之间的跳转
-    	Intent intent = new Intent(this, RecordListActivity.class);
+    	Intent intent = new Intent(this,RecordListActivity.class);
+    	//参数,类似HashMap的结构
+    	//intent.putExtra("A_name", this.getClass().toString());
+    	//跳转
+		this.startActivity(intent);
+    }
+    
+    
+    /**
+     * 跳转到首页九宫格
+     */
+    private void doGoToIndex(){
+    	//创建一个intent对象，表明是两个activity之间的跳转
+    	Intent intent = new Intent(this, IndexActivity.class);
     	//参数,类似HashMap的结构
     	intent.putExtra("A_name", this.getClass().toString());
     	//跳转

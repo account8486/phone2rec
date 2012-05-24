@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -51,16 +52,29 @@ public class IndexActivity extends Activity {
 		gridview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				//System.out.println("click index:" + arg2);
-				//跳转
-				if(0==arg2){
-					doGoToRecord();
-				}else if(1==arg2){
-					doGoToList();
-				}
+			
+				jumpPoint(arg2);
 			}
 		});
 
+	}
+	
+	/**
+	 * 进行功能点的跳转
+	 * @param arg2
+	 */
+	public void jumpPoint( int menuId){
+		//System.out.println("click index:" + arg2);
+		//跳转
+		if(0==menuId){
+			doGoToRecord();
+		}else if(1==menuId){
+			doGoToList();
+		}else{
+			AlertDialog dialog=new AlertDialog.Builder(this).setPositiveButton("尚未开发,敬请期待!", null)
+			.create();
+			dialog.show();
+		}
 	}
 	
 	

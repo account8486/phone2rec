@@ -30,6 +30,7 @@ public class RecordListActivity extends Activity {
 			setContentView(R.layout.info_list);
 			
 			etSearch=(EditText)this.findViewById(R.id.tips);
+			etSearch.setHint("标题或内容快速搜索");
 			//TODO查出数据库中的信息并进行展示操作
 			ltView=(ListView)this.findViewById(R.id.lt_info_list);
 			ltView.setBackgroundColor(Color.BLUE);
@@ -67,7 +68,7 @@ public class RecordListActivity extends Activity {
 				
 				String selection=null;
 				if(StringUtil.isNotEmpty(content)){
-					selection="  content like  '%"+content+"%'";
+					selection="  content like  '%"+content+"%' or title like '%"+content+"%' " ;
 				}
 				
 				// Cursor cs=db.rawQuery(" select * from test ", null);

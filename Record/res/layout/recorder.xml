@@ -6,7 +6,8 @@
     android:orientation="vertical" >
 
     
-    <EditText
+    
+   <EditText
         android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,13 +31,13 @@
         android:id="@+id/save_info"
         android:layout_width="132dp"
         android:layout_height="wrap_content"
-        android:text="保存" />
-
+        android:text="@string/save" />
+
     <Button
-        android:id="@+id/info_list"
+        android:id="@+id/btn_cancel"
         android:layout_width="127dp"
         android:layout_height="wrap_content"
-        android:text="查看备忘记录" />
+        android:text="@string/cancel" />
     
 </LinearLayout>
 </LinearLayout>

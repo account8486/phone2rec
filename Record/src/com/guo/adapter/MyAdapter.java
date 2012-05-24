@@ -2,8 +2,10 @@ package com.guo.adapter;
 
 import java.util.Vector;
 
+import android.R;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,9 +57,13 @@ public class MyAdapter extends BaseAdapter {
 					com.guo.record.R.layout.recorder_item, null);
 
 			vh.id = (TextView) view.findViewById(com.guo.record.R.id.v_id);
-			
+			//不可见
+			vh.id.setVisibility(View.GONE);
 			vh.title = (TextView) view
 					.findViewById(com.guo.record.R.id.v_title);
+			//加粗
+			vh.title.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+			//vh.title.set
 			vh.content=(TextView)view.findViewById(com.guo.record.R.id.v_content);
 
 		} else {
@@ -73,8 +79,8 @@ public class MyAdapter extends BaseAdapter {
 			vh.content.setBackgroundColor(Color.GREEN);
 		}**/
 		
-		view.setBackgroundColor(Color.GREEN);
-		vh.content.setBackgroundColor(Color.GRAY);
+		view.setBackgroundColor(Color.LTGRAY);
+		vh.content.setBackgroundColor(Color.WHITE);
 		
 		RecordModel rm = mReord.elementAt(position);
 		vh.id.setText(String.valueOf(rm.getId()));
