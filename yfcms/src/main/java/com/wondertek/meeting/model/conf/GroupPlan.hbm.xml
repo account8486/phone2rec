@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.wondertek.meeting.model">
+	<class name="GroupPlan" table="group_plan">
+		<id name="id" type="java.lang.Long">
+			<column name="plan_id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+		<property name="planName" column="plan_name" type="java.lang.String" />
+		<property name="planDesc" column="plan_desc" type="java.lang.String" />
+		<property name="importFile" column="import_file" type="java.lang.String" />
+		<property name="isOpen" column="is_open" type="java.lang.String" />
+		<property name="meetingId" column="meeting_id" type="java.lang.Long" />
+		<property name="state" column="state" type="java.lang.Integer" />
+		<property name="planType" column="plan_type" type="java.lang.Integer" />
+		<many-to-one  name="creator"   class="com.wondertek.meeting.model.AdminUser"  column="create_user"/>
+		<property name="createTime" column="create_time" type="java.util.Date" />
+	</class>
+</hibernate-mapping>

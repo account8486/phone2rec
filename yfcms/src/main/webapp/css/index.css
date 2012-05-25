@@ -1,0 +1,278 @@
+@charset "utf-8";
+.banner {
+    height: 280px;
+    background: url(../images/common/bg_banner.png) repeat-x;
+    z-index: 8;
+}
+
+.title_menu {
+    height: 36px;
+    background: url(../images/nav.gif);
+}
+
+.title_menu ul {
+    margin-left: 50px;
+    _display: inline;
+}
+
+.title_menu ul li {
+    float: left;
+}
+
+#index .selected {
+    background: url("../images/icon_s.png") repeat scroll 0 0 transparent;
+    color: black;
+    margin-top: 4px;
+}
+
+.title_menu ul li a {
+    color: #FFFFFF;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 32px;
+    line-height: 32px;
+    margin: 2px 0 0 2px;
+    text-align: center;
+    width: 88px;
+}
+
+:link, *:visited, ins {
+    text-decoration: none;
+}
+
+
+ol, ul {
+    list-style: none outside none;
+}
+
+
+
+.title_menu ul li a.all {
+    width: 138px;
+}
+
+.welcome {
+    float: right;
+    margin: 5px 20px;
+}
+.welcome span {
+    color: #E28822;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+
+.crumbs {
+    /*background-color: #E0F3C5;*/
+    background-color: #c4dff2;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-right: 0px;
+    padding: 5px 2px;
+
+}
+
+.crumbs2 {
+    /*background-color: #E0F3C5;*/
+    background-color: #c4dff2;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-right: 0px;
+    padding: 5px 10px;
+
+}
+
+input.sbtn {
+    width: 65px;
+    height: 30px;
+    background: url(../images/icobg.gif) no-repeat 0 -81px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+    border: none;
+}
+
+input.lbtn {
+    width: 69px;
+    height: 26px;
+    border: none;
+    /*background: url(../images/icobg.gif) no-repeat left -193px;*/
+    background: none repeat scroll 0 0 #8BB544;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+table.grid {
+    width: 90%;
+    margin-bottom: 5px;
+}
+
+
+
+table.grid td {
+    background: none repeat scroll 0 0 #F8FBFC;
+
+}
+
+table.grid td.title {
+    background: #E0F3C5;
+    border: 3px solid #FFFFFF;
+    font-size: 14px;
+}
+
+
+table.grid th {
+    background: url("../images/tr_back.gif") repeat-x scroll 0 0 ;
+    color: #FFFFFF;
+}
+
+tr.odd td {
+    background: none repeat scroll 0 0 #E5F1F4;
+}
+
+table.grid th, td {
+    border: 1px solid #FFFFFF;
+    padding: 0.3em;
+    text-align: left;
+}
+
+
+table.grid2 {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+
+
+table.grid2 td {
+    background: none repeat scroll 0 0 #F8FBFC;
+
+}
+
+table.grid2 th {
+    background:  #C4DFF2;
+    color: #FFFFFF;
+}
+
+
+table.grid th, td {
+    border: 1px solid #FFFFFF;
+    padding: 0.3em;
+    text-align: left;
+}
+
+/*table.grid thead {*/
+/*font-size: 13px;*/
+/*background-color: #C8DAE8;*/
+/*color: #108AC6;*/
+/*font-weight: bold;*/
+/*}*/
+
+/*table.grid tbody td {*/
+/*padding: 5px 3px;*/
+/*border-bottom: 1px dashed #ddd;*/
+/*}*/
+
+.pagination {
+    /*float: right;*/
+    padding: 5px;
+}
+
+.pagination a, .pagination a:link, .pagination a:visited {
+    border: 1px solid #AAAADD;
+    color: #006699;
+    margin: 2px;
+    padding: 2px 5px;
+    text-decoration: none;
+}
+
+.pagination a:hover, .pagination a:active {
+    border: 1px solid #006699;
+    color: #000000;
+    text-decoration: none;
+}
+
+.pagination span.current {
+    background-color: #006699;
+    border: 1px solid #006699;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 2px;
+    padding: 2px 5px;
+}
+
+.pagination span.disabled {
+    border: 1px solid #EEEEEE;
+    color: #DDDDDD;
+    margin: 2px;
+    padding: 2px 5px;
+}
+
+.itable  td {
+    padding: 5px 5px;
+    font-size: 18px;
+}
+
+.focusBox {
+    padding: 20px 20px 10px 0;
+    float: left;
+    width: 225px;
+    height: 235px;
+}
+
+.c4 {
+    padding-right: 0;
+}
+
+.focusBox a {
+    display: block;
+}
+
+.focusBox div {
+    padding: 5px 10px;
+    width: 203px;
+    height: 135px;
+}
+
+.c1 div {
+    background: #f1f7e8;
+    border: 1px solid #c7dba9;
+}
+
+.c2 div {
+    background: #e5effa;
+    border: 1px solid #aecbea;
+}
+
+.c3 div {
+    background: #fcf6f1;
+    border: 1px solid #f5d0b3;
+}
+
+.c4 div {
+    background: #fff5f4;
+    border: 1px solid #f1d0cc;
+}
+
+.focusBox div p {
+    font-size: 12px;
+    line-height: 150%;
+}
+
+.focusBox div img {
+    margin: 5px 0;
+}
+
+.menuTitle {
+    font-family: "微软雅黑", "宋体";
+    BACKGROUND: #fff font-size: 14px
+}

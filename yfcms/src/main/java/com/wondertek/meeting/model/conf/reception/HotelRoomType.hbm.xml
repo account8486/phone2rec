@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.reception.HotelRoomType"
+		table="hotel_room_type">
+		<id name="id" type="java.lang.Long">
+			<column name="id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="roomType" column="room_type" type="java.lang.String" />
+		<property name="area" column="area" type="java.lang.Float" />
+		<property name="capability" column="capability" type="java.lang.Integer" />
+		<property name="bedWidth" column="bed_width" type="java.lang.Float" />
+		<property name="additionalInfo" column="additional_info"
+			type="java.lang.String" />
+		<property name="facilities" column="facilities" type="java.lang.String" />
+	</class>
+</hibernate-mapping>

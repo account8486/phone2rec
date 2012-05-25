@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.wondertek.meeting.model">
+	<class name="JourneyMember" table="journey_member">
+		<id name="id" type="java.lang.Long">
+			<column name="id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+		<property name="meetingId" column="meeting_id" type="java.lang.Long" />
+		<property name="journeyId" column="journey_id" type="java.lang.Long" />
+		<property name="userId" column="user_id" type="java.lang.Long" />
+		<property name="number" column="number" type="java.lang.Integer" />
+		
+	</class>
+</hibernate-mapping>

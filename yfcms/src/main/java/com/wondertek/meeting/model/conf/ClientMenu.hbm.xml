@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.ClientMenu" table="client_menu"
+		dynamic-update="true">
+
+		<id name="id" type="java.lang.Long">
+			<column name="id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="type" column="type" type="java.lang.Integer" />
+		<property name="imgUrl" column="img_url" type="java.lang.String" />
+		<property name="contentUrl" column="content_url" type="java.lang.String" />
+		<property name="state" column="state" type="java.lang.Integer" />
+		<property name="modifyTime" column="modify_time" type="java.util.Date" />
+		<property name="terminalType" column="terminal_type" type="java.lang.String" />
+		<property name="description" column="description" type="java.lang.String" />
+		<property name="meetingId" column="meeting_id" type="java.lang.Long" />
+		<property name="menuType" column="menu_type" type="java.lang.String" />
+		<property name="defaultSortCode" column="default_sort_code" type="java.lang.Integer" />
+		<property name="contentId" column="content_id" type="java.lang.Long" />
+		<property name="baseMenuId" column="base_Menu_Id" type="java.lang.Long" />
+		<property name="downloadUrl" column="download_url" type="java.lang.String" />
+		<property name="packageName" column="package_name" type="java.lang.String" />
+		<property name="isInitial" column="is_Initial" type="java.lang.Boolean" />
+	</class>
+</hibernate-mapping>

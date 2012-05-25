@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.DataDict" table="data_dict"
+		dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write"/>
+		<id name="dataType" type="java.lang.String">
+			<column name="data_type" not-null="true" />
+		</id>
+
+		<property name="dataTypeName" column="area_code" type="java.lang.String" />
+		<property name="dataTypeDesc" column="parent_code" type="java.lang.String" />
+	</class>
+</hibernate-mapping>

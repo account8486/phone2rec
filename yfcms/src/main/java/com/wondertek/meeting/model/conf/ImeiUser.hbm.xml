@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.ImeiUser" table="imei_user"
+		dynamic-update="true">
+
+		<id name="imei" type="java.lang.String">
+			<column name="imei" not-null="true" />
+			<generator class="assigned"></generator>
+		</id>
+
+		<property name="userId" column="user_id" type="java.lang.Long" />
+	</class>
+</hibernate-mapping>

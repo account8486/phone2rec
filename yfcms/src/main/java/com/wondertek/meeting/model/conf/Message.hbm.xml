@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.wondertek.meeting.model">
+	<class name="Message" table="message">
+		<id name="id" type="java.lang.Long">
+			<column name="id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+		<property name="subject" column="subject" type="java.lang.String" />
+		<property name="message" column="message" type="java.lang.String" />
+		<property name="sendTime" column="send_time" type="java.util.Date" />
+		<property name="sendFlag" column="send_flag" type="java.lang.Integer" />
+		<property name="meetingId" column="meeting_id" type="java.lang.Long" />
+		<many-to-one name="sender" class="com.wondertek.meeting.model.User"
+			column="sender" lazy="false" not-found="ignore" />
+		<set name="recipientSet" table="message_recipient" lazy="false" cascade="all">
+      		<key column="message_id"/>
+      		<one-to-many class="com.wondertek.meeting.model.MessageRecipient"/>
+     	</set>
+	</class>
+</hibernate-mapping>

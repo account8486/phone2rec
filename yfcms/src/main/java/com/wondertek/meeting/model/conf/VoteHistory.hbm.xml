@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.VoteHistory" table="voteHistory"
+		dynamic-update="true" dynamic-insert="true">
+
+		<id name="id" type="java.lang.Long">
+			<column name="id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+
+
+		<many-to-one name="user"  class="com.wondertek.meeting.model.User">
+        	<column name="userId" ></column>
+        </many-to-one>
+        
+        <many-to-one name="voteBase"  class="com.wondertek.meeting.model.VoteBaseInfo">
+        	<column name="voteId" ></column>
+        </many-to-one>
+        
+	</class>
+</hibernate-mapping>

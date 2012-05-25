@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="private-portal-base" extends="struts-base"
+		namespace="/portal/pri/base">
+		<action name="logout" class="com.wondertek.meeting.action.login.LoginAction"
+			method="logout">
+			<result name="portal" type="redirect">/pages/portal/login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="admin-pri-base" extends="struts-base"
+		namespace="/admin/pri/base">
+		<action name="logout" class="com.wondertek.meeting.action.login.AdminLoginAction"
+			method="logout">
+			<result name="success" type="redirect">/pages/admin/login.jsp</result>
+		</action>
+	</package>
+
+	<package name="portal-pri-person" extends="struts-base"
+		namespace="/portal/pri/person">
+		<action name="modifyPwd" class="com.wondertek.meeting.action.user.UserAction"
+			method="modifyPwd">
+			<result name="input">/pages/portal/pri/person/modifyPwd.jsp</result>
+		</action>
+		
+		<action name="goAdd" class="com.wondertek.meeting.action.user.UserAction"
+			method="goAdd">
+			<result name="success">/pages/admin/pri/user/add.jsp</result>
+			<result name="portal">/pages/admin/pri/meeting/addGUser_portal.jsp</result>
+		</action>
+	</package>
+	
+	<package name="wap-pri-person" extends="struts-base"
+		namespace="/wap/pri/person">
+		<action name="modifyPwd" class="com.wondertek.meeting.action.user.UserAction"
+			method="wapModifyPwd">
+			<result name="input">/pages/wap/pri/person/modifyPwd.jsp</result>
+			<result name="success">/pages/wap/pri/person/modifyPwd.jsp</result>
+		</action>
+	</package>
+
+	<package name="client-pri-menu" extends="struts-base"
+		namespace="/client/pri/menu">
+		<action name="getMenuList" class="com.wondertek.meeting.action.login.LoginAction"
+			method="getMenuList">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="private-admin-user" extends="struts-base" namespace="/admin/pri/user">
+		<action name="list" class="com.wondertek.meeting.action.user.AdminUserAction"
+			method="list">
+			<result>/pages/admin/pri/user/list.jsp</result>
+		</action>
+		
+		<action name="loginList" class="com.wondertek.meeting.action.login.UserLoginLogAction"
+			method="list">
+			<result>/pages/admin/pri/user/loginList.jsp</result>
+		</action>
+		
+		<action name="goAdd" class="com.wondertek.meeting.action.user.AdminUserAction"
+			method="goAdd">
+			<result name="success">/pages/admin/pri/user/add.jsp</result>
+			<result name="portal">/pages/admin/pri/meeting/addGUser_portal.jsp</result>
+		</action>
+		
+		<action name="add" class="com.wondertek.meeting.action.user.AdminUserAction"
+			method="add">
+			<result name="input" type="redirectAction">
+				<param name="actionName">goAdd</param>
+				<param name="user.mobile">${user.mobile}</param>
+				<param name="user.password">${user.password}</param>
+				<param name="user.name">${user.name}</param>
+				<param name="user.job">${user.job}</param>
+				<param name="user.tel">${user.tel}</param>
+				<param name="organId">${organId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			
+			<result name="success">/pages/admin/pri/user/listAndTree.jsp</result>
+			<result name="json" type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		
+		<action name="goUpdate" class="com.wondertek.meeting.action.user.AdminUserAction"
+			method="goUpdate">
+			<result>/pages/admin/pri/user/edit.jsp</result>
+		</action>
+		
+		<action name="update" class="com.wondertek.meeting.action.user.AdminUserAction"
+			method="update">
+			<result name="input">/pages/admin/pri/user/edit.jsp</result>
+			<result name="success">/pages/admin/pri/user/listAndTree.jsp</result>
+		</action>
+		
+		<action name="del" class="com.wondertek.meeting.action.user.AdminUserAction"
+			method="del">
+			<result name="success">/pages/admin/pri/user/listAndTree.jsp</result>
+		</action>
+		
+		<action name="modifyPwd" class="com.wondertek.meeting.action.user.AdminUserAction"
+			method="modifyPwd">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="listOnline" class="com.wondertek.meeting.action.user.AdminUserAction"
+			method="listOnline">
+			<result>/pages/admin/pri/user/onlineList.jsp</result>
+		</action>
+		
+		<action name="forceOut" class="com.wondertek.meeting.action.user.AdminUserAction"
+			method="forceOut">
+			<result type="redirectAction">
+				<param name="actionName">listOnline</param>
+			</result>
+		</action>
+			
+		<action name="getUserByOrg" class="com.wondertek.meeting.action.user.UserAction"
+			method="getUserByOrg">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="private-admin-org" extends="struts-base" namespace="/admin/pri/org">
+		<action name="list" class="com.wondertek.meeting.action.org.OrganizationAction"
+			method="list">
+			<result>/pages/admin/pri/org/list.jsp</result>
+		</action>
+		
+		<action name="listLevel" class="com.wondertek.meeting.action.org.OrganizationAction"
+			method="listLevel">
+			<result type="json">
+				<param name="root">treeList</param>
+			</result> 
+		</action>
+		
+		<action name="getTreeWithUser" class="com.wondertek.meeting.action.org.OrganizationAction"
+			method="getTreeWithUser">
+			<result type="json">
+				<param name="root">treeList</param>
+			</result> 
+		</action>
+		
+		<action name="goAdd" class="com.wondertek.meeting.action.org.OrganizationAction"
+			method="goAdd">
+			<result>/pages/admin/pri/org/add.jsp</result>
+		</action>
+		
+		<action name="add" class="com.wondertek.meeting.action.org.OrganizationAction"
+			method="add">
+			<result name="input" type="chain">
+				<param name="actionName">goAdd</param>
+			</result>
+			<result name="success">/pages/admin/pri/org/listAndTree.jsp</result>
+		</action>
+		
+		<action name="goUpdate" class="com.wondertek.meeting.action.org.OrganizationAction"
+			method="goUpdate">
+			<result>/pages/admin/pri/org/edit.jsp</result>
+		</action>
+		
+		<action name="update" class="com.wondertek.meeting.action.org.OrganizationAction"
+			method="update">
+			<result name="input">/pages/admin/pri/org/edit.jsp</result>
+			<result name="success">/pages/admin/pri/org/listAndTree.jsp</result>
+		</action>
+		
+		<action name="del" class="com.wondertek.meeting.action.org.OrganizationAction"
+			method="del">
+			<result name="success">/pages/admin/pri/org/listAndTree.jsp</result>
+		</action>
+	</package>
+	
+	<package name="private-admin-index" extends="struts-base" namespace="/pages/admin/pri">
+		<action name="addMeeting" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="add">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+	</package>
+		
+	<package name="private-admin-meeting" extends="struts-base" namespace="/pages/admin/pri/meeting">
+		<action name="addMeeting" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="add">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="deleteMeeting" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="delete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="modifyMeeting" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="modify">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+        <action name="modifyMeetingXY" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="modifyXY">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="listMeeting" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="list">
+            <result name="error">error.jsp</result>
+            <result name="success">listMeeting.jsp</result>      
+		</action>
+		<action name="getMeetingById" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="getMeetingById">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+            <result name="error">error.jsp</result>
+            <result name="success">addMeeting.jsp</result>
+            <result name="manage_baseinfo">addMeeting.jsp</result>
+            <result name="edit_map">edit_map.jsp</result>
+            <result name="manage_members">/pages/admin/pri/meetingmember/add.jsp</result>         
+		</action>
+		<action name="getMeetingUsers" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="getMeetingUsers">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+            <result name="error">error.jsp</result>
+            <result name="success">addMeeting.jsp</result>       
+            <result name="list">/pages/admin/pri/meetingmember/list.jsp</result>              
+		</action>
+		<action name="checkServiceNumber" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="checkServiceNumber">
+			<result type="stream">
+				<param name="contentType">text/htm</param>
+			</result>
+		</action>
+		<action name="saveMeetingUser" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="saveMeetingUser">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+            <result name="success" type="redirectAction">
+				<param name="actionName">getMeetingUsers.action</param>
+				<param name="meeting.id">${meeting.id}</param>
+				<param name="isAdmin">1</param>
+			</result>        
+		</action>
+		<action name="deleteMeetingUser" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="deleteMeetingUser">
+            <result name="list" type="redirectAction">
+				<param name="actionName">getMeetingUsers.action</param>
+				<param name="meeting.id">${meeting.id}</param>
+				<param name="isAdmin">1</param>
+			</result>        
+		</action>
+		<action name="getMeetingUserById" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="getMeetingUserById">
+            <result name="error">error.jsp</result>
+            <result name="success">/pages/admin/pri/meetingmember/add.jsp</result>                
+		</action>
+		<action name="previewMeeting" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="previewMeeting">
+            <result name="error">error.jsp</result>
+			 <result name="preview" type="redirectAction">
+				<param name="namespace">/portal/pri/meeting</param>
+			   <param name="actionName">getMeetingById.action</param>  
+			   <param name="meeting.id">${meeting.id}</param>
+			   <param name="returnType">preview</param>
+			   <param name="menu_id">31</param>
+			 </result>  
+                         
+		</action>
+		<action name="accessList" class="com.wondertek.meeting.action.meeting.MeetingAccessLogAction"
+			method="accessList">
+			<result>/pages/admin/pri/meeting/accessData.jsp</result>
+		</action>
+		<action name="accessDetail" class="com.wondertek.meeting.action.meeting.MeetingAccessLogAction"
+			method="accessDetail">
+			<result>/pages/admin/pri/meeting/accessDetailData.jsp</result>
+		</action>
+	</package>
+	
+	<package name="private-portal" extends="struts-base" namespace="/portal/pri/user">
+	</package>
+	
+	<package name="meetingContent" extends="struts-base" namespace="/admin/pri/meeting">
+		 
+		 <!-- 自定义菜单信息 -->
+		 <action name="listMeetingContent"
+			class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="listMeetingContent">
+			 <result name="success">/pages/admin/pri/content/list.jsp</result>
+	  	 </action>
+	  	 
+	  	 <action name="gotoAddContent" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="gotoAdd">
+			 <result name="input">/pages/admin/pri/content/list.jsp</result>
+			 <result name="success">/pages/admin/pri/content/add.jsp</result>
+		</action>
+		
+	  	 <action name="gotoAddContentList" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="gotoAdd">
+			 <result name="input">/pages/admin/pri/content/list.jsp</result>
+			 <result name="success">/pages/admin/pri/content/addList.jsp</result>
+		</action>
+		
+	  	 <action name="gotoAddContentItem" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="gotoAdd">
+			 <result name="input">/pages/admin/pri/content/list.jsp</result>
+			 <result name="success">/pages/admin/pri/content/addItem.jsp</result>
+		</action>
+		
+	  	 <action name="addContentList" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="add">
+			 <result name="input">/pages/admin/pri/content/addList.jsp</result>
+			 <result name="success">/pages/admin/pri/content/list.jsp</result> 
+		</action>
+		
+	  	 <action name="addContentItem" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="addItem">
+			 <result name="input">/pages/admin/pri/content/list.jsp</result>
+			 <result name="success">/pages/admin/pri/content/addItem.jsp</result> 
+		</action>
+		
+	  	 <action name="addMeetingContent" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="add">
+			 <result name="input">/pages/admin/pri/content/add.jsp</result>
+			 <result name="success">/pages/admin/pri/content/list.jsp</result>
+		</action>
+		
+	  	 <action name="modifyMeetingContent" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="modify">
+			 <result name="input">/pages/admin/pri/content/add.jsp</result>
+			 <result name="success">/pages/admin/pri/content/list.jsp</result>
+		</action>
+		
+	  	 <action name="modifyContentList" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="modify">
+			 <result name="input">/pages/admin/pri/content/add.jsp</result>
+			 <result name="success">/pages/admin/pri/content/list.jsp</result>
+		</action>
+		
+	  	 <action name="modifyContentItem" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="modifyItem">
+			 <result name="input">/pages/admin/pri/content/list.jsp</result>
+			 <result name="success">/pages/admin/pri/content/addItem.jsp</result>
+		</action>
+		
+	  	 <action name="deleteMeetingContent" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="delete">
+			 <result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+	  	 <action name="listContentItem" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="listContentItem">
+			 <result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+	  	 <action name="getMeetingContentById" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="getMeetingContentById">
+			 <result name="modifyItem">/pages/admin/pri/content/addItem.jsp</result>
+			 <result name="modifyList">/pages/admin/pri/content/addList.jsp</result>
+			 <result name="modify">/pages/admin/pri/content/add.jsp</result>
+			 <result name="success">/pages/admin/pri/content/preview.jsp</result>
+		</action>
+		
+		<!-- 用餐信息 -->
+		 <action name="listMeetingDinner"
+			class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="list">
+			 <result name="success">/pages/admin/pri/dinner/list.jsp</result>
+	  	 </action>
+		
+	  	 <action name="gotoAdd" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="gotoAdd">
+			  <result name="success">/pages/admin/pri/dinner/add.jsp</result>
+		</action>
+		
+	  	 <action name="addMeetingDinner" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="add">
+			 <result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		
+	  	 <action name="modifyMeetingDinner" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="modify">
+			 <result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		
+	  	 <action name="getMeetingDinnerById" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="getMeetingDinnerById">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+            <result name="error">error.jsp</result>
+            <result name="modify">/pages/admin/pri/dinner/add.jsp</result>        
+            <result name="import">/pages/admin/pri/dinner/import.jsp</result>        
+            <result name="choosetable">/pages/admin/pri/dinner/choose.jsp</result>        
+		</action>
+		
+	  	 <action name="deleteMeetingDinner" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="delete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+	  	 <action name="getUserListInDinner" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="getUserListInDinner">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	  	 <action name="getUserListNotInDinner" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="getUserListNotInDinner">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	  	 <action name="addUserToDinnerTable" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="delete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	  	 <action name="removeUserToDinnerTable" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="delete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	  	 <action name="addUserToDinnerTable" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="addUserToDinnerTable">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	  	 <action name="removeUserFromDinnerTable" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="removeUserFromDinnerTable">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	  	 <action name="doImport" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="doImport">
+			<result name="input">/pages/admin/pri/dinner/import.jsp</result>
+			<result name="success">/pages/admin/pri/dinner/import.jsp</result>
+		</action>
+		
+		<action name="doImportPlan" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="doImportPlan">
+			<result name="input">/pages/admin/pri/dinner/importPlan.jsp</result>
+			<result name="success">/pages/admin/pri/dinner/importPlan.jsp</result>
+		</action>
+		
+		<action name="dinnerChoose" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="choose">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/dinner/selectGroup.jsp</result>
+		</action>
+		
+		<action name="doChooseDinnerGroupPlan" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+			method="doChoose">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	   
+	</package>
+	
+	
+	<package name="admin-pri-sign" extends="struts-base" namespace="/admin/pri/sign">
+		<action name="list" class="com.wondertek.meeting.action.meeting.SignInAction"
+			method="list">
+			<result>/pages/admin/pri/sign/list.jsp</result>
+		</action>
+		
+		<action name="genAllSignCode" class="com.wondertek.meeting.action.meeting.SignInAction"
+			method="genAllSignCode">
+			<result name="success" type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId }</param>
+				<param name="mobile">${mobile }</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+		</action>
+
+		<action name="genSignCode" class="com.wondertek.meeting.action.meeting.SignInAction"
+			method="genSignCode">
+			<result name="success" type="chain">
+				<param name="actionName">list</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="portal-pri-sign" extends="struts-base" namespace="/portal/pri/meeting">
+		<action name="signCode" class="com.wondertek.meeting.action.meeting.SignInAction"
+			method="webSignCode">
+			<result name="success">/pages/portal/pri/sign/signCode.jsp</result>
+		</action>
+		
+		<action name="signIn" class="com.wondertek.meeting.action.meeting.SignInAction"
+			method="webSignIn">
+			<result name="input">/pages/portal/pri/sign/signIn.jsp?meetingId=${meetingId}</result>
+			<result name="success">/pages/portal/pri/sign/signIn.jsp</result>
+		</action>
+	</package>
+	
+	<package name="admin-pri-version" extends="struts-base" namespace="/admin/pri/version">
+		<action name="list" class="clientVersionAction"
+			method="list">
+			<result name="success">/pages/admin/pri/version/list.jsp</result>
+		</action>
+		
+		<action name="upload" class="clientVersionAction"
+			method="upload">
+			<result name="input">/pages/admin/pri/version/upload.jsp</result>
+			<result name="success">/pages/admin/pri/version/upload.jsp</result>
+		</action>
+	</package>
+	
+	<package name="groupPlan" extends="struts-base" namespace="/admin/pri/group">
+		<action name="list" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="list">
+			<result name="input">/pages/admin/pri/group/list.jsp</result>
+			<result name="success">/pages/admin/pri/group/list.jsp</result>
+		</action>
+		<action name="updateGroupPlanState" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="updateState">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="add" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="add">
+			<result name="input">/pages/admin/pri/group/add.jsp</result>
+			<result name="success">/pages/admin/pri/group/list.jsp</result>
+		</action>
+		
+		<action name="gotoModify" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="gotoModify">
+			<result name="input">/pages/admin/pri/group/list.jsp</result>
+			<result name="success">/pages/admin/pri/group/add.jsp</result>
+		</action>
+		<action name="modify" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="modify">
+			<result name="input">/pages/admin/pri/group/add.jsp</result>
+			<result name="success">/pages/admin/pri/group/list.jsp</result>
+		</action>
+		
+		<action name="delete" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="delete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="show" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="show">
+			<result name="input">/pages/admin/pri/group/list.jsp</result>
+			<result name="success">/pages/admin/pri/group/show.jsp</result>
+		</action>
+		
+		<action name="selectGroupSms" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="selectGroupSms">
+			<result name="input">/pages/admin/pri/group/sms_user_select.jsp</result>
+			<result name="success">/pages/admin/pri/group/sms_user_select.jsp</result>
+		</action>
+		
+		<!-- 分组模版分组信息编辑 -->
+		<action name="listGroup" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="listGroup">
+			<result name="input">/pages/admin/pri/group/list.jsp</result>
+			<result name="success">/pages/admin/pri/group/listGroup.jsp</result>
+		</action>
+		<action name="addGroup" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="addGroup">
+			<result name="input">/pages/admin/pri/group/addGroup.jsp</result>
+			<result name="success">/pages/admin/pri/group/listGroup.jsp</result>
+		</action>
+		<action name="gotoModifyGroup" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="gotoModifyGroup">
+			<result name="input">/pages/admin/pri/group/listGroup.jsp</result>
+			<result name="success">/pages/admin/pri/group/addGroup.jsp</result>
+		</action>
+		<action name="modifyGroup" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="modifyGroup">
+			<result name="input">/pages/admin/pri/group/addGroup.jsp</result>
+			<result name="success">/pages/admin/pri/group/listGroup.jsp</result>
+		</action>
+		<action name="deleteGroup" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="deleteGroup">
+			<result name="input">/pages/admin/pri/group/listGroup.jsp</result>
+			<result name="success">/pages/admin/pri/group/listGroup.jsp</result>
+		</action>
+		<action name="listGroupMember" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="listGroupMember">
+			<result name="input">/pages/admin/pri/group/listGroup.jsp</result>
+			<result name="success">/pages/admin/pri/group/listGroupMember.jsp</result>
+		</action>
+		<action name="listMemberNotInGroup" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="listMemberNotInGroup">
+			<result name="input">/pages/admin/pri/group/listGroupMember.jsp</result>
+			<result name="success">/pages/admin/pri/group/listMemberNotInGroup.jsp</result>
+		</action>
+		<action name="addMember2Group" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="addMember2Group">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="removeMemberFromGroup" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="removeMemberFromGroup">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="sortMemberForGroup" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="sortMemberForGroup">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="moveMemberFromGroup" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="moveMemberFromGroup">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<!-- 导出项目分组模版分组信息 -->
+		<action name="exportGroupPlan" class="com.wondertek.meeting.action.meeting.GroupPlanAction" 
+			method="exportGroupPlan">
+			<result name="success" type="jxls">
+				<param name="location">/com/wondertek/meeting/templates/groupPlan.xls</param>
+                <param name="fileName">分组计划</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="admin-pri-gift" extends="struts-base" namespace="/admin/pri/gift">
+		<action name="list" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="list">
+			<result name="success">/pages/admin/pri/gift/list.jsp</result>
+		</action>
+			
+		<action name="orderList" class="com.wondertek.meeting.action.gift.GiftOrderAction"
+			method="list">
+			<result name="success">/pages/admin/pri/gift/orderList.jsp</result>
+		</action>
+		
+		<action name="goAdd" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="goAdd">
+			<result name="success">/pages/admin/pri/gift/add.jsp</result>
+		</action>
+		
+		<action name="add" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="add">
+			<result name="success" type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="input">/pages/admin/pri/gift/add.jsp</result>
+		</action>
+		
+		<action name="goUpdate" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="goUpdate">
+			<result name="success">/pages/admin/pri/gift/update.jsp</result>
+		</action>
+		
+		<action name="update" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="update">
+			<result name="success" type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="input">/pages/admin/pri/gift/update.jsp</result>
+		</action>
+		
+		<action name="del" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="del">
+			<result name="success" type="chain">
+				<param name="actionName">list</param>
+			</result>
+		</action>
+		
+		<action name="preview" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="getDetail">
+			<result name="success">/pages/admin/pri/gift/preview.jsp</result>
+		</action>
+	</package>
+	
+	<package name="portal-pri-gift" extends="struts-base" namespace="/portal/pri/gift">
+		<action name="list" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="portalList">
+			<result name="success">/pages/portal/pri/gift/list.jsp</result>
+		</action>
+		
+		<action name="detail" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="getDetail">
+			<result name="success">/pages/portal/pri/gift/detail.jsp</result>
+		</action>
+		
+		<action name="order" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="order">
+			<result name="success" type="redirectAction">
+				<param name="actionName">orderSuc</param>
+				<param name="errMsg">${errMsg}</param>
+				<param name="meetingId">${meetingId}</param>
+			</result>
+		</action>
+		
+		<action name="orderSuc" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="orderSuc">
+			<result name="success">/pages/portal/pri/gift/orderSuc.jsp</result>
+		</action>
+	</package>
+	
+	<package name="wap-pri-gift" extends="struts-base" namespace="/wap/pri/gift">
+		<action name="list" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="list">
+			<result name="success">/pages/wap/pri/gift/list.jsp</result>
+		</action>
+		
+		<action name="detail" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="getDetail">
+			<result name="success">/pages/wap/pri/gift/detail.jsp</result>
+		</action>
+		
+		<action name="order" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="wapOrder">
+			<result name="input" type="redirectAction">
+				<param name="actionName">detail</param>
+				<param name="id">${gift.id}</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="amount">${amount}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">orderSuc</param>
+				<param name="errMsg">${errMsg}</param>
+				<param name="meetingId">${meetingId}</param>
+			</result>
+		</action>
+		
+		<action name="orderSuc" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="orderSuc">
+			<result name="success">/pages/wap/pri/gift/orderSuc.jsp</result>
+		</action>
+	</package>
+	
+	<package name="client-pri-gift" extends="struts-base" namespace="/client/pri/gift">
+		<action name="list" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="clientList">
+			<result name="success">/pages/client/pri/gift/list.jsp</result>
+		</action>
+		
+		<action name="detail" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="getDetail">
+			<result name="success">/pages/client/pri/gift/detail.jsp</result>
+		</action>
+		
+		<action name="order" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="clientOrder">
+			<result name="input" type="redirectAction">
+				<param name="actionName">detail</param>
+				<param name="id">${gift.id}</param>
+				<param name="amount">${amount}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">orderSuc</param>
+				<param name="errMsg">${errMsg}</param>
+				<param name="gift.meetingId">${gift.meetingId}</param>
+			</result>
+		</action>
+		
+		<action name="orderSuc" class="com.wondertek.meeting.action.gift.GiftAction"
+			method="orderSuc">
+			<result name="success">/pages/client/pri/gift/orderSuc.jsp</result>
+		</action>
+	</package>
+	
+	<package name="journey" extends="struts-base" namespace="/admin/pri/journey">
+		<!-- 车辆管理 -->
+		<action name="addVehicle" class="com.wondertek.meeting.action.journey.VehicleAction"
+			method="add">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="gotoAddVehicle" class="com.wondertek.meeting.action.journey.VehicleAction"
+			method="gotoAdd">
+			<result name="success">/pages/admin/pri/vehicle/add.jsp</result> 
+		</action>
+		<action name="gotoModifyVehicle" class="com.wondertek.meeting.action.journey.VehicleAction"
+			method="getVehicleById">
+			<result name="success">/pages/admin/pri/vehicle/add.jsp</result> 
+		</action>
+		<action name="deleteVehicle" class="com.wondertek.meeting.action.journey.VehicleAction"
+			method="delete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="modifyVehicle" class="com.wondertek.meeting.action.journey.VehicleAction"
+			method="modify">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="listVehicle" class="com.wondertek.meeting.action.journey.VehicleAction"
+			method="list">
+            <result name="success">/pages/admin/pri/vehicle/list.jsp</result>
+		</action>
+		<!-- 司机管理 -->
+		<action name="addVehicleDriver" class="com.wondertek.meeting.action.journey.VehicleDriverAction"
+			method="add">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="gotoAddVehicleDriver" class="com.wondertek.meeting.action.journey.VehicleDriverAction"
+			method="gotoAdd">
+			<result name="success">/pages/admin/pri/vehicleDriver/add.jsp</result> 
+		</action>
+		<action name="gotoModifyVehicleDriver" class="com.wondertek.meeting.action.journey.VehicleDriverAction"
+			method="getVehicleDriverById">
+			<result name="success">/pages/admin/pri/vehicleDriver/add.jsp</result> 
+		</action>
+		<action name="deleteVehicleDriver" class="com.wondertek.meeting.action.journey.VehicleDriverAction"
+			method="delete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="modifyVehicleDriver" class="com.wondertek.meeting.action.journey.VehicleDriverAction"
+			method="modify">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="listVehicleDriver" class="com.wondertek.meeting.action.journey.VehicleDriverAction"
+			method="list">
+            <result name="success">/pages/admin/pri/vehicleDriver/list.jsp</result>
+		</action>
+		<!-- 行程管理 -->
+		<action name="addJourney" class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="add">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="gotoAddJourney" class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="gotoAdd">
+			<result name="success">/pages/admin/pri/journey/add.jsp</result> 
+		</action>
+		<action name="gotoModifyJourney" class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="getJourneyById">
+			<result name="success">/pages/admin/pri/journey/add.jsp</result> 
+		</action>
+		<action name="deleteJourney" class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="delete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="modifyJourney" class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="modify">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result> 
+		</action>
+		<action name="listJourney" class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="list">
+            <result name="success">/pages/admin/pri/journey/list.jsp</result>
+		</action>
+		
+		<!-- 选择行程分组 -->
+		<action name="journeyChoose" class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="choose">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/journey/selectGroup.jsp</result>
+		</action>
+		
+		<action name="doChooseJourneyGroupPlan" class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="doChoose">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<!--投票信息管理  add by zouxiaoming-->
+	<package name="admin-pri-vote" extends="struts-base" namespace="/admin/pri/vote">
+		<action name="vote_*" class="com.wondertek.meeting.action.vote.VoteBaseAction"
+				method="{1}">
+			<result name="updateVote" type="chain">vote_findVoteAll</result>
+			<result name="findAll">/pages/admin/pri/vote/listVote.jsp</result>
+			<result name="editVote">/pages/admin/pri/vote/addVote.jsp?meetingId=${meetingId}</result>
+			<result name="findEnableVote">/pages/admin/pri/vote/listState.jsp</result>
+			
+		</action>
+		
+		<action name="voteItem_*" class="com.wondertek.meeting.action.vote.VoteItemAction"
+				method="{1}">
+			<result name="findByVoteId">/pages/admin/pri/vote/listVoteItem.jsp</result>
+			<result name="addVoteItem" type="chain">voteItem_findItemByVoteId</result>
+			<result name="editVoteItem">/pages/admin/pri/vote/addVoteItem.jsp?voteId=${voteId}</result>
+			<result name="updateVoteItem" type="chain">voteItem_findItemByVoteId</result>
+		</action>
+	</package>
+	<!---->
+
+	<package name="private-admin-config" extends="struts-base" namespace="/admin/pri/config">
+		<action name="systemConfig" class="com.wondertek.meeting.action.config.SystemConfigAction"
+			method="getClientLoginBackgroundImages">
+			<result name="success">/pages/admin/pri/config/system_config.jsp</result>
+		</action>
+		<action name="saveClientBgImages" class="com.wondertek.meeting.action.config.SystemConfigAction"
+			method="saveClientLoginBackgroundImages">
+			<result type="json"><param name="root">resultMap</param></result>
+		</action>		
+	</package>
+	
+</struts>

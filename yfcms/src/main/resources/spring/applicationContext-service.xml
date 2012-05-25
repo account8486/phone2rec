@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<aop:aspectj-autoproxy />
+	<context:annotation-config />
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<aop:config>
+		<aop:pointcut id="servicePointCut"
+			expression="execution(* com.wondertek.meeting.service..*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointCut" />
+	</aop:config>
+
+	<!-- Enable @Configured support -->
+	<tx:advice id="txAdvice">
+		<tx:attributes>
+			<!-- Read-only commented out to make things easier for end-users -->
+			<!-- http://issues.appfuse.org/browse/APF-556 -->
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="count*" read-only="true" />
+			<tx:method name="have*" read-only="true" />
+			<tx:method name="is*" read-only="true" />
+			<tx:method name="exists*" read-only="true" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="Exception" />
+			<tx:method name="save*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="delete*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="modify*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="remove*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="update*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="executeUpdate*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="executeSql*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="sync*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="upload*" propagation="REQUIRED"
+				rollback-for="Throwable" />
+			<tx:method name="*" propagation="REQUIRED" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<bean id="baseService"
+	    class="com.wondertek.meeting.service.impl.BaseServiceImpl">
+	</bean>
+
+	<bean id="adminUserService" class="com.wondertek.meeting.service.impl.AdminUserServiceImpl" parent="baseService">
+		<property name="adminUserDao" ref="adminUserDao" />
+	</bean>
+	
+	<bean id="adminRoleService" class="com.wondertek.meeting.service.impl.AdminRoleServiceImpl" parent="baseService">
+		<property name="adminRoleDao" ref="adminRoleDao" />
+	</bean>
+	
+	<bean id="userRoleService" class="com.wondertek.meeting.service.impl.UserRoleServiceImpl" parent="baseService">
+		<property name="userRoleDao" ref="userRoleDao" />
+	</bean>
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+
+
+
+	
+
+
+
+	
+
+	
+	
+	
+</beans>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.custom.MeetingType" table="meeting_type">
+		<id name="id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="name" length="20" not-null="true"/>
+		<property name="description" length="200" />
+		<property name="createTime" column="create_time" type="timestamp" />
+		<property name="logoImage" column="logo_image" length="50" />
+		<property name="state" />
+		
+		<many-to-one name="pageTheme" lazy="false" class="com.wondertek.meeting.model.custom.PageTheme" column="theme_id" />
+	</class>
+</hibernate-mapping>
