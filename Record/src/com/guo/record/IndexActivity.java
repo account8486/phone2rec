@@ -1,11 +1,12 @@
 package com.guo.record;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -114,14 +115,21 @@ public class IndexActivity extends Activity {
 		this.startActivity(intent);
     }
     
-    
+    /**
+     * 退出程序的操作
+     */
     private void logout(){
-    	//System.exit(0);
-    	AlertDialog dialog=new AlertDialog.Builder(this).setPositiveButton("退出程序！", null)
-		.create();
-		dialog.show();
-		
-    	android.os.Process.killProcess(android.os.Process.myPid());
+    	Builder builder=new AlertDialog.Builder(this);
+    	builder.setTitle("提示");
+    	builder.setMessage("是否退出系统");
+    	builder.setPositiveButton("确定",  new OnClickListener(){
+    		@Override
+			public void onClick(DialogInterface dialog, int which){
+    			android.os.Process.killProcess(android.os.Process.myPid());
+			}
+    	});
+    	builder.setNegativeButton("取消", null);
+    	builder.create().show();
     }
     
 
