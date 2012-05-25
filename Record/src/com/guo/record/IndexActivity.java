@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 public class IndexActivity extends Activity {
 
@@ -23,7 +24,7 @@ public class IndexActivity extends Activity {
 		GridView gridview = (GridView) findViewById(R.id.GridView);
 		ArrayList<HashMap<String, Object>> meumList = new ArrayList<HashMap<String, Object>>();
 
-		for (int i = 1; i < 4; i++) {
+		for (int i = 1; i < 6; i++) {
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			if(i==1){
 				//记录
@@ -33,6 +34,10 @@ public class IndexActivity extends Activity {
 				//列表
 				map.put("ItemImage", R.drawable.admin);
 				map.put("ItemText", "列表");
+			}else if(5==i){
+				//列表
+				map.put("ItemImage", R.drawable.logout);
+				map.put("ItemText", "退出");
 			}else{
 				//默认
 				map.put("ItemImage", R.drawable.icon);
@@ -70,10 +75,17 @@ public class IndexActivity extends Activity {
 			doGoToRecord();
 		}else if(1==menuId){
 			doGoToList();
+		}else if(4==menuId){
+		
+			logout();
 		}else{
-			AlertDialog dialog=new AlertDialog.Builder(this).setPositiveButton("尚未开发,敬请期待!", null)
-			.create();
-			dialog.show();
+//			AlertDialog dialog=new AlertDialog.Builder(this).setPositiveButton("尚未开发,敬请期待!", null)
+//			.create();
+//			dialog.show();
+			
+			Toast.makeText(this, "尚未开发,敬请期待!",  
+					                   Toast.LENGTH_LONG).show();  
+
 		}
 	}
 	
@@ -100,6 +112,16 @@ public class IndexActivity extends Activity {
     	Intent intent = new Intent(this, RecordActivity.class);
     	//跳转
 		this.startActivity(intent);
+    }
+    
+    
+    private void logout(){
+    	//System.exit(0);
+    	AlertDialog dialog=new AlertDialog.Builder(this).setPositiveButton("退出程序！", null)
+		.create();
+		dialog.show();
+		
+    	android.os.Process.killProcess(android.os.Process.myPid());
     }
     
 
