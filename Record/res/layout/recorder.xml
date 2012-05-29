@@ -7,17 +7,16 @@
 
 
     <DatePicker
-        android:id="@+id/datePicker1"
+        android:id="@+id/dpTipTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     
-  
+
    <EditText
         android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"  />
-
     <EditText
         android:id="@+id/et_content"
         android:layout_width="match_parent"

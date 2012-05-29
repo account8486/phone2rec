@@ -4,24 +4,32 @@ import java.util.Vector;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.guo.db.DatabaseHelper;
 import com.guo.model.RecordModel;
+import com.guo.record.R;
+import com.guo.record.RecordListActivity;
 
 public class MyAdapter extends BaseAdapter {
 	private Context mContext;
 	public Vector<RecordModel> mReord;
 	RecordModel rm;
+	
+	public Vector<RecordModel> getmReord() {
+		return mReord;
+	}
+
 
 	public MyAdapter(Context context) {
 		mContext = context;
@@ -34,7 +42,7 @@ public class MyAdapter extends BaseAdapter {
 	class ViewHolder {
 		public TextView title;
 		public TextView content; 
-		public ImageButton imgBtnDel;
+		public ImageView imgBtnDel;
 	}
 
 	@Override
@@ -52,22 +60,33 @@ public class MyAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View view, ViewGroup arg2) {
+	public View getView(int position, View view, ViewGroup parent) {
 		ViewHolder vh = null;
 		if (view == null) {
 			vh = new ViewHolder();
 			view = LayoutInflater.from(mContext).inflate(
-					com.guo.record.R.layout.recorder_item, null);
+					R.layout.recorder_item, null);
 			//vh.id = (TextView) view.findViewById(com.guo.record.R.id.v_id);
 			//不可见
 			//vh.id.setVisibility(View.GONE);
 			vh.title = (TextView) view
-					.findViewById(com.guo.record.R.id.v_title);
+					.findViewById(R.id.v_title);
+			
 			//加粗
 			vh.title.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-			//vh.title.set
-			vh.content=(TextView)view.findViewById(com.guo.record.R.id.v_content);
-			vh.imgBtnDel=(ImageButton)view.findViewById(com.guo.record.R.id.imgBtnDel);
+		
+			vh.content=(TextView)view.findViewById(R.id.v_content);
+			vh.imgBtnDel=(ImageView)view.findViewById(R.id.imgBtnDel);
+			
+			
+			vh.imgBtnDel.setOnClickListener(new OnClickListener(){
+				@Override
+				public void onClick(View v) {
+					//int index = (Integer) v.getTag();
+				
+				}
+				
+			});
 		} else {
 			vh = (ViewHolder) view.getTag();
 		}
@@ -83,32 +102,32 @@ public class MyAdapter extends BaseAdapter {
 		vh.content.setBackgroundColor(Color.WHITE);
 		rm = mReord.elementAt(position);
 		//vh.id.setText(String.valueOf(rm.getId()));
-		vh.title.setText(rm.getTitle());
+		vh.title.setText(rm.getTitle()+"("+rm.getRecordTime()+")");
 		//设置背景色
 		//vh.id.setTextColor(Color.BLACK);
 		vh.title.setTextColor(Color.BLACK);
 		vh.content.setText(rm.getContent());
-		vh.imgBtnDel.setOnClickListener(new Button.OnClickListener() {
-			public void onClick(View v){
-				willDelRecord(v,rm.getId());
-			}
-		});
+	
 		view.setTag(vh);
 		return view;
 	}
 	
-	public void willDelRecord(View v,int id){
+	public void willDelRecord(View v){
+		
+	
+		//进行赋值
 		AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
 		builder.setTitle("提示");
-		builder.setMessage("是否删除备忘记录?"+id);
+		builder.setMessage("是否删除备忘记录?");
 		
-		
-		
+		/**
 		builder.setPositiveButton("确认", new OnClickListener(){
 			@Override
 			public void onClick(DialogInterface dialog, int which){
 				//删除信息
-				System.out.println();
+
+			
+			    
 			}
 		});
 		
@@ -118,6 +137,7 @@ public class MyAdapter extends BaseAdapter {
 				//TODO 暂时啥都不用做
 			}
 		});
+		*/
 		
 		builder.create().show();
 	
@@ -127,5 +147,7 @@ public class MyAdapter extends BaseAdapter {
 	public Object getItem(int location) {
 		return mReord.get(location);
 	}
+	
+
 
 }

@@ -1,7 +1,7 @@
 package com.guo.record;
 
-import com.guo.db.DatabaseHelper;
-import com.guo.util.StringUtil;
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -14,8 +14,12 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.guo.db.DatabaseHelper;
+import com.guo.util.StringUtil;
 
 public class RecordActivity extends Activity {
 	
@@ -24,6 +28,7 @@ public class RecordActivity extends Activity {
 	Button btnSaveInfo;
 	Button btnCancel;
 	AlertDialog dialog;
+	DatePicker dpTipTime;
 	
 	
     @Override
@@ -31,6 +36,10 @@ public class RecordActivity extends Activity {
 		//初始化界面,指明显示的主界面为recorder的xml文件
     	super.onCreate(savedInstanceState);
 		setContentView(R.layout.recorder);
+		
+		dpTipTime=(DatePicker)this.findViewById(R.id.dpTipTime);
+		
+		
 		//通过id查出标题
 		etTitle=(EditText)this.findViewById(R.id.et_title);
 		etTitle.setHint("请输入备忘标题");
@@ -46,7 +55,6 @@ public class RecordActivity extends Activity {
 		dialog = new AlertDialog.Builder(this).setPositiveButton("确定", null)
 				.create();
 
-		
 		etContent.setOnKeyListener(new EditText.OnKeyListener() {
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
 				return false;
@@ -61,7 +69,6 @@ public class RecordActivity extends Activity {
 					if(createDb(etTitle.getText().toString(),etContent.getText().toString())){
 						dialog.setMessage("保存成功！");
 						dialog.show();
-						
 						//进行跳转
 						doGoToList();
 					}else{
@@ -150,10 +157,25 @@ public class RecordActivity extends Activity {
 			 DatabaseHelper dbHelper= DatabaseHelper.getDatabaseHelper(this);
 			 if(!dbHelper.tabbleIsExist("RECORD")){
 				 	//创建表
-					myDataBase.execSQL(" CREATE TABLE RECORD (id INTEGER PRIMARY KEY,title text,content text )  ; ");
+					myDataBase.execSQL(" CREATE TABLE RECORD (id INTEGER PRIMARY KEY,title text,content text,record_time text )  ; ");
 			 }
+			 
+			 
+			//年月日
+			int mYear;     
+			int mMonth;     
+			int mDay; 
+			//获取当前时间
+			final Calendar c=Calendar.getInstance();
+			mYear=c.get(Calendar.YEAR);
+			mMonth=c.get(Calendar.MONTH);
+			mDay=c.get(Calendar.DAY_OF_MONTH);
+			
+			
+			String nowDate=mYear+"-"+mMonth+"-"+mDay;
+	 
 			//插入数据
-			myDataBase.execSQL(" INSERT INTO RECORD (title,content) values('"+title+"','"+content+"');");
+			myDataBase.execSQL(" INSERT INTO RECORD (title,content,record_time) values('"+title+"','"+content+"','"+nowDate+"');");
 			
 			myDataBase.close();
 			

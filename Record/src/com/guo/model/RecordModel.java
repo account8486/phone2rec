@@ -14,6 +14,14 @@ public class RecordModel {
 	//ÄÚÈÝ
 	private String content;
 	
+	private String recordTime;
+	
+	public String getRecordTime() {
+		return recordTime;
+	}
+	public void setRecordTime(String recordTime) {
+		this.recordTime = recordTime;
+	}
 	public String getContent() {
 		return content;
 	}
