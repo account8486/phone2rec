@@ -1,6 +1,8 @@
 package com.guo.record;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -28,7 +30,7 @@ public class RecordActivity extends Activity {
 	Button btnSaveInfo;
 	Button btnCancel;
 	AlertDialog dialog;
-	DatePicker dpTipTime;
+	DatePicker dpRecordTime;
 	
 	
     @Override
@@ -37,7 +39,7 @@ public class RecordActivity extends Activity {
     	super.onCreate(savedInstanceState);
 		setContentView(R.layout.recorder);
 		
-		dpTipTime=(DatePicker)this.findViewById(R.id.dpTipTime);
+		dpRecordTime=(DatePicker)this.findViewById(R.id.record_time);
 		
 		
 		//通过id查出标题
@@ -139,11 +141,12 @@ public class RecordActivity extends Activity {
 	 * @param content
 	 * @return
 	 */
-	public boolean createDb(String title,String content) {
+	public boolean createDb(String title, String content) {
 
 		try {
 			SQLiteDatabase myDataBase = this.openOrCreateDatabase(
-					DatabaseHelper.DATABASE_NAME, MODE_PRIVATE, new CursorFactory() {
+					DatabaseHelper.DATABASE_NAME, MODE_PRIVATE,
+					new CursorFactory() {
 						// 创建新的数据库，名称myDatabase，模式MODE_PRIVATE，鼠标工厂
 						// 工厂类，一个可选工厂类，当查询时调用来实例化一个光标
 						@Override
@@ -153,32 +156,40 @@ public class RecordActivity extends Activity {
 							return null;
 						}
 					});
-			//判断这张表存在不？
-			 DatabaseHelper dbHelper= DatabaseHelper.getDatabaseHelper(this);
-			 if(!dbHelper.tabbleIsExist("RECORD")){
-				 	//创建表
-					myDataBase.execSQL(" CREATE TABLE RECORD (id INTEGER PRIMARY KEY,title text,content text,record_time text )  ; ");
-			 }
-			 
-			 
-			//年月日
-			int mYear;     
-			int mMonth;     
-			int mDay; 
-			//获取当前时间
-			final Calendar c=Calendar.getInstance();
-			mYear=c.get(Calendar.YEAR);
-			mMonth=c.get(Calendar.MONTH);
-			mDay=c.get(Calendar.DAY_OF_MONTH);
+			// 判断这张表存在不？
+			DatabaseHelper dbHelper = DatabaseHelper.getDatabaseHelper(this);
+			if (!dbHelper.tabbleIsExist("RECORD")) {
+				// 创建表
+				myDataBase
+						.execSQL(" CREATE TABLE RECORD (id INTEGER PRIMARY KEY,title text,content text,record_time datetime,create_time datetime ) ; ");
+			}
+
+			// 年月日
+			int mYear;
+			int mMonth;
+			int mDay;
+			// 获取当前时间
+			final Calendar c = Calendar.getInstance();
+			mYear = c.get(Calendar.YEAR);
+			mMonth = c.get(Calendar.MONTH);
+			mDay = c.get(Calendar.DAY_OF_MONTH);
+
+			String nowDate = mYear + "-" + mMonth + "-" + mDay;
+
+			String recordTime = String.valueOf(dpRecordTime.getYear()) + "-"
+					+ String.valueOf(dpRecordTime.getMonth()+1) + "-"
+					+ String.valueOf(dpRecordTime.getDayOfMonth());
+
+		
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+			Date drecordTimd=sdf.parse(recordTime);
 			
-			
-			String nowDate=mYear+"-"+mMonth+"-"+mDay;
-	 
-			//插入数据
-			myDataBase.execSQL(" INSERT INTO RECORD (title,content,record_time) values('"+title+"','"+content+"','"+nowDate+"');");
+			// 插入数据
+			myDataBase
+					.execSQL(" INSERT INTO RECORD (title,content,record_time,create_time) values('"
+							+ title + "','" + content + "'," + recordTime +","+nowDate+");");
 			
 			myDataBase.close();
-			
 			return true;
 
 		} catch (Exception e) {

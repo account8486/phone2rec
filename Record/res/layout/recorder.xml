@@ -7,7 +7,7 @@
 
 
     <DatePicker
-        android:id="@+id/dpTipTime"
+        android:id="@+id/record_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     

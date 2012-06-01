@@ -158,7 +158,7 @@ public class RecordListActivity extends Activity {
 				}
 				
 				// Cursor cs=db.rawQuery(" select * from test ", null);
-				Cursor cs=db.query("RECORD", columns, selection, null, null, null, " id desc ");
+				Cursor cs=db.query("RECORD", columns, selection, null, null, null, " record_time desc,id desc ");
 				
 				//获取数据库中的数据
 				Vector<RecordModel> mReord=new Vector<RecordModel>();

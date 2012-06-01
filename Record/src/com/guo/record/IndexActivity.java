@@ -1,12 +1,13 @@
 package com.guo.record;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -39,10 +40,13 @@ public class IndexActivity extends Activity {
 				//列表
 				map.put("ItemImage", R.drawable.logout);
 				map.put("ItemText", "退出");
-			}else{
+			}else if(3==i){
 				//默认
 				map.put("ItemImage", R.drawable.icon);
-				map.put("ItemText", "其他");
+				map.put("ItemText", "web view");
+			}else {
+				map.put("ItemImage", R.drawable.icon);
+				map.put("ItemText", "相机");
 			}
 			
 			meumList.add(map);
@@ -76,6 +80,16 @@ public class IndexActivity extends Activity {
 			doGoToRecord();
 		}else if(1==menuId){
 			doGoToList();
+		}else if(2==menuId){
+			//创建一个intent对象，表明是两个activity之间的跳转
+	    	Intent intent = new Intent(this, WebViewActivity.class);
+	    	//跳转
+			this.startActivity(intent);
+		}else if(3==menuId){
+			//创建一个intent对象，表明是两个activity之间的跳转
+	    	Intent intent = new Intent(this, CameraActivity.class);
+	    	//跳转
+			this.startActivity(intent);
 		}else if(4==menuId){
 		
 			logout();
