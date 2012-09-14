@@ -23,11 +23,6 @@ import com.wondertek.meeting.service.AdminUserService;
 import com.wondertek.meeting.util.Encrypt;
 import com.wondertek.meeting.util.StringUtil;
 
-/**
- * 后台用户管理
- * 
- * @author 金祝华
- */
 public class AdminUserAction extends BaseAction {
 
 	private static final long serialVersionUID = -3102151360541524276L;
@@ -43,34 +38,35 @@ public class AdminUserAction extends BaseAction {
 
 	/**
 	 * 查询管理员列表
-	 * 
 	 * @return
 	 */
 	public String list() {
-
+		
 		if (user == null) {
 			user = new AdminUser();
 		}
+		//下拉框先进性过滤
+		Integer userState=new Integer("1");
+		String state=getRequest().getParameter("state");
+		if(StringUtil.isNotEmpty(state)){
+			userState=new Integer(state);
+		}
+		
+		
 
 		// 一般管理员能查看自己本级组织下低角色用户及下级组织的所有用户列表
 		AdminUser sessionUser = this.getAdminUserFromSession();
-
-
-
-
-
-
-	
-
+		
 		Pager<AdminUser> adminUserPager = null;
 		try {
 			adminUserPager = adminUserService.findAdminUserPager(user, null, null, sessionUser.getId(),
-					null, currentPage, pageSize);
+					null, currentPage, pageSize,userState);
 		} catch (ServiceException e) {
 			log.error("query adminUser list error: " + e.toString());
 		}
 
 		this.getRequest().setAttribute("pager", adminUserPager);
+		this.getRequest().setAttribute("state", state);
 
 		return SUCCESS;
 	}
@@ -117,7 +113,7 @@ public class AdminUserAction extends BaseAction {
 			return INPUT;
 		}
 
-		return SUCCESS;
+		return this.list();
 	}
 
 	/**
@@ -207,7 +203,7 @@ public class AdminUserAction extends BaseAction {
 			return INPUT;
 		}
 
-		return SUCCESS;
+		return this.list();
 	}
 
 	/**
@@ -244,7 +240,7 @@ public class AdminUserAction extends BaseAction {
 		}
 
 		errMsg = "删除成功。";
-		return SUCCESS;
+		return this.list();
 	}
 
 	/**

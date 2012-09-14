@@ -72,7 +72,17 @@
 	</bean>
 	
 
+	<bean id="securityRoleService" class="com.guo.yf.service.impl.SecurityRoleServiceImpl" parent="baseService">
+		<property name="securityRoleDao" ref="securityRoleDao" />
+	</bean>
 	
+	<bean id="securityUnitService" class="com.guo.yf.service.impl.SecurityUnitServiceImpl" parent="baseService">
+		<property name="securityUnitDao" ref="securityUnitDao" />
+	</bean>
+	
+	<bean id="securityRoleUnitService" class="com.guo.yf.service.impl.SecurityRoleUnitServiceImpl" parent="baseService">
+		<property name="securityRoleUnitDao" ref="securityRoleUnitDao" />
+	</bean>
 
 	
 

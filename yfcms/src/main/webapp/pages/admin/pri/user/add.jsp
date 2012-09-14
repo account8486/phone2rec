@@ -92,7 +92,7 @@
 		
 		function retUserList()
 		{
-			window.location.href = "${ctx}/pages/admin/pri/user/listAndTree.jsp";
+			window.location.href = "${ctx}/admin/pri/user/list.action";
 		}
 	</script>
 </head>

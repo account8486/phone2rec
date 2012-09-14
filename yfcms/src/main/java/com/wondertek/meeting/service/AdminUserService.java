@@ -84,7 +84,7 @@ public interface AdminUserService extends BaseService<AdminUser, Long> {
 	 * @throws ServiceException
 	 */
 	public Pager<AdminUser> findAdminUserPager(AdminUser adminUser, List<Long> childOrgIdList, Long selfOrgId,
-			Long selfUserId, List<Long> roleList, int currentPage, int pageSize) throws ServiceException;
+			Long selfUserId, List<Long> roleList, int currentPage, int pageSize,Integer status) throws ServiceException;
 
 	/**
 	 * 根据用户归属组织机构获取该机构下所有用户

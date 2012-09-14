@@ -167,14 +167,14 @@ public class AdminUserServiceImpl extends BaseServiceImpl<AdminUser, Long> imple
 	 * @throws ServiceException
 	 */
 	public Pager<AdminUser> findAdminUserPager(AdminUser adminUser, List<Long> childOrgIdList, Long selfOrgId,
-			Long selfUserId, List<Long> roleList, int currentPage, int pageSize) throws ServiceException {
+			Long selfUserId, List<Long> roleList, int currentPage, int pageSize,Integer status) throws ServiceException {
 
 		// 能查看本级低角色用户及下级组织所有用户
-		String hql = "from AdminUser u where 1=1 ";
+		String hql = "from AdminUser u where 1=1 and u.state=:state";
 		
+		//通过过滤来查询有效或者无效的用户
 		Map<String, Object> properties = new HashMap<String, Object>();
-
-		
+		properties.put("state", status);
 
 		try {
 			return adminUserDao.findPager(hql, currentPage, pageSize, properties);

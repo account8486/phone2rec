@@ -22,7 +22,16 @@
                                    value="${user.mobile }"/></td>
 	        <th>姓 名：</th>
 	        <td><input type="text" id="name" name="user.name"
-                                   value="${user.name}"/></td>
+                                   value="${user.name}"/></td>   
+                                           
+            <th>用户状态：</th>
+	        <td>
+	        	<select name="state" id="state">
+	        	<option value="1">有效</option>
+	        	<option value="0">无效</option>
+	        	</select>
+	        </td>
+	        
 	        <td><a href="#" id="queryForList" class="btn_common btn_true">搜 索</a></td>
 	      </tr>
 	    </table>
@@ -107,17 +116,23 @@
 		});
 		
 		$("#queryForList").click(function(){
+			/**
 			$("#list-div").load(
 				"${ctx}/admin/pri/user/list.action",
 				{
-					"organId":$("#organId").val(),
+					//"organId":$("#organId").val(),
 					"user.mobile":$("#mobile").val(),
 					"user.name":$("#name").val(),
 					"totalPage":$("#totalPage").val(),
 					"currentPage":$("#currentPage").val()
 				}
-			);
+			);*/
+			
+			$("#listUserForm").submit();
 		});
+		
+		$("#state").val(${state});
+		
 	});
 	
 	jQuery(document).keypress(function(e){

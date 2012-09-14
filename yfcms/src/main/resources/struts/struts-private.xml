@@ -81,7 +81,7 @@
 				<param name="errMsg">${errMsg}</param>
 			</result>
 			
-			<result name="success">/pages/admin/pri/user/listAndTree.jsp</result>
+			<result name="success">/pages/admin/pri/user/list.jsp</result>
 			<result name="json" type="json">
 				<param name="root">resultMap</param>
 			</result> 
@@ -95,12 +95,12 @@
 		<action name="update" class="com.wondertek.meeting.action.user.AdminUserAction"
 			method="update">
 			<result name="input">/pages/admin/pri/user/edit.jsp</result>
-			<result name="success">/pages/admin/pri/user/listAndTree.jsp</result>
+			<result name="success">/pages/admin/pri/user/list.jsp</result>
 		</action>
 		
 		<action name="del" class="com.wondertek.meeting.action.user.AdminUserAction"
 			method="del">
-			<result name="success">/pages/admin/pri/user/listAndTree.jsp</result>
+			<result name="success">/pages/admin/pri/user/list.jsp</result>
 		</action>
 		
 		<action name="modifyPwd" class="com.wondertek.meeting.action.user.AdminUserAction"
