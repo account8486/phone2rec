@@ -40,9 +40,37 @@
 			<result name="success">/pages/admin/pri/security/role_list.jsp
 			</result>
 		</action>
-		
-		
-		
-		
 	</package>
+	
+	
+	<package name="private-admin-unit" extends="struts-base"
+		namespace="/admin/pri/unit">
+		<action name="list"
+			class="com.guo.yf.action.security.SecurityUnitAction"
+			method="list">
+			<result name="success">/pages/admin/pri/unit/unit_list.jsp
+			</result>
+		</action>
+		
+	 <action name="toUpdateUnit"
+			class="com.guo.yf.action.security.SecurityUnitAction"
+			method="toUpdateUnit">
+			<result name="success">/pages/admin/pri/unit/unit_edit.jsp
+			</result>
+	</action>
+	
+	<action name="deleteUnit"
+			class="com.guo.yf.action.security.SecurityUnitAction"
+			method="deleteUnit">
+			<result name="success">/pages/admin/pri/unit/unit_list.jsp
+			</result>
+	</action>
+	
+	</package>
+	
+	
+	
+	
+	
+	
 </struts>

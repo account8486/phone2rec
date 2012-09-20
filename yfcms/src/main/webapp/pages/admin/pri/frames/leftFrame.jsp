@@ -10,6 +10,10 @@
 					<span class="nav">系统用户管理</span>
 				</a></dd>
 				
+				 <dd><a target = "mainFrame" href="${ctx}/admin/pri/unit/list.action">
+				<span class="nav">系统菜单管理</span>
+			</a></dd> 
+				
 			 <dd><a target = "mainFrame" href="${ctx}/admin/pri/security/list.action">
 				<span class="nav">系统角色管理</span>
 			</a></dd> 
