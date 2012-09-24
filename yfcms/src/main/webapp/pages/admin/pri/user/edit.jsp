@@ -122,19 +122,23 @@
 			    	<input type="hidden" id="organId" name="organId" value="${user.org.id}"/>
 	            </dd>
 	        </dl>
-	        <dl>
+	       
+	       
+	         <dl>
 	        	<dt>
 	            	<label for="title"><font color="red">* </font>角&nbsp;&nbsp;&nbsp;色：</label>
 	            </dt>
 	            <dd>
-	            	<select class="inp_1" id="role" name="user.role.id" tabindex="4">
-						<c:forEach var="role" items="${roleList}" varStatus="status">
-							<option value="${role.id }" <c:if test="${role.id eq user.role.id }"> selected </c:if>>${role.roleName }</option>
+	            	<select class="inp_1" id="role" name="user.roleId" tabindex="5">
+						<c:forEach var="role" items="${securityRolesList}" varStatus="status">
+							<option value="${role.id }">${role.roleName }</option>
 						</c:forEach>
 					</select>
 					<font id="tip_role" style="line-height:35px" color="red"></font>
 	            </dd>
 	        </dl>
+	        
+	        
 	    </fieldset>
 	    <fieldset>
 	        <legend>其他信息</legend>

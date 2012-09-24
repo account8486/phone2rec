@@ -1,5 +1,6 @@
 package com.guo.yf.action.security;
 
+import java.util.Date;
 import java.util.List;
 
 import com.guo.yf.model.security.SecurityUnit;
@@ -61,6 +62,46 @@ public class SecurityUnitAction extends BaseAction {
 
 		return SUCCESS;
 	}
+	
+	/**
+	 * 跳转到添加菜单的功能
+	 * @return
+	 * @throws NumberFormatException
+	 * @throws ServiceException
+	 */
+	public String toAddUnit() throws NumberFormatException, ServiceException {
+		// 获取当前的父菜单的信息
+		SecurityUnit parentSecurityUnit = securityUnitService.findById(Long
+				.valueOf(this.getParameter("unitParentId")));
+
+		// 获取一级菜单的列表
+		List<SecurityUnit> unitParentList = securityUnitService
+				.getParentUnitList();
+
+		this.setAttribute("unitParentList", unitParentList);
+		this.setAttribute("parentSecurityUnit", parentSecurityUnit);
+		
+		return SUCCESS;
+	}
+	
+	
+	/**
+	 * 添加
+	 * @return
+	 * @throws ServiceException 
+	 */
+	public String addUnit(){
+		try{
+		securityUnitService.saveOrUpdate(this.unit);
+		this.resultMap.put("retMsg", "新增成功！");
+		}catch(ServiceException e){
+			this.resultMap.put("retMsg", e.getMessage());
+		}catch(Exception e){
+			this.resultMap.put("retMsg", e.getMessage());
+		}
+		
+		return SUCCESS;
+	}
 
 	/**
 	 * goTo 编辑页面
@@ -92,10 +133,23 @@ public class SecurityUnitAction extends BaseAction {
 	 * @throws ServiceException
 	 */
 	public String updateUnit() throws NumberFormatException, ServiceException {
-		String id = this.getParameter("id");
-		SecurityUnit securityUnit = securityUnitService.findById(Long
-				.valueOf(id));
-		this.setAttribute("securityUnit", securityUnit);
+	
+		SecurityUnit securityUnit = securityUnitService.findById(this.unit.getId());
+
+		String typeFlag = this.getParameter("typeFlag");
+		// 默认更新的字段
+		securityUnit.setUnitName(this.unit.getUnitName());
+		securityUnit.setUnitDescription(this.getUnit().getUnitDescription());
+		securityUnit.setModifyTime(new Date());
+		securityUnit.setModifier(this.getAdminUserIdFromSession());
+		securityUnit.setOrderCode(this.getUnit().getOrderCode());
+		if (!"0".equals(typeFlag)) {
+			securityUnit.setUnitUrl(this.getUnit().getUnitUrl());
+		}
+
+		securityUnitService.saveOrUpdate(securityUnit);
+		this.resultMap.put("retMsg", "保存成功！");
+
 		return SUCCESS;
 	}
 
@@ -115,5 +169,28 @@ public class SecurityUnitAction extends BaseAction {
 		return this.list();
 
 	}
+	
+	/**
+	 * 批量删除
+	 * @return
+	 * @throws ServiceException 
+	 * @throws NumberFormatException 
+	 */
+	public String batchDelUnits() throws NumberFormatException,
+			ServiceException {
+		String ids = this.getParameter("ids");
+		log.debug("ids:" + ids);
+		String[] idsArr = ids.split(",");
+
+		for (int i = 0; i < idsArr.length; i++) {
+			SecurityUnit securityUnit = securityUnitService.findById(Long
+					.valueOf(idsArr[i]));
+			securityUnitService.delete(securityUnit);
+		}
+
+		return this.list();
+	}
+	
+	
 
 }

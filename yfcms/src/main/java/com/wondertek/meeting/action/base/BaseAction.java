@@ -201,22 +201,8 @@ public class BaseAction extends ActionSupport {
 		getSession().setAttribute(key, value);
 	}
 
-	protected boolean isAdmin() {
-		final AdminUser user = (AdminUser) getFromSession(SessionKeeper.SESSION_ADMIN_USER);
-		if (SysUtil.isMeetingAdmin(user) || SysUtil.isSuperAdmin(user)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 
-	protected String modulePath() {
-		if (this.isAdmin()) {
-			return "admin";
-		} else {
-			return "portal";
-		}
-	}
+
 
 	/**
 	 * 判断某用户是否拥有某权限

@@ -7,12 +7,12 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
+import com.guo.yf.model.security.SecurityRole;
+import com.guo.yf.service.SecurityRoleService;
 import com.wondertek.meeting.action.base.BaseAction;
 import com.wondertek.meeting.common.Pager;
 import com.wondertek.meeting.common.RetCode;
 import com.wondertek.meeting.common.SessionKeeper;
-import com.wondertek.meeting.common.SysConstants;
-import com.wondertek.meeting.common.SysUtil;
 import com.wondertek.meeting.exception.ServiceException;
 import com.wondertek.meeting.filter.OnlineUserListener;
 import com.wondertek.meeting.model.AdminRole;
@@ -35,6 +35,15 @@ public class AdminUserAction extends BaseAction {
 	private Long organId;
 
 	private String errMsg;
+	SecurityRoleService securityRoleService;
+
+	public SecurityRoleService getSecurityRoleService() {
+		return securityRoleService;
+	}
+
+	public void setSecurityRoleService(SecurityRoleService securityRoleService) {
+		this.securityRoleService = securityRoleService;
+	}
 
 	/**
 	 * 查询管理员列表
@@ -75,15 +84,14 @@ public class AdminUserAction extends BaseAction {
 	 * 跳转到新增用户
 	 * 
 	 * @return
+	 * @throws ServiceException 
 	 */
-	public String goAdd() {
+	public String goAdd() throws ServiceException {
 
+		 List<SecurityRole> securityRolesList= securityRoleService.find(SecurityRole.class);
+		 this.getRequest().setAttribute("securityRolesList", securityRolesList);
 	
-	
-	
-
-
-		return SUCCESS;
+		 return SUCCESS;
 	}
 
 	/**
@@ -120,36 +128,24 @@ public class AdminUserAction extends BaseAction {
 	 * 跳转到修改用户
 	 * 
 	 * @return
+	 * @throws ServiceException 
 	 */
-	public String goUpdate() {
-
+	public String goUpdate() throws ServiceException {
 		String id = this.getParameter("id");
-
 		Long idL = StringUtil.stringToLong(id);
-
 		try {
 			user = adminUserService.findById(idL);
 		} catch (ServiceException e) {
 			String errCode = e.getMessage();
 			log.error("errCode:" + errCode + "detail:" + e.toString());
 		}
-
 		if (user != null) {
 			user.setPassword(Encrypt.decrypt(user.getPassword(), null));
 		}
 		this.getRequest().setAttribute("user", user);
-
-
-		
-
-
-		AdminRole meetingRole = new AdminRole();
-		meetingRole.setId(4L);
-		meetingRole.setRoleName("");
-
-
-
-
+		List<SecurityRole> securityRolesList = securityRoleService
+				.find(SecurityRole.class);
+		this.getRequest().setAttribute("securityRolesList", securityRolesList);
 		return SUCCESS;
 	}
 
@@ -186,7 +182,6 @@ public class AdminUserAction extends BaseAction {
 
 		oldAdminUser.setName(user.getName());
 		oldAdminUser.setOrg(user.getOrg());
-		oldAdminUser.setRole(user.getRole());
 		oldAdminUser.setJob(user.getJob());
 		oldAdminUser.setGender(user.getGender());
 		oldAdminUser.setState(user.getState());
@@ -195,6 +190,9 @@ public class AdminUserAction extends BaseAction {
 		oldAdminUser.setAddress(user.getAddress());
 		oldAdminUser.setComments(user.getComments());
 		oldAdminUser.setModifyTime(new Date());
+		oldAdminUser.setRoleId(user.getRoleId());
+		
+		
 		// 修改
 		try {
 			adminUserService.modify(oldAdminUser);

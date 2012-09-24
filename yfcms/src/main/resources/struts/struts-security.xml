@@ -51,12 +51,37 @@
 			<result name="success">/pages/admin/pri/unit/unit_list.jsp
 			</result>
 		</action>
+	
+	<action name="toAddUnit"
+			class="com.guo.yf.action.security.SecurityUnitAction"
+			method="toAddUnit">
+			<result name="success">/pages/admin/pri/unit/unit_add.jsp
+			</result>
+	</action>
+	
+	
+	<action name="addUnit"
+			class="com.guo.yf.action.security.SecurityUnitAction"
+			method="addUnit">
+		 <result type="json">
+				<param name="root">resultMap</param>
+		 </result>
+	</action>
 		
-	 <action name="toUpdateUnit"
+	<action name="toUpdateUnit"
 			class="com.guo.yf.action.security.SecurityUnitAction"
 			method="toUpdateUnit">
 			<result name="success">/pages/admin/pri/unit/unit_edit.jsp
 			</result>
+	</action>
+	
+	 
+	<action name="updateUnit"
+			class="com.guo.yf.action.security.SecurityUnitAction"
+			method="updateUnit">
+		 <result type="json">
+				<param name="root">resultMap</param>
+		 </result>
 	</action>
 	
 	<action name="deleteUnit"
@@ -66,8 +91,25 @@
 			</result>
 	</action>
 	
+	
+	<action name="batchDelUnits"
+			class="com.guo.yf.action.security.SecurityUnitAction"
+			method="batchDelUnits">
+			<result name="success">/pages/admin/pri/unit/unit_list.jsp
+			</result>
+	</action>
 	</package>
 	
+	
+	<package name="private-admin-roleUnit" extends="struts-base"
+		namespace="/pages/admin/pri/unit">
+		<action name="toManagerMenu"
+			class="com.guo.yf.action.security.SecurityRoleUnitAction"
+			method="toManagerMenu">
+			<result name="success">/pages/admin/pri/frames/leftFrame.jsp</result>
+			
+	    </action>
+  </package>
 	
 	
 	

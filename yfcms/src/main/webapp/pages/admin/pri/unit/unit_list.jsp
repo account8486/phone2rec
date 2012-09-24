@@ -66,6 +66,36 @@
 			 }
 	    }
 	    
+	    function toAddUnit(parentId){
+	    	 var url="${ctx}/admin/pri/unit/toAddUnit.action?unitParentId="+parentId;
+	    	 this.location=url;
+	    }
+	    
+	    
+	    function batchDelete(){
+	        var retString = "";
+	        var checks = document.getElementsByName("unitId");
+	        if (checks) {
+	            for (var i = 0; i < checks.length; i++) {
+	                var chkObj = checks[i];
+	                if (chkObj.checked)
+	                    retString += chkObj.value + ",";
+	            }
+	        }
+	        
+	        if(retString==""){
+	        	alert("请选择你要删除的菜单!");
+	        	return;
+	        }
+			//alert(retString);
+			//alert(meetingId);
+			if(confirm("你确定要批量删除用户吗?")){
+				var url="${ctx}/admin/pri/unit/batchDelUnits.action?ids="+retString;			
+				this.location=url;
+			}
+			
+	    }
+	    
     </script>
 </head>
 <body>
@@ -104,6 +134,8 @@
 				
 				<td>
 					<a href="#" id="queryForList" onclick="query();" class="btn_common btn_true">搜 索</a>
+					
+					<a href="#" onClick="batchDelete()" class="btn_common btn_false">批量删除</a> 
 				</td>
 				</tr>
 			</table>
@@ -117,10 +149,11 @@
 		<thead>
 			<tr>
 				<th width="10%"><input type="checkbox" name="all_check" id="all_check"></input> </th>
-				<th width="20%">菜单名称</th>
+				<th width="15%">菜单名称</th>
 				<th width="20%">菜单描述</th>
-				<th width="20%">类型</th>
+				<th width="5%">类型</th>
 				<th width="20%">URL</th>
+				<th width="10%">排序</th>
 				<th width="20%">操作</th>
 			</tr>
 		</thead>
@@ -135,11 +168,15 @@
 								<input type="checkbox" name="unitId" value="${unit.id}">
 								</input></c:if>
 							 </td>
-							<td>${unit.unitName }</td>
+							<td>
+							 <c:if test="${unit.unitType ne '0'}">${unit.unitName }</c:if>
+							 <c:if test="${unit.unitType eq '0'}"><font style="color:red"> ${unit.unitName }</font></c:if>
+							
+							</td>
 							<td>${unit.unitDescription}</td>
 							<td>${unit.unitType}</td>
 							<td>${unit.unitUrl}</td>
-							
+							<td>${unit.orderCode}</td>
 							<th width="20%">
 							<a href="${ctx}/admin/pri/unit/toUpdateUnit.action?id=${unit.id}">编辑</a>
 							
@@ -147,6 +184,9 @@
 						    <a href="#"  onClick="delUnit(${unit.id})">删除</a>
 						    </c:if>
 						    
+						    <c:if test="${unit.unitType eq '0'}">
+						     <a href="#"  onClick="toAddUnit(${unit.id})">添加菜单</a>
+						    </c:if>
 							</th>
 						</tr>
 					</c:forEach>

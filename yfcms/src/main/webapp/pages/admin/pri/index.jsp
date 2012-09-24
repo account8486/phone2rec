@@ -13,12 +13,11 @@
     <!-- 主样式表 -->
     <link href='${cssdir}/colorbox.css' rel='stylesheet' type='text/css'/>
     <script type='text/javascript' src='${ctx}/js/jquery.colorbox.js'></script>
-
+    
     <script type="text/javascript">//<![CDATA[
     function SetCwinHeight(id) {
         var iframeid = document.getElementById(id); //iframe id
         if (document.getElementById) {
-
             if (iframeid && !window.opera) {
                 if (iframeid.contentDocument && iframeid.contentDocument.body.offsetHeight) {
                     iframeid.height = iframeid.contentDocument.body.offsetHeight;
@@ -30,6 +29,12 @@
             }
         }
     }
+    
+    
+    $(document).ready(
+       function(){
+       }); 
+   
 
     </script>
 </head>
@@ -39,8 +44,11 @@
 </div>
 
 <div class="main">
+
     <div class="left_nav" >
-        <%@ include file="/pages/admin/pri/frames/leftFrame.jsp" %>
+   
+    <%--@ include file="/pages/admin/pri/frames/leftFrame.jsp" --%> 
+    <iframe src="${ctx}/pages/admin/pri/unit/toManagerMenu.action" id="leftFrame" name="leftFrame" scrolling="no"  marginwidth="0" height="100%" frameborder="0" hspace="0" vspace="0"></iframe>
     </div>
 
 

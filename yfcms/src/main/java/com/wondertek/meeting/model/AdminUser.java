@@ -6,8 +6,6 @@ import com.wondertek.meeting.util.StringUtil;
 
 /**
  * 用户信息
- * 
- * @author 金祝华
  */
 public class AdminUser extends BaseObject {
 
@@ -36,16 +34,23 @@ public class AdminUser extends BaseObject {
 	private Date modifyTime;// 修改时间
 
 	private Organization org; // 机构
+	private Integer roleId;
 
 	private String imei;// 手机imei码
-
+	
 	// 导入使用 不作为数据库字段
-	private String isNeedImport;// Y为需要导入
-
-	private AdminRole role; // 角色
 	private Date startValidDate; // 开始有效日期
 	private Date endValidDate; // 结束有效日期
 	private String tel; // 电话
+
+	
+	public Integer getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
+	}
 
 	public String getTel() {
 		return tel;
@@ -61,14 +66,6 @@ public class AdminUser extends BaseObject {
 
 	public void setImei(String imei) {
 		this.imei = imei;
-	}
-
-	public AdminRole getRole() {
-		return role;
-	}
-
-	public void setRole(AdminRole role) {
-		this.role = role;
 	}
 
 	public Date getStartValidDate() {
@@ -231,16 +228,9 @@ public class AdminUser extends BaseObject {
 	public Date getModifyTime() {
 		return modifyTime;
 	}
-
+	
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
 	}
 
-	public String getIsNeedImport() {
-		return isNeedImport;
-	}
-
-	public void setIsNeedImport(String isNeedImport) {
-		this.isNeedImport = isNeedImport;
-	}
 }

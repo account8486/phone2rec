@@ -129,6 +129,7 @@ public class SecurityUnitServiceImpl extends BaseServiceImpl<SecurityUnit, Long>
 		// 查出一级根菜单
 		sb.append(" SELECT unit FROM SecurityUnit unit,SecurityRoleUnit roleUnit WHERE unit.id=roleUnit.unitId and unit.unitType='0'  ");
 		sb.append(" AND roleUnit.roleId=" + roleId);
+		sb.append(" order by unit.orderCode asc ");
 		List<SecurityUnit> unitParentList = securityUnitDao.getObjects(
 				sb.toString(), null);
 
@@ -141,13 +142,14 @@ public class SecurityUnitServiceImpl extends BaseServiceImpl<SecurityUnit, Long>
 			sb.append(" SELECT unit FROM SecurityUnit unit,SecurityRoleUnit roleUnit WHERE unit.id=roleUnit.unitId and unit.unitType='1' and  unit.unitParentId="
 					+ parentUnit.getId());
 			sb.append(" AND roleUnit.roleId=" + roleId);
+			//按照排序码排列
+			sb.append(" order by unit.orderCode asc ");
 
 			List<SecurityUnit> sonUnitList = securityUnitDao.getObjects(
 					sb.toString(), null);
 			for (SecurityUnit unit : sonUnitList) {
 				if (StringUtil.isNotEmpty(unit.getUnitUrl())) {
 					unit.setUnitUrl(unit.getUnitUrl()
-							.replace("${meetingId}", meetingId)
 							.replace("${ctx}", ctx));
 				}
 			}

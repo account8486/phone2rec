@@ -1,31 +1,22 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<script type="text/javascript" src="${ctx}/js/admin.js"></script>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="/pages/common/taglibs.jsp" %>
+${admin_css}  ${jquery_js}
 <div class="main" >
 	<div class="left_nav">
-
-        <dl>
-        	<dt><h5>系统管理</h5></dt>
-
-            <dd><a target = "mainFrame" href="${ctx}/admin/pri/user/list.action" >
-					<span class="nav">系统用户管理</span>
-				</a></dd>
-				
-				 <dd><a target = "mainFrame" href="${ctx}/admin/pri/unit/list.action">
-				<span class="nav">系统菜单管理</span>
-			</a></dd> 
-				
-			 <dd><a target = "mainFrame" href="${ctx}/admin/pri/security/list.action">
-				<span class="nav">系统角色管理</span>
-			</a></dd> 
-			
-				
-        </dl>
-      
-        <dl>
-        	<dt><h5>个人设置</h5></dt>
-            <dd><a target = "mainFrame" href="${ctx}/pages/admin/pri/user/modifyPwd.jsp" >
-					<span class="nav">修改密码</span>
-				</a></dd>
-        </dl>
+         <c:if test="${not empty unitViewList }">
+	      		<c:forEach var="securityUnitView" items="${unitViewList}" varStatus="status">
+	      		<dt><h5>${securityUnitView.securityParentUnit.unitName}</h5></dt>
+	      	        <c:if test="${not empty securityUnitView.sonUnitList}">
+	      	        	<dl>
+	      	          	<c:forEach var="sonUnit" items="${securityUnitView.sonUnitList}" varStatus="status">
+	      	          	   <dd><a  target = "mainFrame" href="${sonUnit.unitUrl}"  <c:if test="${sonUnit.returnDefaultMenu}"> onclick="switchCss($(this));hideObj($('#editMeeting'),'${ctx}');" </c:if>  onclick="switchCss($(this));" >
+									<span class="nav">${sonUnit.unitName } </span>
+								</a></dd>  
+	      	         </c:forEach>
+	      	         </dl>
+	      	        </c:if>
+	      	 </c:forEach>
+ 		</c:if>
+ 		
     </div>    
 </div>   

@@ -30,6 +30,8 @@
 		<property name="state" column="state" type="java.lang.Integer" />
 		<property name="createTime" column="create_time" type="java.util.Date" />
 		<property name="modifyTime" column="modify_time" type="java.util.Date" />
+		<property name="roleId" column="role_Id" type="java.lang.Integer" />
+		
 		
 	</class>
 </hibernate-mapping>

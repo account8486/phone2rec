@@ -51,7 +51,6 @@
 	                <th width="80">用户名</th>
 	                <th width="80" >姓名</th>
 	                <th width="190" >组织机构</th>
-                    <th width="90" >角色</th>
                     <th width="50" >状态</th>
                     <th width="130" >修改时间</th>
                     <th width="90" >操作</th>
@@ -67,7 +66,6 @@
                                 <td>${user.mobile }</td>
                                 <td>${user.name }</td>
                                 <td>${user.org.name }</td>
-                                <td>${user.role.roleName }</td>
                                 <td >
                                     <c:choose>
                                         <c:when test="${user.state eq 1}">有效
