@@ -7,7 +7,4 @@ import com.wondertek.meeting.dao.impl.BaseDaoImpl;
 public class SecurityRoleDaoImpl extends BaseDaoImpl<SecurityRole, Long> implements
  SecurityRoleDao {
 	
-	
-	
-
 }

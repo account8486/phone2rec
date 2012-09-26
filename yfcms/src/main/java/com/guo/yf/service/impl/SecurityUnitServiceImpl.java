@@ -54,6 +54,9 @@ public class SecurityUnitServiceImpl extends BaseServiceImpl<SecurityUnit, Long>
 			sb.append(" and unitParentId=:unitParentId ");
 		}
 		
+		sb.append(" order by unit.orderCode ");
+		
+		
 		//参数
 		Map<String, Object> properties=new HashMap<String, Object>();
 		properties.put("unitType", unitType);

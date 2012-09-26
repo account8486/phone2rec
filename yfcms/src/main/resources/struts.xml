@@ -41,10 +41,10 @@
 	</package>
 
 	<include file="struts/struts-system.xml" />
-	<include file="struts/struts-user_import.xml" />
 	<include file="struts/struts-private.xml" />
 	<include file="struts/struts-public.xml" />
 	<include file="struts/struts-security.xml" />
+	<include file="struts/struts-channel.xml" />
 		
 
 

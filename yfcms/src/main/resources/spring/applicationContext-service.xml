@@ -84,6 +84,9 @@
 		<property name="securityRoleUnitDao" ref="securityRoleUnitDao" />
 	</bean>
 
+	<bean id="channelService" class="com.guo.yf.service.impl.ChannelServiceImpl" parent="baseService">
+		<property name="channelDao" ref="channelDao" />
+	</bean>
 	
 
 	
