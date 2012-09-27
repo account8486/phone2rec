@@ -18,6 +18,14 @@ public class Article extends BaseObject {
 	private Long creator;
 	private Date modifyTime;// 修改时间
 	private Long modifier;
+	private Date publishTime;//文章发布时间
+	
+	public Date getPublishTime() {
+		return publishTime;
+	}
+	public void setPublishTime(Date publishTime) {
+		this.publishTime = publishTime;
+	}
 	public Long getId() {
 		return id;
 	}

@@ -6,14 +6,19 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>栏目新增与编辑</title>
 	${admin_css}                                   
-	${jquery_js}                          
+	${jquery_js}                                
 	${jquery_form_js}                                 
 	${validate_js}                                
-	${WdatePicker_js}   
-	${jmpopups_js}
-	 ${util_js}      
+	${WdatePicker_js}                           
+	${admin_js}                         
+	${jmpopups_js}   
+	${util_js}      
 	<link rel="stylesheet" type="text/css" href="${ctx}/js/easyui/themes/default/tabs.css">
 	<script type="text/javascript" src="${ctx}/js/easyui/jquery.easyui.js"></script>
+	
+	<script charset="utf-8" src="${ctx}/kindeditor/kindeditor.js"></script>
+    <script charset="utf-8" src="${ctx}/kindeditor/lang/zh_CN.js"></script>
+    
 <script>
 	$(document).ready(function() {
 		$(".easyui-tabs").tabs({  
@@ -27,8 +32,14 @@
 				}
 			}  
 		});
-		
-});
+	});
+	
+	  var editor;
+	  KindEditor.ready(function(K) {
+	            editor = K.create('#content');
+	    });
+	
+
 
 
 </script>
@@ -66,7 +77,9 @@
 	            	<c:forEach var="chan" items="${channels}" varStatus="status">
 	            		<option value="${chan.id}"> ${chan.chanName}</option>
 	            	</c:forEach>
-	            	</select>	            	
+	            	</select>	 
+	            	
+	            	<input id="publishTime" type="text" name="article.publishTime"  value="${article.publishTime}"  class="Wdate" onfocus="WdatePicker({isShowClear:false,dateFmt:'yyyy-MM-dd HH:mm' })" readonly="readonly"/>       	
 	            </dd>
 	        </dl>
 	        
@@ -85,7 +98,7 @@
 	            	<label for="title"><font color="red">* </font>副标题：</label>
 	            </dt>
 	            <dd>
-	            	<input type="text"  class="half" id="subtitle" name="article.subtitle" tabindex="2" maxlength="30" value="${article.subtitle}"></input>	 
+	            	<input type="text"  class="half"   id="subtitle" name="article.subtitle" tabindex="2" maxlength="30" value="${article.subtitle}"></input>	 
 	            </dd>
 	        </dl>	
 	        
@@ -95,7 +108,7 @@
 	            	<label for="title"><font color="red">* </font>文章内容：</label>
 	            </dt>
 	            <dd>
-	            	<textarea id="content" class="medium" name="article.content" tabindex="2">${article.content}</textarea>
+	            	<textarea id="content" class="medium" style="width:700px;height:350px;" name="article.content" tabindex="2">${article.content}</textarea>
 	            </dd>
 	        </dl>	
 	        
@@ -120,7 +133,11 @@
 		*进行表单的ajax请求保存
 		*/
 		function saveOrUpdate(){
+			//alert(editor.html());
+			//alert($("#content").val());
 			//$("#addFrm").submit();
+			
+			editor.sync();
 			var url="${ctx}/admin/pri/article/arti_saveOrUpdateArticle.action";
 			var options ={ 
 					//beforeSubmit: validate,

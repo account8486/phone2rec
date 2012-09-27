@@ -47,6 +47,7 @@ public class AuthorizationFilter implements Filter {
 		HttpServletResponse rsp = (HttpServletResponse) response;
 
 		String uri = req.getRequestURI();
+		log.debug("uri:"+uri);
 		if (uri.indexOf("/pri/") == -1) {
 			chain.doFilter(request, response);
 			return;
@@ -80,46 +81,6 @@ public class AuthorizationFilter implements Filter {
 				return;
 			}
 
-		} else if (uri.indexOf("/client") != -1) { // 客户端
-			User u = (User) req.getSession().getAttribute(SessionKeeper.SESSION_USER);
-			if (u == null) {
-				// 未登录则自动登录
-				String imei = request.getParameter("imei");
-
-				if (StringUtil.isEmpty(imei)) {
-					log.error("客户端未传递imei参数，不能进行自动登录。uri=" + uri);
-					PrintWriter out = response.getWriter();
-					out.println("{\"retcode\":\"2\"}");
-					out.println("{\"retmsg\":\"请输入imei码\"}");
-					out.flush();
-					out.close();
-					return;
-				} else {
-
-					ServletContext context = req.getSession().getServletContext();
-					ApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(context);
-
-					UserService userService = (UserService) ctx.getBean("userService");
-
-					User user = userService.selectByImei(imei);
-
-					if (user == null) {
-						log.error("根据imei没有查询到用户。uri=" + uri + ",imei=" + imei);
-						PrintWriter out = response.getWriter();
-						out.println("{\"retcode\":\"2\"}");
-						out.println("{\"retmsg\":\"please login in\"}");
-						out.flush();
-						out.close();
-						return;
-					}
-
-					// 将用户信息存入session
-					req.getSession().setAttribute(SessionKeeper.SESSION_USER, user);
-				}
-			}
-
-			chain.doFilter(request, response);
-			return;
 		} else if (uri.indexOf("/wap/") != -1) { // WAP
 			if (req.getSession().getAttribute(SessionKeeper.SESSION_USER) != null) {
 				chain.doFilter(request, response);

@@ -8,7 +8,7 @@
 	<title>文章-${article.title }</title>
 	<style type="text/css">
 	.article {
-		text-align:center;
+		text-align:left;
 	}
 	.article .article_title {
 		text-align:center;
@@ -25,10 +25,9 @@
 		text-align:center;
 		color:#000;
 	}
+	
 	.article .article_content {
-		text-align:center;
 		color:#000;
-		font-size:14px;
 	}
 	</style>
 </head>
@@ -41,6 +40,7 @@
 				<span>来源：test&nbsp;&nbsp;&nbsp;&nbsp;
 				发布时间：<fmt:formatDate value="${article.createTime}" type="both" pattern="yyyy-MM-dd HH:mm"/></span>
 			</div>
+			
 			<div class="article_content">${article.content}</div>
 		</div>
 </body>
