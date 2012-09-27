@@ -57,7 +57,7 @@
 	        <legend>基本信息</legend>
 	        <dl>
 	        	<dt>
-	            	<label for="title"><font color="red">* </font> 名称：</label>
+	            	<label for="title"><font color="red">* </font> 栏目名称：</label>
 	            </dt>
 	            <dd style="width:40%">
 	            	<input type="text"  class="half" id="chanName" name="channel.chanName" value="${channel.chanName}" tabindex="2" maxlength="30"></input>	            	

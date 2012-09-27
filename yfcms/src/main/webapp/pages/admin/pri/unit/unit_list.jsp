@@ -89,7 +89,7 @@
 	        }
 			//alert(retString);
 			//alert(meetingId);
-			if(confirm("你确定要批量删除用户吗?")){
+			if(confirm("你确定要批量删除菜单吗?")){
 				var url="${ctx}/admin/pri/unit/batchDelUnits.action?ids="+retString;			
 				this.location=url;
 			}

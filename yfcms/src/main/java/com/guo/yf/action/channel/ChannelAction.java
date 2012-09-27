@@ -109,5 +109,27 @@ public class ChannelAction extends BaseAction {
 
 		return SUCCESS;
 	}
+	
+	/**
+	 * channel batch delete operation
+	 * split long string to delete one by one
+	 * @return
+	 */
+	public String batchDelChans() {
+		String ids = this.getParameter("ids");
+		String[] idsArr = ids.split(",");
+		for (int i = 0; i < idsArr.length; i++) {
+			try {
+				channelService.delete(channelService.findById(Long
+						.valueOf(idsArr[i])));
+				log.debug("delete channel succeed,id=:" + idsArr[i]);
+			} catch (Exception e) {
+				e.printStackTrace();
+				log.info("batch delete channel fail because by id=:"
+						+ idsArr[i]);
+			}
+		}
+		return this.channelList();
+	}
 
 }

@@ -21,8 +21,58 @@
 					}
 				}  
 			});	
+			
+			
+			
+			$("#all_check").change(function () {
+				if (this.checked) {
+					$("[name='chanId']").attr("checked", $("#all_check").attr("checked"));
+				} else {
+					$("[name='chanId']").removeAttr("checked");
+				}
+			});
+	    
+			//有一个不选上则全不选
+			$('input[type="checkbox"][name="chanId"]').click(function () {
+				   var ckall = true;
+				   $('input[type="checkbox"][name="chanId"]').each(function (){
+					if (!this.checked){ 
+						ckall = false;  
+						//直接退出循环,不在进行each循环
+						return false; 
+						}});
+				   
+				   $('input[type="checkbox"][name="all_check"]').attr('checked', ckall);
+		   });	
+			
+			
+			
 		});
 		
+		
+		function batchDelete(){
+	        var retString = "";
+	        var checks = document.getElementsByName("chanId");
+	        if (checks) {
+	            for (var i = 0; i < checks.length; i++) {
+	                var chkObj = checks[i];
+	                if (chkObj.checked)
+	                    retString += chkObj.value + ",";
+	            }
+	        }
+	        
+	        if(retString==""){
+	        	alert("请选择你要删除的栏目！");
+	        	return;
+	        }
+			//alert(retString);
+			//alert(meetingId);
+			if(confirm("你确定要批量删除栏目吗？")){
+				var url="${ctx}/admin/pri/channel/batchDelChans.action?ids="+retString;			
+				this.location=url;
+			}
+			
+	    }
 		
 	    function query() {
 	        $('#sbFrm').submit();
@@ -36,6 +86,8 @@
 			 }
 	    }
 	    
+	    
+	    
     </script>
 </head>
 <body>
@@ -48,14 +100,30 @@
 			<input type="hidden" name="currentPage" id="currentPage" value="${pager.currentPage}"/>
 		</form>
 			<a href="#" id="queryForList" onclick="query();"></a>
+			
+				<table width="80%">
+				<tr>
+				<th style="width: 100px; ">栏目名称：</th>
+				<td style="width: 150px; "><input type="text" style="width: 120px;" id="chanName" name="chanName" value="${chanName}"/></td>
+				<td>
+					<a href="#" id="queryForList" onclick="query();" class="btn_common btn_true">搜 索</a>
+					
+					<a href="#" onClick="batchDelete()" class="btn_common btn_false">批量删除</a> 
+				</td>
+				</tr>
+			</table>
+			
+			
 		</div>
 		
 		<div>
 		<table class="page_datalist">
 		<thead>
 			<tr>
-				<th width="10%">序号 </th>
-				<th width="20%">名称</th>
+				<th width="10%">
+				<input type="checkbox" name="all_check" id="all_check"></input>
+				</th>
+				<th width="20%">栏目名称</th>
 				<th width="20%">描述</th>
 				<th width="20%">操作</th>
 			</tr>
@@ -66,7 +134,9 @@
 				<c:when test="${not empty pager.pageRecords}">
 					<c:forEach var="chan" items="${pager.pageRecords}" varStatus="status">
 						<tr <c:if test="${status.count % 2 eq 0}"> class="even"</c:if>>
-						<td></td>
+						    <td>
+						    <input type="checkbox" name="chanId" value="${chan.id}">
+						    </td>
 							<td>${chan.chanName }</td>
 							<td>${chan.chanDescription }</td>
 							<th width="20%">

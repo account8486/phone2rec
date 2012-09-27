@@ -41,6 +41,13 @@
 		     </result>
 		</action>
 		
+	 		<action name="batchDelChans"
+			class="com.guo.yf.action.channel.ChannelAction"
+			method="batchDelChans">
+			<result name="success">/pages/admin/pri/channel/channel_list.jsp
+			</result>
+		</action>
+		
 	   
 	</package>
 </struts>
