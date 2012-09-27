@@ -31,7 +31,7 @@
 	        <legend>基本信息</legend>
 	        <dl>
 	        	<dt>
-	            	<label for="title"><font color="red">* </font> 名称：</label>
+	            	<label for="title"><font color="red">* </font> 菜单名称：</label>
 	            </dt>
 	            <dd>
 	            	<input type="text"  class="half" id="unitName" name="unit.unitName" value="" tabindex="2" maxlength="30"></input>	            	
@@ -40,7 +40,7 @@
 	        
 	        <dl>
 	        	<dt>
-	            	<label for="title"><font color="red">* </font>角色描述：</label>
+	            	<label for="title"><font color="red">* </font>描述：</label>
 	            </dt>
 	            <dd>
 	            	<input type="text"  class="half" id="unitDescription" name="unit.unitDescription" tabindex="2" maxlength="30" ></input>	 

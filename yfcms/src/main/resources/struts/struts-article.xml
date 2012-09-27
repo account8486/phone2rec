@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="private-admin-article" extends="struts-base"
+		namespace="/admin/pri/article">
+		
+		<action name="arti_*"
+			class="com.guo.yf.action.article.ArticleAction"
+			method="{1}">
+			<result name="list">/pages/admin/pri/article/article_list.jsp</result>
+		    <result name="toAddArti">/pages/admin/pri/article/article_edit.jsp</result>
+		    <result name="toEditArti">/pages/admin/pri/article/article_edit.jsp</result>
+			<result name="updatedArticle" type="json">
+				<param name="root">resultMap</param></result>
+			<result name="preview">/pages/admin/pri/article/article_preview.jsp</result>
+				
+		</action>
+		
+	</package>
+</struts>

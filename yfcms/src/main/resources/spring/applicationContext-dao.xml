@@ -24,6 +24,7 @@
 				<value>classpath:com/wondertek/meeting/model/conf/AdminUser.hbm.xml</value>
 				<value>classpath:com/guo/yf/model/conf/security/*.hbm.xml</value>
 				<value>classpath:com/guo/yf/model/conf/channel/*.hbm.xml</value>
+				<value>classpath:com/guo/yf/model/conf/article/*.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -86,6 +87,7 @@
 	<bean id="securityRoleUnitDao" class="com.guo.yf.dao.impl.SecurityRoleUnitDaoImpl" parent="baseDao" />
 	
 	<bean id="channelDao" class="com.guo.yf.dao.impl.ChannelDaoImpl" parent="baseDao" />
+	<bean id="articleDao" class="com.guo.yf.dao.impl.ArticleDaoImpl" parent="baseDao" />
 	
 		
 		

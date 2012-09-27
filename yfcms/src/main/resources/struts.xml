@@ -45,6 +45,7 @@
 	<include file="struts/struts-public.xml" />
 	<include file="struts/struts-security.xml" />
 	<include file="struts/struts-channel.xml" />
+	<include file="struts/struts-article.xml" />
 		
 
 

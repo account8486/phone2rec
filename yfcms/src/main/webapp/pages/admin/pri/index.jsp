@@ -6,7 +6,7 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>安徽电信会议云平台管理系统</title>
+    <title>会议云平台管理系统</title>
     ${admin_css}
     ${jquery_js}
     <script type="text/javascript" src="${ctx}/js/admin.js"></script>

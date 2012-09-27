@@ -88,23 +88,8 @@
 		<property name="channelDao" ref="channelDao" />
 	</bean>
 	
+	<bean id="articleService" class="com.guo.yf.service.impl.ArticleServiceImpl" parent="baseService">
+		<property name="articleDao" ref="articleDao" />
+	</bean>
 
-	
-
-	
-
-
-
-
-
-
-	
-
-
-
-	
-
-	
-	
-	
 </beans>

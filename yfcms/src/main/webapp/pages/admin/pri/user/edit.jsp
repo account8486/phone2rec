@@ -9,6 +9,12 @@
 	${jquery_js}
 	<script type="text/javascript" src="${ctx}/js/util.js"></script>
 	<script type="text/javascript">
+	
+		$(document).ready(function(){
+			$("#roleId").val(${user.roleId});
+		})
+	
+		
 		// 新增校验
 		function validateAdd() {
 	        var password = $("#password").val();
@@ -129,7 +135,7 @@
 	            	<label for="title"><font color="red">* </font>角&nbsp;&nbsp;&nbsp;色：</label>
 	            </dt>
 	            <dd>
-	            	<select class="inp_1" id="role" name="user.roleId" tabindex="5">
+	            	<select class="inp_1" id="roleId" name="user.roleId" tabindex="5">
 						<c:forEach var="role" items="${securityRolesList}" varStatus="status">
 							<option value="${role.id }">${role.roleName }</option>
 						</c:forEach>
