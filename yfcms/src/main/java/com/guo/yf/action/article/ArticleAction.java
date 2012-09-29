@@ -1,5 +1,6 @@
 package com.guo.yf.action.article;
 
+import java.text.ParseException;
 import java.util.Date;
 
 import com.guo.yf.model.article.Article;
@@ -8,6 +9,8 @@ import com.guo.yf.service.ArticleService;
 import com.guo.yf.service.ChannelService;
 import com.wondertek.meeting.action.base.BaseAction;
 import com.wondertek.meeting.exception.ServiceException;
+import com.wondertek.meeting.util.DateUtil;
+import com.wondertek.meeting.util.StringUtil;
 
 public class ArticleAction extends BaseAction {
 	
@@ -46,9 +49,21 @@ public class ArticleAction extends BaseAction {
 	 * @return
 	 */
 	public String articleList() {
+		String title=StringUtil.trim(this.getParameter("title"));
+		String chanId=StringUtil.trim(this.getParameter("chanId"));
 		
-		this.setAttribute("pager",
-				articleService.getArticlePager(currentPage, pageSize));
+		try {
+			this.setAttribute("channels", channelService.find(Channel.class));
+			this.setAttribute("pager",
+					articleService.getArticlePager(currentPage, pageSize,title,chanId));
+			
+			this.setAttribute("title", title);
+			this.setAttribute("chanId", chanId);
+			
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+
 		return "list";
 	}
 	
@@ -87,10 +102,20 @@ public class ArticleAction extends BaseAction {
 	public String toAddArticle() {
 		try {
 			this.setAttribute("channels", channelService.find(Channel.class));
-		} catch (ServiceException e) {
+			// 默认赋值一个时间
+			this.article = new Article();
+		//	article.setPublishTime(DateUtil.convertStringToDate(
+		//			"yyyy-MM-dd HH:mm:ss", DateUtil.formatDate(new Date())));
+			article.setPublishTime(DateUtil.convertStringToDate(
+								"yyyy-MM-dd HH:mm:ss", DateUtil.formatDate(new Date())));
+
+		}  catch (ServiceException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return "toAddArti";
 	}
 	
@@ -134,8 +159,14 @@ public class ArticleAction extends BaseAction {
 	 * @return
 	 */
 	public String saveOrUpdateArticle() {
+	
 		try {
+			
+		    Date publishDate = DateUtil.convertStringToDate("yyyy-MM-dd HH:mm:ss", getParameter("article.publishTime")+":00");
+		    log.debug("publishDate:"+publishDate);
+		    
 			if (this.article != null) {
+				article.setPublishTime(publishDate);
 				if (this.article.getId() != null) {
 					// 更新数据
 					Article oldArti = articleService.findById(this.article
@@ -146,6 +177,7 @@ public class ArticleAction extends BaseAction {
 					oldArti.setChanId(this.article.getChanId());
 					oldArti.setModifyTime(new Date());
 					oldArti.setModifier(this.getAdminUserIdFromSession());
+					oldArti.setPublishTime(this.article.getPublishTime());
 					articleService.saveOrUpdate(oldArti);
 				} else {
 					// 保存数据
@@ -159,6 +191,8 @@ public class ArticleAction extends BaseAction {
 		} catch (ServiceException e) {
 			e.printStackTrace();
 			this.resultMap.put("retMsg", e.getMessage());
+		}catch (ParseException e) {
+			e.printStackTrace();
 		}
 
 		return "updatedArticle";

@@ -79,7 +79,7 @@
 	            	</c:forEach>
 	            	</select>	 
 	            	
-	            	<input id="publishTime" type="text" name="article.publishTime"  value="${article.publishTime}"  class="Wdate" onfocus="WdatePicker({isShowClear:false,dateFmt:'yyyy-MM-dd HH:mm' })" readonly="readonly"/>       	
+	            	<input id="publishTime" type="text" name="article.publishTime"   value="${fn:substring(article.publishTime,0,16)}"  class="Wdate" onfocus="WdatePicker({isShowClear:false,dateFmt:'yyyy-MM-dd HH:mm' })" readonly="readonly"/>       	
 	            </dd>
 	        </dl>
 	        

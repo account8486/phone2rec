@@ -45,7 +45,7 @@
 				   $('input[type="checkbox"][name="all_check"]').attr('checked', ckall);
 		   });	
 			
-			
+		  $("#chanId").val(${chanId});
 			
 		});
 		
@@ -92,22 +92,32 @@
 		<form id="sbFrm" action="${ctx}/admin/pri/article/arti_articleList.action">
 			<input type="hidden" id="totalPage" name="totalPage" value="${pager.pageCount}"/>
 			<input type="hidden" name="currentPage" id="currentPage" value="${pager.currentPage}"/>
-		</form>
+		
 			<a href="#" id="queryForList" onclick="query();"></a>
 			
 				<table width="80%">
 				<tr>
-				<th style="width: 100px; ">文章名称：</th>
-				<td style="width: 150px; "><input type="text" style="width: 120px;" id="chanName" name="chanName" value=""/></td>
+				<th style="width: 100px; ">文章标题：</th>
+				<td style="width: 150px; "><input type="text" style="width: 120px;" id="title" name="title" value="${title}"/></td>
+				
+				<th style="width: 100px; ">栏目：</th>
+				<td style="width: 150px; ">
+				<select name="chanId" id="chanId">
+					<option value="">--请选择--</option>
+	            	<c:forEach var="chan" items="${channels}" varStatus="status">
+	            		<option value="${chan.id}"> ${chan.chanName}</option>
+	            	</c:forEach>
+	            </select>	 
+				</td>
+				
 				<td>
 					<a href="#" id="queryForList" onclick="query();" class="btn_common btn_true">搜 索</a>
-					
 					<a href="#" onClick="batchDelete()" class="btn_common btn_false">批量删除</a> 
 				</td>
 				</tr>
 			</table>
 			
-			
+			</form>
 		</div>
 		
 		<div>
@@ -118,7 +128,7 @@
 				<input type="checkbox" name="all_check" id="all_check"></input>
 				</th>
 				<th width="20%">文章标题</th>
-				<th width="20%">描述</th>
+				<th width="20%">编辑时间</th>
 				<th width="20%">操作</th>
 			</tr>
 		</thead>
@@ -129,10 +139,10 @@
 					<c:forEach var="arti" items="${pager.pageRecords}" varStatus="status">
 						<tr <c:if test="${status.count % 2 eq 0}"> class="even"</c:if>>
 						    <td>
-						    <input type="checkbox" name="artiId" value="${arti.id}">
+						    <input type="checkbox" name="artiId" id="artiId" value="${arti.id}" />
 						    </td>
 							<td>${arti.title }</td>
-							<td>${arti.title }</td>
+							<td>${fn:substring(arti.publishTime,0,16)}</td>
 							<th width="20%">
 							<a href="${ctx}/admin/pri/article/arti_toEditArticle.action?id=${arti.id}">编辑</a>
 							<a target="_blank" href="${ctx}/admin/pri/article/arti_articlePreview.action?id=${arti.id}">预览</a>
