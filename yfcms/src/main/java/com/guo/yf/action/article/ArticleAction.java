@@ -1,7 +1,9 @@
 package com.guo.yf.action.article;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import com.guo.yf.model.article.Article;
 import com.guo.yf.model.channel.Channel;
@@ -104,20 +106,23 @@ public class ArticleAction extends BaseAction {
 			this.setAttribute("channels", channelService.find(Channel.class));
 			// 默认赋值一个时间
 			this.article = new Article();
-		//	article.setPublishTime(DateUtil.convertStringToDate(
-		//			"yyyy-MM-dd HH:mm:ss", DateUtil.formatDate(new Date())));
-			article.setPublishTime(DateUtil.convertStringToDate(
-								"yyyy-MM-dd HH:mm:ss", DateUtil.formatDate(new Date())));
 
-		}  catch (ServiceException e) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			log.debug(sdf.format(new Date()));
+			this.setAttribute("publishTime", sdf.format(new Date()));
+
+		} catch (ServiceException e) {
 			e.printStackTrace();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		return "toAddArti";
 	}
+	
+	
+	
 	
 	/**
 	 * to Edit Article

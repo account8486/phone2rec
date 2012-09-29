@@ -32,11 +32,33 @@
 				}
 			}  
 		});
+		
+		
+		$("#chanId").val(${article.chanId});
+		
 	});
 	
 	  var editor;
 	  KindEditor.ready(function(K) {
-	            editor = K.create('#content');
+	            editor = K.create('#content', {
+					//uploadJson : '${ctx}/admin/ke/ke_uploadAttached.action',
+					uploadJson : '${ctx}/kindeditor/jsp/upload_json.jsp',
+					//fileManagerJson : '../jsp/file_manager_json.jsp',
+					//allowFileManager : true,
+					afterCreate : function() {
+						/**
+						var self = this;
+						K.ctrl(document, 13, function() {
+							self.sync();
+							document.forms['example'].submit();
+						});
+						K.ctrl(self.edit.doc, 13, function() {
+							self.sync();
+							document.forms['example'].submit();
+						});*/
+						
+					}
+				});
 	    });
 	
 
@@ -74,12 +96,16 @@
 	            </dt>
 	            <dd style="width:40%">
 	            	<select name="article.chanId" id="chanId">
+	            	<option value="">--请选择--</option>
 	            	<c:forEach var="chan" items="${channels}" varStatus="status">
 	            		<option value="${chan.id}"> ${chan.chanName}</option>
 	            	</c:forEach>
-	            	</select>	 
-	            	
-	            	<input id="publishTime" type="text" name="article.publishTime"   value="${fn:substring(article.publishTime,0,16)}"  class="Wdate" onfocus="WdatePicker({isShowClear:false,dateFmt:'yyyy-MM-dd HH:mm' })" readonly="readonly"/>       	
+	            	</select>
+	            		 
+	            	<c:if test="${not empty article.publishTime}">
+	            	<c:set var="publishTime" value="${fn:substring(article.publishTime,0,16)}"></c:set>
+	            	</c:if> 
+	            	发布时间：<input id="publishTime" type="text" name="article.publishTime" value="${fn:substring(publishTime,0,16)}"    class="Wdate" onfocus="WdatePicker({isShowClear:false,dateFmt:'yyyy-MM-dd HH:mm' })" readonly="readonly"/>       	
 	            </dd>
 	        </dl>
 	        

@@ -27,6 +27,7 @@
 	}
 	
 	.article .article_content {
+	text-align:center;
 		color:#000;
 	}
 	</style>

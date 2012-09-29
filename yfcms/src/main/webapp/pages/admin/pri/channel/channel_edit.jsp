@@ -68,7 +68,8 @@
 	            	<label for="title"><font color="red">* </font>描述：</label>
 	            </dt>
 	            <dd  style="width:40%" >
-	            	<input type="text"  class="half" id="chanDescription" name="channel.chanDescription" tabindex="2" maxlength="30" value="${channel.chanDescription}"></input>	 
+	            	<textarea class="medium" rows="" cols="" id="chanDescription" name="channel.chanDescription">${channel.chanDescription}</textarea>
+	            	 
 	            </dd>
 	        </dl>	
 	        

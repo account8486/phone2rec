@@ -24,7 +24,7 @@ public class DateUtil {
 	public final static String YYYY_MM_DD = "yyyy-MM-dd";
 	private final static SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 	private final static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	public static SimpleDateFormat yyyyMMdd = new SimpleDateFormat("yyyyMMdd",Locale.CHINA);
+	public static SimpleDateFormat yyyyMMdd = new SimpleDateFormat("yyyyMMdd",Locale.CHINESE);
 	
 	public static SimpleDateFormat yyyy = new SimpleDateFormat("yyyy");
 	public static SimpleDateFormat HHmm = new SimpleDateFormat("HH:mm");

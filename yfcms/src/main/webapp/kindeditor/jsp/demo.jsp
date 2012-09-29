@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/pages/common/taglibs.jsp" %>
 <%
 request.setCharacterEncoding("UTF-8");
 String htmlData = request.getParameter("content1") != null ? request.getParameter("content1") : "";
@@ -23,6 +24,7 @@ String htmlData = request.getParameter("content1") != null ? request.getParamete
 				afterCreate : function() {
 					var self = this;
 					K.ctrl(document, 13, function() {
+						
 						self.sync();
 						document.forms['example'].submit();
 					});
