@@ -13,7 +13,6 @@ import com.wondertek.meeting.model.GroupPlan;
  * 定义所有DAO接口的父接口，用以提供一些通用的方法，并通过泛型实现一些DAO的通用功能 该接口继承自appfuse框架的GenericDao接口
  * 自定义DAO接口是，要继承该DAO，使用示例: UserDao extends BaseDao<User, Integer> { ... }
  * 
- * @author: 金祝华
  */
 public interface BaseDao<T, PK extends Serializable> {
 
@@ -308,32 +307,5 @@ public interface BaseDao<T, PK extends Serializable> {
             int pageSize, Map<String, Object> properties)
             throws HibernateDaoSupportException;
     
-    /**
-     * 删除某一个会议下用户相关联的信息
-     * @param userId
-     * @param meetingId
-     * @throws HibernateDaoSupportException
-     */
-    public void deleteUserRelationInfo(Long userId,Long meetingId)  throws HibernateDaoSupportException;
-    
-    /**删除某一个会议下相关联分组和自定义菜单信息**/
-    public void deleteMeetingRelationInfo(Long meetingId)  throws HibernateDaoSupportException;
-    
-    /**
-     * 根据参数查询该用户是否可以查看该议程或用餐的分组模版
-     * @param meetingId
-     * @param type 分组类型：议程或用餐
-     * @param userId 
-     * @param relationId 议程或用餐ID
-     */
-    public GroupPlan getGroupPlanByUserRights(Long meetingId,Integer type,Long userId,Long relationId) throws HibernateDaoSupportException;
-    
-    /**
-     * 根据参数查询该议程或用餐的全部分组
-     * @param meetingId
-     * @param type 分组类型：议程或用餐
-     * @param userId 
-     * @param relationId 议程或用餐ID
-     */
-    public GroupPlan getGroupPlanByUserRights(Integer type,Long relationId) throws HibernateDaoSupportException;
+  
 }

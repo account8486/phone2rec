@@ -483,8 +483,10 @@ public abstract class BaseDaoImpl<T, PK extends Serializable> extends
             throw new HibernateDaoSupportException("Param(#sql#) is null");
         }
         try {
+        	getHibernateTemplate().setCacheQueries(false);
             return getHibernateTemplate().executeFind(new HibernateCallback() {
                 public Object doInHibernate(Session session) {
+                	
                     Query query = session.createSQLQuery(sql);
                     if (!Validity.isEmpty(properties)) {
                         query.setProperties(properties);

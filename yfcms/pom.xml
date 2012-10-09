@@ -315,6 +315,20 @@
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
+        <dependency>
+        	<groupId>org.jfree</groupId>
+        	<artifactId>jfreechart</artifactId>
+        	<version>1.0.14</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.jfree</groupId>
+        	<artifactId>jcommon</artifactId>
+        	<version>1.0.17</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>

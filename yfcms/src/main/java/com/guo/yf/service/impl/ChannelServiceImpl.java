@@ -1,9 +1,12 @@
 package com.guo.yf.service.impl;
 
+import java.util.List;
+
 import com.guo.yf.dao.ChannelDao;
 import com.guo.yf.model.channel.Channel;
 import com.guo.yf.service.ChannelService;
 import com.wondertek.meeting.common.Pager;
+import com.wondertek.meeting.exception.HibernateDaoSupportException;
 import com.wondertek.meeting.exception.ServiceException;
 import com.wondertek.meeting.service.impl.BaseServiceImpl;
 
@@ -39,6 +42,21 @@ public class ChannelServiceImpl extends BaseServiceImpl<Channel, Long> implement
 		}
 
 		return pagerChannel;
+	}
+	
+	/**
+	 * 获取文章数
+	 * @return
+	 * @throws HibernateDaoSupportException
+	 */
+	public List getArticleNumByChannel() throws HibernateDaoSupportException {
+		StringBuffer buffer = new StringBuffer();
+		buffer.append(" SELECT chan.chan_name,count(arti.id) FROM channel chan LEFT JOIN article arti ON chan.id=arti.chan_id  GROUP BY chan.id ");
+
+		List<Object[]> lst = channelDao.queryListSql(buffer.toString(), 0,
+				1000, null);
+		// Object obj = channelDao.getUniqueBeanResult(buffer.toString());
+		return lst;
 	}
 
 }

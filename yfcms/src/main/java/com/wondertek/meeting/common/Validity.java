@@ -7,7 +7,7 @@ import java.util.List;
  * General input/data validation methods Utility methods for validating data,
  * especially input
  * 
- * @author 汤军
+ * @author 
  * 
  */
 public class Validity {

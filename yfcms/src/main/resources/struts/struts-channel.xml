@@ -50,4 +50,18 @@
 		
 	   
 	</package>
+	
+	
+	<package name="private-admin-graphic" extends="struts-base"
+		namespace="/admin/pri/graphic">
+	 		
+	 	<action name="*"
+			class="com.guo.yf.action.graphic.ChannelGraphicAction"
+			method="{1}">
+			<result name="channelNumBarChart">/pages/admin/pri/channel/channelNumBar_Chart.jsp</result>
+			<result name="channelNumPieChart">/pages/admin/pri/channel/channelNumPie_Chart.jsp</result>
+	   </action>
+	   
+	</package>
+	
 </struts>

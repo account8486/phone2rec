@@ -108,4 +108,15 @@
 		<taglib-location>/WEB-INF/tlds/wd.tld</taglib-location>
 		</taglib>
 	</jsp-config>
+	
+	
+	<servlet> 
+		 <servlet-name>DisplayChart</servlet-name> 
+		 <servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class> 
+	</servlet> 
+	<servlet-mapping> 
+		<servlet-name>DisplayChart</servlet-name> 
+		<url-pattern>/DisplayChart</url-pattern> 
+	</servlet-mapping> 
+	
 </web-app>

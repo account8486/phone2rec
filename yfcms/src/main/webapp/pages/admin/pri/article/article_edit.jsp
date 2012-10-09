@@ -43,8 +43,8 @@
 	            editor = K.create('#content', {
 					//uploadJson : '${ctx}/admin/ke/ke_uploadAttached.action',
 					uploadJson : '${ctx}/kindeditor/jsp/upload_json.jsp',
-					//fileManagerJson : '../jsp/file_manager_json.jsp',
-					//allowFileManager : true,
+					fileManagerJson : '${ctx}/kindeditor/jsp/file_manager_json.jsp',
+					allowFileManager : true,
 					afterCreate : function() {
 						/**
 						var self = this;
