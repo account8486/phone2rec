@@ -11,8 +11,6 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * 基础modle
  * 
  * 只实现equal()、hashCoce()、toString()方法
- * 
- * @author 金祝华
  */
 public abstract class BaseObject implements Serializable {
 

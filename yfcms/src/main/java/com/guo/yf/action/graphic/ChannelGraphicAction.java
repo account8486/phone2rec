@@ -114,18 +114,20 @@ public class ChannelGraphicAction extends BaseAction {
 			JFreeChart chart = ChartFactory.createPieChart3D("栏目文章发布分布图",
 					dataset, true, false, false);
 			
+			
+			Font pieFont=new Font("黑体", Font.BOLD, 15);
 			TextTitle textTitle = chart.getTitle();
-			textTitle.setFont(new Font("黑体",Font.BOLD,15));
+			textTitle.setFont(pieFont);
 			
 			PiePlot pieplot = (PiePlot) chart.getPlot();
-			pieplot.setLabelFont(new Font("宋体", 0, 12));
+			pieplot.setLabelFont(pieFont);
 			
 			//没有数据的时候显示的内容 
 			pieplot.setNoDataMessage("无数据显示");
 			pieplot.setCircular(false);
 			pieplot.setLabelGap(0.02D);
 			
-			chart.getLegend().setItemFont(new Font("黑体",Font.BOLD,15));
+			chart.getLegend().setItemFont(pieFont);
 			//pieplot.getLegendItems().
 			//XYPlot  xyPlot=(XYPlot)chart.getPlot();
 			//xyPlot.getRangeAxis().setLabelFont(new Font("黑体",Font.BOLD,15));

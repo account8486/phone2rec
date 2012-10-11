@@ -13,6 +13,7 @@
             classpath:/spring/applicationContext-dao.xml
        		classpath:/spring/applicationContext-service.xml
             classpath:/spring/applicationContext-action.xml
+            classpath:/spring/applicationContext-mail.xml
         </param-value>
 	</context-param>
 
