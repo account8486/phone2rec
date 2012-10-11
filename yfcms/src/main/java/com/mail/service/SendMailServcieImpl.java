@@ -118,11 +118,14 @@ public class SendMailServcieImpl implements SendMailServcie {
 			// messageHelper.addInline("b", new File("F:/pri/DXD_06.png"));
 			// 添加附件
 			File[] files = mail.getAttachmentFiles();
-			for (int i = 0; i < files.length; i++) {
-				// 这里的方法调用和插入图片是不同的，使用MimeUtility.encodeWord()来解决附件名称的中文问题
-				messageHelper.addAttachment(
-						MimeUtility.encodeWord(files[i].getName()), files[i]);
+			if(files!=null&&files.length>0){
+				for (int i = 0; i < files.length; i++) {
+					// 这里的方法调用和插入图片是不同的，使用MimeUtility.encodeWord()来解决附件名称的中文问题
+					messageHelper.addAttachment(
+							MimeUtility.encodeWord(files[i].getName()), files[i]);
+				}
 			}
+			
 
 			// 发送邮件
 			Log.debug("send mail start...");

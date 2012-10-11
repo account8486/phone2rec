@@ -46,6 +46,7 @@
 	<include file="struts/struts-security.xml" />
 	<include file="struts/struts-channel.xml" />
 	<include file="struts/struts-article.xml" />
+	<include file="struts/struts-mail.xml" />
 		
 
 

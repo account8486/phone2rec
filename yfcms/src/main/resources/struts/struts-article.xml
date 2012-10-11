@@ -21,14 +21,11 @@
 	
 	<package name="private-kindEditor" extends="struts-base"
 		namespace="/admin/ke">
-		
 		<action name="ke_*"
 			class="com.kindEditor.action.KindEditorAction"
 			method="{1}">
-			
 			<result name="uploadAttached" type="json">
 				<param name="root">resultMap</param></result>
-			
 		</action>
 	</package>
 	

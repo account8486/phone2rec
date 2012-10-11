@@ -91,5 +91,13 @@
 	<bean id="articleService" class="com.guo.yf.service.impl.ArticleServiceImpl" parent="baseService">
 		<property name="articleDao" ref="articleDao" />
 	</bean>
-
+	
+	<bean id="mimeMailService" class="com.guo.yf.service.impl.MimeMailServiceImpl" parent="baseService">
+		<property name="mimeMailDao" ref="mimeMailDao" />
+	</bean>
+	
+	<bean id="sendMailServcie" class="com.mail.service.SendMailServcieImpl" />
+	
+	
+	
 </beans>
