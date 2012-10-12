@@ -18,10 +18,10 @@
             </props>
         </property>
         <property name="username">
-            <value>guoxu775@163.com</value>
+            <value>mail_yfcms@163.com</value>
         </property>
         <property name="password">
-            <value>851210</value>
+            <value>test1111</value>
         </property>
     </bean>
 </beans>

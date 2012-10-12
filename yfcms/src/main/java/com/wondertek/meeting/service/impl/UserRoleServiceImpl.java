@@ -7,7 +7,6 @@ import com.wondertek.meeting.service.UserRoleService;
 /**
  * 用户角色
  * 
- * @author 金祝华
  */
 public class UserRoleServiceImpl extends BaseServiceImpl<UserRole, Long> implements UserRoleService {
 

@@ -96,7 +96,9 @@
 		<property name="mimeMailDao" ref="mimeMailDao" />
 	</bean>
 	
-	<bean id="sendMailServcie" class="com.mail.service.SendMailServcieImpl" />
+	<bean id="sendMailServcie" class="com.mail.service.SendMailServcieImpl">
+	    <property name="mailSender" ref="mailSender" />
+	</bean>
 	
 	
 	

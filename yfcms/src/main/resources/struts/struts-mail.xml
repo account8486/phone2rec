@@ -14,6 +14,7 @@
 		   <result name="addMail" type="json">
 				<param name="root">resultMap</param>
 		   </result>
+		   <result name="mailList">/pages/admin/pri/mail/mail_list.jsp</result>
 		   
 		  
 			

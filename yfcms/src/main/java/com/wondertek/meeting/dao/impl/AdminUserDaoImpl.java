@@ -14,7 +14,6 @@ import com.wondertek.meeting.util.Encrypt;
 /**
  * 用户Dao
  * 
- * @author 金祝华
  */
 public class AdminUserDaoImpl extends BaseDaoImpl<AdminUser, Long> implements AdminUserDao {
 	Logger log = LoggerFactory.getLogger(this.getClass());

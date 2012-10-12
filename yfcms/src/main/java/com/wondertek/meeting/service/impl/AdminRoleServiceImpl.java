@@ -7,7 +7,6 @@ import com.wondertek.meeting.service.AdminRoleService;
 /**
  * 角色
  * 
- * @author 金祝华
  */
 public class AdminRoleServiceImpl extends BaseServiceImpl<AdminRole, Long> implements AdminRoleService {
 

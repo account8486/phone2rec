@@ -72,32 +72,27 @@
 	<div class="easyui-tabs" border="false" style="padding:10px;">	
 	
 	
-	<div title="文章列表" link="${ctx}/admin/pri/mail/mail_addMail.action" style="padding:10px;"></div>
-	<c:if test="${not empty mail.id}">
-	<div title="编辑文章" selected="true"  style="padding:10px;"></div>
-	</c:if>
-	
-    <c:if test="${empty mail.id}">
-	<div title="添加文章" selected="true"  style="padding:10px;"></div>
-	</c:if>
+	<div title="我已发送列表" link="${ctx}/admin/pri/mail/mail_getMailList.action" style="padding:10px;"></div>
+	<div title="发送邮件" selected="true"  style="padding:10px;"></div>
 	</div>
 	
 	<div class="page_form">
 	<form id="addFrm"  method="post">
 	
 	    <fieldset>
-	        <legend>基本信息</legend>
-	        
+	        <legend>发送界面</legend>
+	        <%--
 	        <dl>
 	        	<dt>
-	            	<label for="title"><font color="red">* </font>所属栏目：</label>
+	            	<label for="title"><font color="red">* </font>定时邮件：</label>
 	            </dt>
 	            <dd style="width:40%"> 
-	            
-	            	发布时间：<input id="publishTime" type="text" name="" value="${fn:substring(publishTime,0,16)}"    class="Wdate" onfocus="WdatePicker({isShowClear:false,dateFmt:'yyyy-MM-dd HH:mm' })" readonly="readonly"/>       	
+	            	
+	               <input type="checkbox" />
+	               <input id="publishTime" type="text" name="" value=""    class="Wdate" onfocus="WdatePicker({isShowClear:false,dateFmt:'yyyy-MM-dd HH:mm' })" readonly="readonly"/>       	
 	            </dd>
 	        </dl>
-	        
+	         --%>
 	         <dl>
 	        	<dt>
 	            	<label for="title"><font color="red">* </font>收件人：</label>
@@ -107,20 +102,30 @@
 	            </dd>
 	        </dl>
 	        
-	        
+	            
 	        <dl>
 	        	<dt>
-	            	<label for="title"><font color="red">* </font>邮件标题：</label>
+	            	<label for="title"><font color="red">* </font>抄送：</label>
 	            </dt>
 	            <dd>
-	            	<input type="text"  class="half" id="title" name="mail.mailSubject" value="${mail.title}" tabindex="2" maxlength="30"></input>	            	
+	            	<input type="text"  class="half" id="title" name="mail.mailCc" value="guoxu@wondertek.com.cn" tabindex="2" maxlength="30"></input>	            	
 	            </dd>
 	        </dl>
 	        
 	        
 	        <dl>
 	        	<dt>
-	            	<label for="title"><font color="red">* </font>邮件内容：</label>
+	            	<label for="title"><font color="red">* </font>主题：</label>
+	            </dt>
+	            <dd>
+	            	<input type="text"  class="full" id="title" name="mail.mailSubject" value="${mail.title}" tabindex="2" maxlength="30"></input>	            	
+	            </dd>
+	        </dl>
+	        
+	        
+	        <dl>
+	        	<dt>
+	            	<label for="title"><font color="red">* </font></label>
 	            </dt>
 	            <dd>
 	            	<textarea id="content" class="medium" style="width:700px;height:350px;" name="mail.mailText" tabindex="2"></textarea>
@@ -169,8 +174,8 @@
 		
 	    function callback(data){
 	    	alert(data.retMsg);
-	    	//var url="${ctx}/admin/pri/mail/mail_mailList.action";
-	    	//document.location=url;
+	    	var url="${ctx}/admin/pri/mail/mail_getMailList.action";
+	    	document.location=url;
 	    }
 		
 		

@@ -20,7 +20,6 @@ import com.wondertek.meeting.util.StringUtil;
 /**
  * 用户
  * 
- * @author 金祝华
  */
 public class AdminUserServiceImpl extends BaseServiceImpl<AdminUser, Long> implements AdminUserService {
 

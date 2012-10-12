@@ -23,6 +23,16 @@ import com.mail.Mail;
  */
 public class SendMailServcieImpl implements SendMailServcie {
 	public ApplicationContext ctx = null;
+	JavaMailSender mailSender;
+	
+	
+	public JavaMailSender getMailSender() {
+		return mailSender;
+	}
+
+	public void setMailSender(JavaMailSender mailSender) {
+		this.mailSender = mailSender;
+	}
 
 	public SendMailServcieImpl() {
 		// 获取上下文
@@ -51,7 +61,7 @@ public class SendMailServcieImpl implements SendMailServcie {
 	 */
 	protected void sendSimpleMailMessage(Mail mail) {
 		// 获取JavaMailSender bean
-		JavaMailSender sender = (JavaMailSender) ctx.getBean("mailSender");
+		//JavaMailSender sender = (JavaMailSender) ctx.getBean("mailSender");
 		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 		try {
 			simpleMailMessage.setTo(mail.getTo());// 接受者
@@ -61,7 +71,7 @@ public class SendMailServcieImpl implements SendMailServcie {
 			simpleMailMessage.setSubject(mail.getSubject());// 主题
 			simpleMailMessage.setText(mail.getText());// 邮件内容
 
-			sender.send(simpleMailMessage);
+			mailSender.send(simpleMailMessage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -74,8 +84,8 @@ public class SendMailServcieImpl implements SendMailServcie {
 	 */
 	private void sendHtmlMail() throws MessagingException {
 
-		JavaMailSender sender = (JavaMailSender) ctx.getBean("mailSender");
-		MimeMessage mailMessage = sender.createMimeMessage();
+		//JavaMailSender sender = (JavaMailSender) ctx.getBean("mailSender");
+		MimeMessage mailMessage = mailSender.createMimeMessage();
 		MimeMessageHelper messageHelper = new MimeMessageHelper(mailMessage,
 				true, "utf-8");
 		try {
@@ -88,7 +98,7 @@ public class SendMailServcieImpl implements SendMailServcie {
 					.setText(
 							"<html><head></head><body><h1>hello!!chao.wang我是你旭哥</h1></body></html>",
 							true);
-			sender.send(mailMessage);
+			mailSender.send(mailMessage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -101,8 +111,8 @@ public class SendMailServcieImpl implements SendMailServcie {
 	 */
 	private void sendAttachMentMail(Mail mail) throws MessagingException {
 		// 获取JavaMailSender bean
-		JavaMailSender sender = (JavaMailSender) ctx.getBean("mailSender");
-		MimeMessage mailMessage = sender.createMimeMessage();
+		//JavaMailSender sender = (JavaMailSender) ctx.getBean("mailSender");
+		MimeMessage mailMessage = mailSender.createMimeMessage();
 		// 设置utf-8或GBK编码，否则邮件会有乱码
 		MimeMessageHelper messageHelper = new MimeMessageHelper(mailMessage,
 				true, "utf-8");
@@ -129,7 +139,7 @@ public class SendMailServcieImpl implements SendMailServcie {
 
 			// 发送邮件
 			Log.debug("send mail start...");
-			sender.send(mailMessage);
+			mailSender.send(mailMessage);
 			Log.debug("send mail end");
 		} catch (Exception e) {
 			e.printStackTrace();
