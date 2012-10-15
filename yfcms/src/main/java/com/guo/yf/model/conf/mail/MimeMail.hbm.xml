@@ -22,6 +22,7 @@
 		<property name="createTime" column="create_time" type="java.util.Date" />
 		<property name="creator" column="creator" type="java.lang.Long" />
 		<property name="modifyTime" column="modify_time" type="java.util.Date" />
+		<property name="sendStatus" column="send_Status" type="java.lang.Integer" />
 		
 	</class>
 </hibernate-mapping>

@@ -19,6 +19,14 @@ public class MimeMail extends BaseObject {
 	private Long creator;
 	private Date modifyTime;// 修改时间
 	private Long modifier;
+	private Integer sendStatus;
+	
+	public Integer getSendStatus() {
+		return sendStatus;
+	}
+	public void setSendStatus(Integer sendStatus) {
+		this.sendStatus = sendStatus;
+	}
 	public String getId() {
 		return id;
 	}
