@@ -14,6 +14,7 @@
        		classpath:/spring/applicationContext-service.xml
             classpath:/spring/applicationContext-action.xml
             classpath:/spring/applicationContext-mail.xml
+            classpath:/spring/applicationContext-task.xml
         </param-value>
 	</context-param>
 

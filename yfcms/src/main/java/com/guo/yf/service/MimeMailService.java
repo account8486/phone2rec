@@ -8,5 +8,7 @@ import com.wondertek.meeting.service.BaseService;
 public interface MimeMailService extends BaseService<MimeMail, String> {
 	
 	public Pager<MimeMail> getMailPager(int currentPage,int pageSize,String mailContent) throws HibernateDaoSupportException;
+	
+	public void sendMailJob();
 
 }

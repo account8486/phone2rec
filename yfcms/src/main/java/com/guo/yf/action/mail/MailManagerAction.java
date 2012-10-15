@@ -88,16 +88,6 @@ public class MailManagerAction extends BaseAction {
 			mail.setCreateTime(new Date());
 			mail.setCreator(this.getAdminUserIdFromSession());
 			this.mimeMailService.saveOrUpdate(mail);
-			
-			Mail mailVO=new Mail();
-			mailVO.setFrom(mail.getMailFrom());
-			mailVO.setTo(mail.getMailTo());
-			mailVO.setText(mail.getMailText());
-			mailVO.setSubject(mail.getMailSubject());
-			mailVO.setWithAttachment(true);
-			mailVO.setCc(mail.getMailCc());
-			sendMailServcie.doSend(mailVO);
-			
 			this.resultMap.put("retMsg", "已推送到系统");
 		}catch(Exception e){
 			e.printStackTrace();

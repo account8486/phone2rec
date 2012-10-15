@@ -123,10 +123,11 @@
 				<th width="2%">
 				<input type="checkbox" name="all_check" id="all_check"></input>
 				</th>
-				<th width="15%">收件人</th>
+				<th width="12%">收件人</th>
 				<th width="30%">邮件名称</th>
 			    <th width="15%">抄送人</th>
-			    <th width="10%">时间</th>
+			    <th width="13%">时间</th>
+			    <th width="6%">状态</th>
 				<th width="10%">操作</th>
 			</tr>
 		</thead>
@@ -143,6 +144,25 @@
 							<td>${mail.mailSubject }</td>
 							<td>${mail.mailCc}</td>
 							<td>${fn:substring(mail.createTime,0,16) }</td>
+							<td>
+							<c:choose>
+							<c:when test="${mail.sendStatus eq 0}">
+							<c:out value="未发送"></c:out>
+							</c:when>
+							
+							<c:when test="${mail.sendStatus eq 1}">
+							<c:out value="已发送"></c:out>
+							</c:when>
+							
+							<c:when test="${mail.sendStatus eq 9}">
+							<c:out value="发送失败"></c:out>
+							</c:when>
+							<c:otherwise>
+							<c:out value="未知状态"></c:out>
+							</c:otherwise>
+							</c:choose>
+							
+							</td>
 							<th width="20%">
 							</th>
 						</tr>

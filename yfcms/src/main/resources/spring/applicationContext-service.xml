@@ -94,6 +94,7 @@
 	
 	<bean id="mimeMailService" class="com.guo.yf.service.impl.MimeMailServiceImpl" parent="baseService">
 		<property name="mimeMailDao" ref="mimeMailDao" />
+		<property name="sendMailServcie" ref="sendMailServcie" />
 	</bean>
 	
 	<bean id="sendMailServcie" class="com.mail.service.SendMailServcieImpl">
