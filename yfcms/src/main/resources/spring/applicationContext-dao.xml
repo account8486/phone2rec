@@ -26,6 +26,7 @@
 				<value>classpath:com/guo/yf/model/conf/channel/*.hbm.xml</value>
 				<value>classpath:com/guo/yf/model/conf/article/*.hbm.xml</value>
 				<value>classpath:com/guo/yf/model/conf/mail/*.hbm.xml</value>
+				<value>classpath:com/guo/yf/model/conf/customer/*.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -90,6 +91,7 @@
 	<bean id="channelDao" class="com.guo.yf.dao.impl.ChannelDaoImpl" parent="baseDao" />
 	<bean id="articleDao" class="com.guo.yf.dao.impl.ArticleDaoImpl" parent="baseDao" />
 	<bean id="mimeMailDao" class="com.guo.yf.dao.impl.MimeMailDaoImpl" parent="baseDao" />
+	<bean id="customerDao" class="com.guo.yf.dao.impl.CustomerDaoImpl" parent="baseDao" />
 	
 		
 		

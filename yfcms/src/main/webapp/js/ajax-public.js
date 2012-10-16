@@ -6,7 +6,7 @@
  * @param failCallback
  */
 function ajaxRequest(url, successCallback, isAsync, failCallback){
-	var contextPath="/meeting";
+	var contextPath="/yf";
 	if(isAsync == null){
 		isAsync = true;
 	}

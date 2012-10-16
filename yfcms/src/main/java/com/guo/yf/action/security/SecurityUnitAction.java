@@ -92,6 +92,8 @@ public class SecurityUnitAction extends BaseAction {
 	 */
 	public String addUnit(){
 		try{
+		this.unit.setCreateTime(new Date());
+		this.unit.setCreator(this.getAdminUserIdFromSession());
 		securityUnitService.saveOrUpdate(this.unit);
 		this.resultMap.put("retMsg", "新增成功！");
 		}catch(ServiceException e){
@@ -143,6 +145,9 @@ public class SecurityUnitAction extends BaseAction {
 		securityUnit.setModifyTime(new Date());
 		securityUnit.setModifier(this.getAdminUserIdFromSession());
 		securityUnit.setOrderCode(this.getUnit().getOrderCode());
+		securityUnit.setModifyTime(new Date());
+		securityUnit.setModifier(this.getAdminUserIdFromSession());
+		
 		if (!"0".equals(typeFlag)) {
 			securityUnit.setUnitUrl(this.getUnit().getUnitUrl());
 		}

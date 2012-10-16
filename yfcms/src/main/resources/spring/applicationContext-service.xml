@@ -101,6 +101,12 @@
 	    <property name="mailSender" ref="mailSender" />
 	</bean>
 	
+    <bean id="customerServcie" class="com.guo.yf.service.impl.CustomerServcieImpl">
+	    <property name="customerDao" ref="customerDao" />
+	</bean>
+	
+	
+	
 	
 	
 </beans>

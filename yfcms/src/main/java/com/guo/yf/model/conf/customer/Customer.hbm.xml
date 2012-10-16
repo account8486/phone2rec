@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.guo.yf.model.customer.Customer" table="customer"
+		dynamic-update="true" dynamic-insert="true">
+		<id name="id" type="java.lang.String">
+			<column name="id" not-null="true" />
+			<generator class="uuid"></generator>
+		</id>
+	
+		<!-- 业务逻辑字段 -->
+		<property name="customerName" column="customer_name" type="java.lang.String" />
+		<property name="mobile" column="mobile" type="java.lang.String" />
+		<property name="telphone" column="telphone" type="java.lang.String" />
+		<property name="email" column="email" type="java.lang.String" />
+		<property name="homeAddress" column="homeAddress" type="java.lang.String" />
+		<property name="department" column="department" type="java.lang.String" />
+
+		<!-- 默认保留字段 -->
+		<property name="modifier" column="modifier" type="java.lang.Long" />
+		<property name="createTime" column="create_time" type="java.util.Date" />
+		<property name="creator" column="creator" type="java.lang.Long" />
+		<property name="modifyTime" column="modify_time" type="java.util.Date" />
+		
+	</class>
+</hibernate-mapping>
