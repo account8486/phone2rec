@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+	"-//SPRING//DTD BEAN//EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+	
+<beans>
+    
+    <bean id="corePropertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:sys-config.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Example of SAF2 action instantiated by Spring -->
+    <bean id="helloWorldAction" class="com.wirelesscity.action.HelloWorldAction" singleton="false" />
+</beans>
+

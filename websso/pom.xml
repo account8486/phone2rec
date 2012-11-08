@@ -1,0 +1,176 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.wirelesscity.action</groupId>
+	<artifactId>websso</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>sso</name>
+	<url>http://www.myComp.com</url>
+	<description>Struts 2 Starter</description>
+	
+	<properties>
+    <spring.version>3.0.5.RELEASE</spring.version>
+    <jdbc.groupId>mysql</jdbc.groupId>
+    <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
+    <ehcache.web.version>1.6.0-beta2</ehcache.web.version>
+    <junit.version>4.8.1</junit.version>
+    <commons.io.version>1.4</commons.io.version>
+    <c3p0.version>0.9.1.2</c3p0.version>
+    <jsp.version>2.0</jsp.version>
+    <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+    <wiser.version>1.2</wiser.version>
+    <displaytag.version>1.2</displaytag.version>
+    <urlrewrite.version>3.2.0</urlrewrite.version>
+    <commons.httpclient.version>3.1</commons.httpclient.version>
+    <struts.version>2.3.4</struts.version>
+    <struts2.json.version>2.3.4</struts2.json.version>
+    <webtest.version>3.0</webtest.version>
+    <jdbc.version>5.1.9</jdbc.version>
+    <servlet.version>2.5</servlet.version>
+    <hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
+    <env.resource>DevResources</env.resource>
+    <jdk.version>1.5</jdk.version>
+   </properties>
+  
+  
+	
+	<dependencies>
+	     <dependency>
+            <groupId>${jdbc.groupId}</groupId>
+            <artifactId>${jdbc.artifactId}</artifactId>
+            <version>${jdbc.version}</version>
+        </dependency>
+        
+          <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+		<!-- Junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!--  Struts 2 -->
+		<dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>2.3.4</version>
+        </dependency>
+
+		<!-- Servlet & Jsp -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Jakarta Commons -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency> 
+		    <groupId>commons-digester</groupId> 
+			<artifactId>commons-digester</artifactId> 
+			<version>2.1</version> 
+		</dependency>
+
+		<!-- Dwr -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>2.3.4.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.48</version>
+         </dependency>
+		
+		
+	  <dependency>
+	      <groupId>org.springframework</groupId>
+	      <artifactId>spring-webmvc</artifactId>
+	      <version>3.0.5.RELEASE</version>
+	      <scope>compile</scope>
+	  </dependency>
+    
+       <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.1</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+       <dependency>
+       	<groupId>org.springframework</groupId>
+       	<artifactId>spring-hibernate3</artifactId>
+       	<version>2.0.8</version>
+       	<type>jar</type>
+       	<scope>compile</scope>
+       </dependency>
+       <dependency>
+       	<groupId>org.hibernate</groupId>
+       	<artifactId>hibernate-c3p0</artifactId>
+       	<version>4.1.7.Final</version>
+       	<type>jar</type>
+       	<scope>compile</scope>
+       </dependency>
+       <dependency>
+       	<groupId>c3p0</groupId>
+       	<artifactId>c3p0</artifactId>
+       	<version>0.9.1.2</version>
+       	<type>jar</type>
+       	<scope>compile</scope>
+       </dependency>
+       <dependency>
+       	<groupId>com.oracle</groupId>
+       	<artifactId>ojdbc14</artifactId>
+       	<version>10.2.0.4.0</version>
+       	<scope>compile</scope>
+       </dependency>
+       <dependency>
+       	<groupId>quartz</groupId>
+       	<artifactId>quartz</artifactId>
+       	<version>1.5.2</version>
+       	<type>jar</type>
+       	<scope>compile</scope>
+       </dependency>
+	</dependencies>
+	
+    <build>
+      <finalName>websso</finalName>
+    	<plugins>
+    		<plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                   <source>1.5</source>
+                   <target>1.5</target>
+                </configuration>
+            </plugin>
+    		<plugin>
+    			<groupId>org.mortbay.jetty</groupId>
+    			<artifactId>maven-jetty-plugin</artifactId>
+    			<version>6.1.5</version>
+    			<configuration>
+    				<scanIntervalSeconds>10</scanIntervalSeconds>
+    			</configuration>
+    		</plugin>
+    	</plugins>
+    </build>
+</project>
