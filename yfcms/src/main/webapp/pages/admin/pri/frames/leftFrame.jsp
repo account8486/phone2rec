@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/pages/common/taglibs.jsp" %>
+${admin_css}
+${jquery_js}
 <script type="text/javascript" src="${ctx}/js/admin.js"></script>
-${admin_css}  ${jquery_js}
 <div class="main" >
 	<div class="left_nav">
          <c:if test="${not empty unitViewList }">
