@@ -1,0 +1,10 @@
+alter table `meeting_guizhou`.`meeting_task_detail` 
+   add column `status` varchar(10) NULL ;
+
+
+
+
+UPDATE base_menu SET is_Initial=0;
+
+
+UPDATE base_menu SET  is_Initial=1 WHERE NAME IN('首页','会议议程','会议资料','互动交流','会场位置','通讯录','站内私信', '新闻中心');

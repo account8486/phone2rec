@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.MeetingTask" table="meeting_task"
+		dynamic-update="true" dynamic-insert="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="taskName" column="task_Name" type="java.lang.String" />
+		<property name="taskDescription" column="task_Description" type="java.lang.String" />
+		<property name="meetingId" column="meeting_Id" type="java.lang.Long" />
+		<property name="createTime" column="create_time" type="java.util.Date" />
+		<property name="creator" column="creator" type="java.lang.Long" />
+		<property name="modifyTime" column="modify_time" type="java.util.Date" />
+		<property name="modifier" column="modifier" type="java.lang.Long" />
+		
+		
+		<set name="meetingTaskDetails" table="meeting_task_detail" inverse="true" cascade="delete" >
+			<key column="task_id"/>
+			<one-to-many  class="com.wondertek.meeting.model.MeetingTaskDetail" />
+		</set>
+		
+	</class>
+</hibernate-mapping>

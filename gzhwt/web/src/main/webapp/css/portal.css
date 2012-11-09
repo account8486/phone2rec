@@ -1,0 +1,38 @@
+.choosed a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #c4dff2;
+    color: #404040;
+    display: inline;
+    float: left;
+    line-height: 19px;
+    margin-bottom: 1px;
+    margin-left: 5px;
+    padding: 0 20px 0 5px;
+    position: relative;
+    white-space: nowrap;
+}
+.choosed a:hover {
+    text-decoration: none;
+}
+
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+}
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+}
+
+.sel div {
+    float: left;
+    line-height: 21px;
+    margin-top: 2px;
+    width: 610px;
+}

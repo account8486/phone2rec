@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.Asset" table="asset"
+		dynamic-update="true" dynamic-insert="true">
+
+		<id name="id" type="java.lang.Long">
+			<column name="id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="meetingId" column="meeting_id" type="java.lang.Long" />
+		<property name="asset_no" column="asset_no" type="java.lang.String" />
+		<property name="asset_name" column="asset_name" type="java.lang.String" />
+		<property name="property" column="property" type="java.lang.String" />
+		<property name="asset_value" column="asset_value" type="java.lang.Double" />
+		<property name="storage_date" column="storage_date" type="java.util.Date" />
+		<property name="remark" column="remark" type="java.lang.String" />
+	</class>
+</hibernate-mapping>

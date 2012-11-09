@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+/* Author: H.yIng & Create Time: 2011-11-23 */
+/* Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}:focus{outline:0;}
+
+/* Global */
+body,div,table,form,p,select,input,textarea,option,a {font-family: Verdana, Arial, sans-serif;line-height: 1.5; font-size: 12px; color: #666;}
+body { text-align:center; background:#fff;}
+div,table { text-align:left;}
+
+/* Common */
+.page_title { height:35px; background:url(../images/admin/page_title_bg.jpg) top left no-repeat; clear:both;}
+.page_title h3 { line-height:35px; font-weight:bold; padding-left:10px; color:#237dbd; font-size:14px;}
+
+.page_form { clear:both;}
+.page_form fieldset { border:0 none; border-top:1px solid #ddd; margin:10px 20px; padding:10px 0 0 0; position:relative;}
+.page_form fieldset legend { font-weight:bold; font-size:14px; color:#51BCF3; padding-right:10px;}
+.page_form fieldset dl { display:inline-block; width:100%; margin-bottom:5px;}
+.page_form fieldset dl dt { width:100px; float:left; text-align:right; padding-right:10px;}
+.page_form fieldset dl dt label { line-height:30px;}
+.page_form fieldset dl dd { float:left;  width:85%;}
+.page_form fieldset dl dd small { clear:both; display:block; color:#999;font-size:12px;}
+.page_form input { height:23px; line-height:23px;}
+.page_form input[type="text"],input[type="password"],input[type="select"],input[type="search"],input[type="file"],textarea,select {
+	height:25px; line-height:25px;  border:1px solid; border-color:#c1c1c1 #e0e0e0 #e0e0e0 #c1c1c1; border-radius:2px; -moz-border-radius:2px; -web-border-radius:2px; outline:0px; padding-left:4px; margin:5px 10px 3px 1px;
+}
+.page_form input:hover,textarea:hover { border:1px solid; border-color:#8b8b8b #c5c5c5 #c5c5c5 #8b8b8b;}
+.page_form input:focus,textarea:focus { border:1px solid; border-color:#0099ff; -moz-box-shadow:0 0 3px #0099ff; -webkit-box-shadow:0 0 3px #0099ff; box-shadow:0 0 3px #0099ff;}
+.page_form input:disabled,textarea:disabled { background:#f2f2f2;}
+.page_form .dinner_choose{margin:10px;}
+.choose_select{width:33%;padding:10px;text-align:center;}
+.choose_select_s{width:100%; height:250px;}
+
+.page_form textarea { line-height:18px; overflow:auto; width:90%;}
+.page_form textarea.small { height:8em;}
+.page_form textarea.medium { height:10em;}
+.page_form textarea.large { height:20em;}
+
+.page_form input.half,select.half,textarea.half { width:50%;}
+.page_form input.full,select.full,textarea.full { width:97%;}
+.page_form input[type="submit"],input[type="reset"],input[type="button"] { margin-bottom:0;}
+.page_form_sub {margin:0px 110px 0px 10px; display:inline-block;}
+
+.page_form2 fieldset dl dt { display:block; text-align:left;}
+.page_form2 fieldset dl dt label { line-height:30px;}
+.page_form2 fieldset dl dd { width:90%; clear:both; margin:0px;}
+.page_form2 .page_form_sub { margin:0px 20px 10px;}
+

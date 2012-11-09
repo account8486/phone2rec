@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 短信管理模板 发送 删除 -->
+	<package name="private-admin-security" extends="struts-base"
+		namespace="/admin/pri/security">
+		<action name="list"
+			class="com.wondertek.meeting.action.security.SecurityRoleAction"
+			method="list">
+			<result name="success">/pages/admin/pri/security/role_list.jsp
+			</result>
+		</action>
+		
+		<action name="toAddRole"
+			class="com.wondertek.meeting.action.security.SecurityRoleAction"
+			method="toAddRole">
+			<result name="success">/pages/admin/pri/security/role_add.jsp
+			</result>
+		</action>
+		
+		<action name="addRole"
+			class="com.wondertek.meeting.action.security.SecurityRoleAction"
+			method="addRole">
+			 <result type="json">
+				<param name="root">resultMap</param>
+			 </result>
+		</action>
+		
+		<action name="toEditRole"
+			class="com.wondertek.meeting.action.security.SecurityRoleAction"
+			method="toEditRole">
+			<result name="success">/pages/admin/pri/security/role_edit.jsp
+			</result>
+		</action>
+		
+		<action name="deleteRole"
+			class="com.wondertek.meeting.action.security.SecurityRoleAction"
+			method="deleteRole">
+			<result name="success">/pages/admin/pri/security/role_list.jsp
+			</result>
+		</action>
+		
+		
+		
+		
+	</package>
+</struts>

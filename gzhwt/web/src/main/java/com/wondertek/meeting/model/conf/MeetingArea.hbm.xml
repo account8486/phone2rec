@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.MeetingArea" table="meeting_area"
+		dynamic-update="true" dynamic-insert="true">
+
+		<id name="code" type="java.lang.String">
+			<column name="code" not-null="true" />
+			<generator class="assigned"></generator>
+		</id>
+
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="parent" column="parent" type="java.lang.String" />
+	</class>
+</hibernate-mapping>

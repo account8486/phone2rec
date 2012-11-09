@@ -1,0 +1,1 @@
+alter table meeting_post add column videourl varchar(256) after imgurl;

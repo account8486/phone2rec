@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- admin -->
+	<package name="private-admin-reception" extends="struts-base" namespace="/admin/pri/reception">
+		<action name="specialty_*" method="{1}" class="com.wondertek.meeting.action.reception.MeetingSpecialtyAction">
+			<result name="meetingSpecialtyInfo">/pages/admin/pri/reception/meetingSpecialtyInfo.jsp</result>
+			<result name="localSpecialtyInfo">/pages/admin/pri/reception/localSpecialtyInfo.jsp</result>
+			<result name="specialtyList">/pages/admin/pri/reception/meetingSpecialtyDetail.jsp</result>
+			<result name="specialtyPreview">/pages/admin/pri/reception/specialtyPreview.jsp</result>
+			<result name="localSpecialtyList">/pages/admin/pri/reception/localSpecialtyList.jsp</result>
+			<result name="searchLocalSpecialty">/pages/admin/pri/reception/searchLocalSpecialty.jsp</result>
+			<result name="json" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="private-portal-hotel" extends="struts-base" namespace="/portal/pri/hotel">
+		<action name="list" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="portalList">
+			<result>/pages/portal/pri/reception/hotelList.jsp</result>
+		</action>
+		
+		<action name="getHotelImage" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="getHotelImage">
+		</action>
+	</package>
+	
+	<package name="private-wap-hotel" extends="struts-base" namespace="/wap/pri/hotel">
+		<action name="list" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="portalList">
+			<result>/pages/wap/pri/reception/hotelList.jsp</result>
+		</action>
+		
+		<action name="getHotelImage" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="getHotelImage">
+		</action>
+	</package>
+	
+	<package name="private-touch-hotel" extends="struts-base" namespace="/touch/pri/hotel">
+		<action name="list" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="portalList">
+			<result>/pages/touch/pri/reception/hotelList.jsp</result>
+		</action>
+		
+		<action name="getHotelImage" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="getHotelImage">
+		</action>
+	</package>
+	
+	<package name="private-admin-hotel" extends="struts-base" namespace="/admin/pri/hotel">
+		<action name="list" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="list">
+			<result>/pages/admin/pri/reception/hotelList.jsp</result>
+		</action>
+		
+		<action name="goAdd" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="goAdd">
+			<result>/pages/admin/pri/reception/addHotel.jsp</result>
+		</action>
+		
+		<action name="listByName" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="listByName">
+		</action>
+		
+		<action name="findById" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="findById">
+		</action>
+		
+		<action name="add" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="add">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="goUpdate" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="goUpdate">
+			<result>/pages/admin/pri/reception/updateHotel.jsp</result>
+		</action>
+		
+		<action name="update" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="update">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	
+		<action name="del"
+			class="com.wondertek.meeting.action.reception.HotelAction" method="del">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="deleteImage" class="com.wondertek.meeting.action.reception.HotelAction"
+			method="deleteImage"/>
+	</package>
+	
+	<package name="private-admin-dr" extends="struts-base" namespace="/admin/pri/dr">
+		<action name="list" class="com.wondertek.meeting.action.reception.DiningRoomAction"
+			method="list">
+			<result>/pages/admin/pri/reception/diningRoomList.jsp</result>
+		</action>
+		
+		<action name="goAdd" class="com.wondertek.meeting.action.reception.DiningRoomAction"
+			method="goAdd">
+			<result>/pages/admin/pri/reception/addDiningRoom.jsp</result>
+		</action>
+		
+		<action name="listByName" class="com.wondertek.meeting.action.reception.DiningRoomAction"
+			method="listByName">
+		</action>
+		
+		<action name="findById" class="com.wondertek.meeting.action.reception.DiningRoomAction"
+			method="findById">
+		</action>
+		
+		<action name="add" class="com.wondertek.meeting.action.reception.DiningRoomAction"
+			method="add">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="goUpdate" class="com.wondertek.meeting.action.reception.DiningRoomAction"
+			method="goUpdate">
+			<result>/pages/admin/pri/reception/updateDiningRoom.jsp</result>
+		</action>
+		
+		<action name="update" class="com.wondertek.meeting.action.reception.DiningRoomAction"
+			method="update">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	
+		<action name="del"
+			class="com.wondertek.meeting.action.reception.DiningRoomAction" method="del">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="private-admin-hrt" extends="struts-base" namespace="/admin/pri/hrt">
+		<action name="list" class="com.wondertek.meeting.action.reception.HotelRoomTypeAction"
+			method="list">
+			<result>/pages/admin/pri/reception/hotelRoomTypeList.jsp</result>
+		</action>
+		
+		<action name="goAdd" class="com.wondertek.meeting.action.reception.HotelRoomTypeAction"
+			method="goAdd">
+			<result>/pages/admin/pri/reception/addHotelRoomType.jsp</result>
+		</action>
+		
+		<action name="listByName" class="com.wondertek.meeting.action.reception.HotelRoomTypeAction"
+			method="listByName">
+		</action>
+		
+		<action name="findById" class="com.wondertek.meeting.action.reception.HotelRoomTypeAction"
+			method="findById">
+		</action>
+		
+		<action name="add" class="com.wondertek.meeting.action.reception.HotelRoomTypeAction"
+			method="add">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="goUpdate" class="com.wondertek.meeting.action.reception.HotelRoomTypeAction"
+			method="goUpdate">
+			<result>/pages/admin/pri/reception/updateHotelRoomType.jsp</result>
+		</action>
+		
+		<action name="update" class="com.wondertek.meeting.action.reception.HotelRoomTypeAction"
+			method="update">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	
+		<action name="del"
+			class="com.wondertek.meeting.action.reception.HotelRoomTypeAction" method="del">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- portal -->
+	<package name="portal-pri-reception" extends="struts-base" namespace="/portal/pri/reception">
+		<action name="specialty_*" method="{1}" class="com.wondertek.meeting.action.reception.MeetingSpecialtyAction">
+			<result name="specialtyList">/pages/portal/pri/reception/specialtyList.jsp</result>
+		</action>
+	</package>
+	
+	<!-- wap -->
+	<package name="private-wap-reception" extends="struts-base" namespace="/wap/pri/reception">
+		<action name="specialty_*" method="{1}" class="com.wondertek.meeting.action.reception.MeetingSpecialtyAction">
+			<result name="specialtyList">/pages/wap/pri/reception/specialtyList.jsp</result>
+		</action>
+	</package>
+	
+	<package name="private-admin-room" extends="struts-base" namespace="/admin/pri/room">
+		<action name="list" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="list">
+			<result>/pages/admin/pri/reception/hotelRoomList.jsp</result>
+		</action>
+		
+		<action name="goAdd" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="goAdd">
+			<result>/pages/admin/pri/reception/addHotelRoom.jsp</result>
+		</action>
+		
+		<action name="listByName" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="listByName">
+		</action>
+		
+		<action name="findById" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="findById">
+		</action>
+		
+		<action name="add" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="add">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="goUpdate" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="goUpdate">
+			<result>/pages/admin/pri/reception/updateHotelRoom.jsp</result>
+		</action>
+		
+		<action name="update" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="update">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	
+		<action name="del"
+			class="com.wondertek.meeting.action.reception.HotelRoomAction" method="del">
+			<result type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId}</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="assignRooms" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="assignRooms">
+			<result name="success" type="redirectAction">
+				<param name="actionName">list</param>
+				<param name="meetingId">${meetingId }</param>
+				<param name="errMsg">${errMsg}</param>
+			</result>
+		</action>
+		
+		<action name="roomUserList" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="roomUserList">
+			<result>/pages/admin/pri/reception/hotelRoomUserList.jsp</result>
+		</action>
+		
+		<action name="removeUserFromRoom" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="removeUserFromRoom">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="addUserToRoom" class="com.wondertek.meeting.action.reception.HotelRoomAction"
+			method="addUserToRoom">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	</package>
+		
+</struts>

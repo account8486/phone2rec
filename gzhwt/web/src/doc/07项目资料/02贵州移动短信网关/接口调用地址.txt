@@ -1,0 +1,1 @@
+http://218.201.202.146:20/msgService/services   第三方调用地址

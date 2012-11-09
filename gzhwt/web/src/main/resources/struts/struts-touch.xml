@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="touch-base" extends="struts-base" namespace="/touch/base">
+		<action name="login" class="com.wondertek.meeting.action.login.LoginAction"
+			method="touchLogin">
+			<result name="error">error.jsp</result>
+			<result name="input">/pages/touch/login.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="namespace">/touch/pri/meeting</param>
+				<param name="actionName">getAttendMeetingList.action</param>
+			</result>
+			<result name="meeting">/pages/touch/pri/index.jsp?meetingId=${meeting.id}</result>
+		</action>
+		
+	
+		<action name="getMeetingInfoForTouch" class="com.wondertek.meeting.action.meeting.MeetingExpandAction"
+			method="getMeetingInfoForTouch">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="getPwd" class="com.wondertek.meeting.action.login.LoginAction"
+			method="wapGetPwd">
+			<result name="error">error.jsp</result>
+			<result name="input">/pages/touch/getPwd.jsp</result>
+			<result name="success">/pages/touch/login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="touch-pri-meeting" extends="struts-base" namespace="/touch/pri/meeting">
+		<!-- meeting live-service -->
+		 <action name="liveService_*" method="{1}" class="com.wondertek.meeting.action.meeting.MeetingLiveServiceAction">
+			 <result name="requestService">/pages/touch/pri/liveService/requestService.jsp</result>
+			 <result name="json" type="json">
+				<param name="root">resultMap</param>
+			</result>
+	  	 </action>
+	  	 
+		<action name="getAttendMeetingList" class="com.wondertek.meeting.action.meeting.MeetingExpandAction"
+			method="getAttendMeetingList">
+			 <result name="success">/pages/touch/pri/myAttendMeeting.jsp</result>		
+		</action>
+		
+	    <action name="getMeetingById" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="getMeetingById">
+			 <result name="touch_viewmeeting">/pages/touch/pri/home.jsp</result>
+			 <result name="meeting_topic">/pages/touch/pri/meetingTopic.jsp</result>
+			 <result name="portal_map">/pages/touch/pri/map/map.jsp</result>
+		</action>
+		
+		<action name="queryQRCode" class="com.wondertek.meeting.action.meeting.QRCodeAction"
+			method="queryQRCode">
+		</action>
+		
+		<action name="getMenuList"
+			class="com.wondertek.meeting.action.login.LoginAction" method="getTouchMenuList">
+			<result name="success">/pages/touch/pri/nav.jsp</result>
+		</action>
+		
+		<action name="showDinner"
+			class="com.wondertek.meeting.action.meeting.MeetingDinnerAction" method="wapView">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/touch/pri/dinner/dinner.jsp</result>
+		</action>
+		
+		<action name="getCustomeMenu"
+			class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="getMeetingContentById">
+			 <result name="success">/pages/touch/pri/content.jsp</result>
+	  	 </action>
+	  	 
+		
+	</package>
+	
+	<!-- 会议资料 -->
+	<package name="touch-pri-file" extends="struts-base" namespace="/touch/pri/file">
+		<action name="getMeetingFilesList"
+			class="com.wondertek.meeting.action.meeting.MeetingFilesAction"
+			method="getMeetingFilesList">
+			  <result name="success">/pages/touch/pri/file/touch_file_list.jsp</result>
+	   </action>
+	</package>	
+	
+	<package name="touch-pri-msg" extends="struts-base" namespace="/touch/pri/msg">
+		<action name="listMessageUsers"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="listMessageUsers">
+			<result name="success">/pages/touch/pri/message/conversationList.jsp
+			</result>
+		</action>
+		
+		<action name="listMessages"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="listMessages">
+			<result name="success">/pages/touch/pri/message/conversationDetail.jsp
+			</result>
+		</action>
+		
+		<action name="selectUser"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="selectUser">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/touch/pri/message/selectuser.jsp</result>
+		</action>
+		
+		<action name="send"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="sendMessage">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="list"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="list">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/touch/pri/message/sendMsg.jsp</result>
+		</action>
+		
+		<action name="deleteMessages"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="deleteMessages">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/touch/pri/msg</param>
+				<param name="actionName">listMessageUsers.action</param>
+				<param name="meetingId">${meetingId}</param>
+			</result>
+		</action>
+	</package>	
+	
+	
+	<!--会议成员通讯录 -->
+	<package name="touch-pri-meetingUsers" extends="struts-base" namespace="/touch/pri/member">
+		  <action name="getMeetingUsers" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="getMeetingUsers">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+          <result name="list">/pages/touch/pri/addressBook/meeting_users.jsp</result>              
+		</action>
+	</package>	
+	
+	<!-- 会议议程 -->
+	<package name="touch-pri-agenda" extends="struts-base" namespace="/touch/pri/agenda">
+		<action name="agendaList" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="agendaList4Touch">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/touch/pri/agenda/touch_agenda_list.jsp</result>
+		</action>
+		
+		<action name="group"
+			class="com.wondertek.meeting.action.meeting.MeetingAgendaAction" method="groupDetail">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/touch/pri/group/touch_groupmember.jsp</result>
+		</action>
+		
+		<action name="groupPlan"
+			class="com.wondertek.meeting.action.meeting.GroupPlanAction" method="show">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/touch/pri/group/touch_groupplan.jsp</result>
+		</action>
+		
+		
+		
+		
+	</package>
+	
+	<!-- 土特产 -->
+	<package name="touch-pri-reception" extends="struts-base" namespace="/touch/pri/reception">
+		<action name="specialty_*" method="{1}" class="com.wondertek.meeting.action.reception.MeetingSpecialtyAction">
+			<result name="specialtyList">/pages/touch/pri/reception/specialtyList.jsp</result>
+		</action>
+	</package>
+
+	<!-- 投票 -->
+	<package name="touch-pri-vote" extends="struts-base" namespace="/touch/pri/vote">
+		<action name="vote_*" class="com.wondertek.meeting.action.vote.VoteBaseAction"
+				method="{1}">
+			<result name="findEnableVote">/pages/touch/pri/vote/voteList.jsp</result>
+			<result name="lookVoteResult">/pages/touch/pri/vote/lookVoteResult.jsp</result>
+		</action>
+		
+		<action name="voteItem_*" class="com.wondertek.meeting.action.vote.VoteItemAction"
+				method="{1}">
+			<result name="enterTouchVote">/pages/touch/pri/vote/enterVote.jsp</result>
+			<result name="hasVote">/pages/touch/pri/vote/voteList.jsp</result>
+		</action>
+	</package>
+	
+	
+	<!--会场建议-->
+	<package name="touch-pri-paper" extends="struts-base" namespace="/touch/pri/paper">
+		<action name="paper_*" class="com.wondertek.meeting.action.paper.PaperAction"
+				method="{1}">
+			<result name="findEnablePaper">/pages/touch/pri/paper/paperList.jsp</result>
+		</action>
+		
+		<action name="question_*" class="com.wondertek.meeting.action.paper.QuestionAction"
+				 method="{1}"> 
+			<result name="enterTouchExam">/pages/touch/pri/paper/enterExam.jsp</result>
+			<result name="myAnswerPaper">/pages/touch/pri/paper/myAnswerPaper.jsp</result>
+			<result name="enablePaper" type="chain">
+				<param name="actionName">paper_findEnablePaper</param>
+			</result>
+		</action>
+	</package>
+	   <!--end-->
+
+	<!--行程安排 -->
+	<package name="touch-pri-journey" extends="struts-base" namespace="/touch/pri/journey">
+		<action name="getJourneyList" class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="getJourneyList">
+			<result name="success">/pages/touch/pri/journey/touch_journey_list.jsp</result>
+	</action>
+	</package>
+	
+	
+	<package name="touch-private-interaction" extends="struts-base" namespace="/touch/pri/interaction">
+		<action name="postView"
+			class="com.wondertek.meeting.action.meeting.MeetingPostAction" method="touchView">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/touch/pri/post/touch_post.jsp</result>
+		</action>
+		
+		<action name="postAdd"
+			class="com.wondertek.meeting.action.meeting.MeetingPostAction" method="wapAdd">
+			<result name="error">error.jsp</result>
+	
+			<result name="success">/pages/touch/pri/post/touch_post.jsp</result>
+		</action>
+		
+		<action name="postDetail"
+			class="com.wondertek.meeting.action.meeting.MeetingPostAction" method="wapDetail">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/touch/pri/post/touch_post_detail.jsp</result>
+		</action>
+		<action name="commentAdd"
+			class="com.wondertek.meeting.action.meeting.MeetingPostAction" method="wapAddComment">
+			<result name="error">error.jsp</result>
+			<result name="prompt">/pages/touch/pri/message/prompt.jsp</result>
+			<result name="success">/pages/touch/pri/post/touch_post_detail.jsp</result>
+		</action>
+	
+	</package>	
+	
+	
+	
+	
+	
+</struts>

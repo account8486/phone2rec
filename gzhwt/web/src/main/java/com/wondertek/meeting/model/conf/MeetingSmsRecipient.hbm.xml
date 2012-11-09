@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.wondertek.meeting.model">
+	<class name="MeetingSmsRecipient" table="meeting_sms_recipient">
+		<composite-id>
+			<key-property name="userId" column="user_id" type="java.lang.Long" />
+			<key-property name="msgId" column="meeting_sms_id" type="java.lang.Long" />
+		</composite-id>
+		<property name="state" column="state" type="java.lang.Integer" />
+	</class>
+</hibernate-mapping>

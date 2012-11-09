@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.rfid.TriggerTask" table="trigger_task">
+		<id name="id" type="java.lang.Integer">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="triggerNotify" column="trigger_notify" type="java.lang.Integer" />
+		<property name="delayTime" column="delay_time" type="java.lang.Integer" />
+		<property name="sendSMS" column="send_sms" type="java.lang.Integer" />
+		<property name="displayWelcome" column="display_welcome" type="java.lang.Integer" />
+		<property name="sendMeetingAgenda" column="send_meeting_agenda" type="java.lang.Integer" />
+		<property name="sendOtherInfo" column="send_other_info" type="java.lang.Integer" />
+		<property name="signIn" column="sign_in" type="java.lang.Integer" />
+		<property name="otherInfo" column="other_info" type="java.lang.String" length="200" />
+		<property name="smsTemplate" column="sms_template" type="java.lang.String" length="200" />
+		
+		<many-to-one name="meeting" class="com.wondertek.meeting.model.Meeting" column="meeting_id" lazy="false" />
+	</class>
+</hibernate-mapping>

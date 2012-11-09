@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="wap-base" extends="struts-base" namespace="/wap/base">
+		<action name="login" class="com.wondertek.meeting.action.login.LoginAction"
+			method="wapLogin">
+			<result name="error">error.jsp</result>
+			<result name="input">/pages/wap/login.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="namespace">/wap/pri/meeting</param>
+				<param name="actionName">getAttendMeetingList.action</param>
+			</result>
+			<result name="meeting" type="redirectAction">
+				<param name="namespace">/wap/pri/meeting</param>
+				<param name="actionName">getMeetingById.action</param>
+				<param name="returnType">wap_index</param>
+				<param name="meeting.id">${meeting.id}</param>
+			</result>
+		</action>
+		
+		<action name="getPwd" class="com.wondertek.meeting.action.login.LoginAction"
+			method="wapGetPwd">
+			<result name="error">error.jsp</result>
+			<result name="input">/pages/wap/getPwd.jsp</result>
+			<result name="success">/pages/wap/login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="wap-pri-base" extends="struts-base" namespace="/wap/pri/base">
+		<action name="logout" class="com.wondertek.meeting.action.login.LoginAction"
+			method="wapLogout">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="wap-pri-meeting" extends="struts-base" namespace="/wap/pri/meeting">
+		<action name="signCode" class="com.wondertek.meeting.action.meeting.SignInAction"
+			method="wapSignCode">
+			<result name="success">/pages/wap/pri/sign/signCode.jsp</result>
+		</action>
+		
+		<action name="signIn" class="com.wondertek.meeting.action.meeting.SignInAction"
+			method="wapSignIn">
+			<result name="input">/pages/wap/pri/sign/signIn.jsp</result>
+			<result name="success">/pages/wap/pri/sign/signIn.jsp</result>
+		</action>
+	</package>
+	
+	<package name="wap-private-agenda" extends="struts-base" namespace="/wap/pri/agenda">
+		<action name="view"
+			class="com.wondertek.meeting.action.meeting.MeetingAgendaAction" method="wapView">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/agenda.jsp</result>
+		</action>
+		<action name="group"
+			class="com.wondertek.meeting.action.meeting.MeetingAgendaAction" method="groupDetail">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/groupmember.jsp</result>
+		</action>
+		<action name="groupPlan"
+			class="com.wondertek.meeting.action.meeting.GroupPlanAction" method="show">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/groupplan.jsp</result>
+		</action>
+	</package>
+	<package name="wap-private-map" extends="struts-base" namespace="/wap/pri/map">
+        <action name="view"
+			class="com.wondertek.meeting.action.meeting.MapAction" method="wapView">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/map.jsp</result>
+		</action>
+    </package>
+
+	<package name="wap-private-interaction" extends="struts-base" namespace="/wap/pri/interaction">
+		<action name="postView"
+			class="com.wondertek.meeting.action.meeting.MeetingPostAction" method="wapView">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/post.jsp</result>
+		</action>
+		<action name="postAdd"
+			class="com.wondertek.meeting.action.meeting.MeetingPostAction" method="wapAdd">
+			<result name="error">error.jsp</result>
+			<result name="prompt">/pages/wap/pri/message/prompt.jsp</result>
+			<result name="success">/pages/wap/pri/post.jsp</result>
+		</action>
+		<action name="postDetail"
+			class="com.wondertek.meeting.action.meeting.MeetingPostAction" method="wapDetail">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/postdetail.jsp</result>
+		</action>
+		<action name="commentAdd"
+			class="com.wondertek.meeting.action.meeting.MeetingPostAction" method="wapAddComment">
+			<result name="error">error.jsp</result>
+			<result name="prompt">/pages/wap/pri/message/prompt.jsp</result>
+			<result name="success">/pages/wap/pri/postdetail.jsp</result>
+		</action>
+		<action name="downloadVideo"
+			class="com.wondertek.meeting.action.meeting.MeetingPostAction" method="downloadVideo">
+			<param name="savePath">interaction/upload/</param>
+			<result name="success">/pages/wap/pri/message/download.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>		
+	</package>	
+	
+	<package name="wap-private-files" extends="struts-base" namespace="/wap/pri/files">
+		  <action name="getMeetingFilesPager"
+			class="com.wondertek.meeting.action.meeting.MeetingFilesAction"
+			method="getMeetingFilesPager">
+			  <result name="success">/pages/wap/pri/file/wap_file_list.jsp</result>
+	   </action>
+	</package>
+	
+	<package name="private-wap-meeting" extends="struts-base" namespace="/wap/pri/meeting">
+	    <action name="getAttendMeetingList" class="com.wondertek.meeting.action.meeting.MeetingExpandAction"
+			method="getAttendMeetingList">
+			 <result name="success">/pages/wap/pri/myAttendMeeting.jsp</result>		
+		</action>
+		
+	    <action name="getMeetingById" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="getMeetingById">
+			 <result name="wap_index">/pages/wap/pri/index.jsp</result>	
+			 <result name="wap">/pages/wap/pri/meetingBaseInfo.jsp</result>	
+			 <result name="portal_users">/pages/wap/pri/meetingUsers.jsp</result>		
+		</action>
+		
+		<action name="showDinner"
+			class="com.wondertek.meeting.action.meeting.MeetingDinnerAction" method="wapView">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/dinner.jsp</result>
+		</action>
+		
+		<action name="showGroupInfo"
+			class="com.wondertek.meeting.action.meeting.MeetingDinnerAction" method="showGroupInfo">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/dinnerGroupMember.jsp</result>
+		</action>
+		
+		<action name="showAllGroupInfo"
+			class="com.wondertek.meeting.action.meeting.GroupPlanAction" method="show">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/allGroupInfo.jsp</result>
+		</action>
+		
+		<action name="getCustomeMenu"
+			class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+			method="getMeetingContentById">
+			 <result name="success">/pages/wap/pri/content.jsp</result>
+	  	 </action>
+	  	 
+	    <action name="getMeetingUsers" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="getMeetingUsers">
+			 <result name="list">/pages/wap/pri/meetingUsers.jsp</result>		
+		</action>
+	</package>
+	
+	 <!--投票管理-->
+	 <package name="wap-private-vote" extends="struts-base" namespace="/wap/pri/vote">
+		  <action name="vote_*" class="com.wondertek.meeting.action.vote.VoteBaseAction"
+				method="{1}">
+			<result name="findEnableVote">/pages/wap/pri/vote/voteList.jsp</result>
+			<result name="lookVoteResult">/pages/wap/pri/vote/lookVoteResult.jsp</result>
+			<result name="needCheck" type="chain">
+				<param name="actionName">voteItem_findItemByVoteId</param>
+			</result>
+			
+		  </action>
+		  
+		  
+		  <action name="voteItem_*" class="com.wondertek.meeting.action.vote.VoteItemAction"
+				method="{1}">
+			<result name="enterWapVote">/pages/wap/pri/vote/enterWapVote.jsp</result>
+			<result name="hasVote" type="chain">
+				<param name="actionName">vote_findEnableVote</param>
+			</result>
+		</action>
+		  
+	</package>
+	
+	
+	<!--会场建议-->
+	<package name="wap-private-paper" extends="struts-base" namespace="/wap/pri/paper">
+		<action name="paper_*" class="com.wondertek.meeting.action.paper.PaperAction"
+				method="{1}">
+			<result name="findEnablePaper">/pages/wap/pri/paper/paperList.jsp</result>
+		</action>
+		
+		<action name="question_*" class="com.wondertek.meeting.action.paper.QuestionAction"
+				 method="{1}"> 
+			<result name="enterWapExam">/pages/wap/pri/paper/enterExam.jsp</result>
+			<result name="myAnswerPaper">/pages/wap/pri/paper/myAnswerPaper.jsp</result>
+			<result name="enablePaper" type="chain">
+				<param name="actionName">paper_findEnablePaper</param>
+			</result>
+		</action>
+	</package>
+	<!--end-->
+	
+	<!--嘉宾管理  add by zouxiaoming-->
+	<package name="wap-pri-guest" extends="struts-base" namespace="/wap/pri/guest">
+		<action name="guest_*" class="com.wondertek.meeting.action.guest.GuestAction"
+				method="{1}">
+			<result name="guestList">/pages/wap/pri/guest/listGuest.jsp</result>
+		</action>
+	</package>
+	<!---->
+	
+	<!--抽奖管理  add by zouxiaoming-->
+	<package name="wap-pri-lucky" extends="struts-base" namespace="/wap/pri/lucky">
+		<action name="lucky_*" class="com.wondertek.meeting.action.guest.LuckyDrawAction"
+				method="{1}">
+			<result name="luckyHistoryList">/pages/wap/pri/lucky/listLuckyHistory.jsp</result>
+		</action>
+	</package>
+	<!---->
+	
+	<package name="wap-journey" extends="struts-base" namespace="/wap/pri/journey">	 
+	 <action name="getJourneyList"
+			class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="getJourneyList">
+			 <result name="success">/pages/wap/pri/journey/wap_journey_list.jsp</result>
+	   </action>
+	</package>
+	 
+
+</struts>

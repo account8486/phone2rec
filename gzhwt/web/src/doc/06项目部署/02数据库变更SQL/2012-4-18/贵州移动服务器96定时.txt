@@ -1,0 +1,15 @@
+#ident  "@(#)root       1.21    04/03/23 SMI"
+#
+# The root crontab should be used to perform accounting data collection.
+#
+#
+10 3 * * * /usr/sbin/logadm
+15 3 * * 0 /usr/lib/fs/nfs/nfsfind
+30 3 * * * [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+#10 3 * * * /usr/lib/krb5/kprop_script ___slave_kdcs___
+0 0 * * * /usr/bin/test -x /opt/SMAW/SMAWsf/bin/sflogcontrol && /opt/SMAW/SMAWsf/bin/sflogcontrol midnight
+0,15,30,45 * * * * /usr/bin/test -x /opt/SMAW/SMAWsf/bin/sflogcontrol && /opt/SMAW/SMAWsf/bin/sflogcontrol
+0 0 * * * /usr/bin/test -x /opt/SMAW/SMAWRrms/bin/hvlogcron && /opt/SMAW/SMAWRrms/bin/hvlogcron
+0,15,30,45 * * * * /usr/bin/test -x /opt/SMAW/SMAWRrms/bin/hvlogcontrol && /opt/SMAW/SMAWRrms/bin/hvlogcontrol
+0 0-23 * * *      HV_APPLICATION=hvcleanupnfs; PATH=/opt/SMAW/SMAWRrms/bin/tools.d:$PATH; export HV_APPLICATION PATH; hvcleanupnfs
+0 * * * * [ -x /usr/lib/fs/sfcfs/sfcchklog_wrapper ] && /usr/lib/fs/sfcfs/sfcchklog_wrapper

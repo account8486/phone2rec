@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.AdminRole" table="admin_role"
+		dynamic-update="true" dynamic-insert="true">
+
+		<id name="id" type="java.lang.Long">
+			<column name="id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="roleName" column="role_name" type="java.lang.String" />
+		<property name="state" column="state" type="java.lang.Integer" />
+		<property name="comments" column="comments" type="java.lang.String" />
+		<property name="createTime" column="create_time" type="java.util.Date" />
+		<property name="modifyTime" column="modify_time" type="java.util.Date" />
+	</class>
+</hibernate-mapping>

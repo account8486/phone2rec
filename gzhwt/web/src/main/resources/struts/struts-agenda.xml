@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="private-admin-agenda" extends="struts-base" namespace="/admin/pri/agenda">
+	    
+	    <action name="toBatchAddAgenda" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="toBatchAddAgenda">
+			<result name="success">/pages/admin/pri/agenda/agenda_batch_add.jsp</result>
+		</action>
+		
+	    <action name="batchAdd" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="batchAdd">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	
+		<action name="agendaList" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="agendaList_admin">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/agenda/list.jsp</result>
+			<result name="guide">/pages/admin/pri/guide/step3_agendalist.jsp</result>
+		</action>
+		
+		<action name="agendaAdd" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="agendaAdd">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/agenda/edit.jsp</result>
+		</action>
+		
+		<action name="getNewestAgenda" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="agendaAdd">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+
+		<action name="agendaImport" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="agendaImport">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/agenda/import.jsp</result>
+			<result name="guide_step4" type="redirectAction">
+			  	<param name="namespace">/admin/pri/meeting</param>
+			  	<param name="actionName">guide_step4.action</param>  
+			    <param name="meeting.id">${meetingId}</param>
+			    <param name="guideStep">step4</param>
+			  </result>
+		</action>
+		
+		<action name="agendaSave" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="agendaSave">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="agendaEdit" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="agendaEdit">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/agenda/edit.jsp</result>
+		</action>
+		
+		<action name="agendaDelete" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="agendaDelete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="agendaChoose" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="choose">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/agenda/choose.jsp</result>
+		</action>
+		
+		<action name="doChooseGroupPlan" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="doChoose">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="private-portal-agenda" extends="struts-base" namespace="/portal/pri/agenda">
+		<action name="agendaList" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="agendaList_admin">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/agenda/portal.jsp</result>
+		</action>
+		<action name="groupDetail" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+			method="groupDetail">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/agenda/groupdetail.jsp</result>
+		</action>
+		<action name="groupPlan" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+			method="show">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/agenda/groupplan.jsp</result>
+		</action>
+	</package>
+</struts>

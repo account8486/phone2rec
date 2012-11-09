@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.reception.LocalSpecialty" table="local_specialty">
+		<id name="id" type="java.lang.Integer">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="name" column="name" type="java.lang.String" length="50" />
+		<property name="memo" column="memo" type="java.lang.String" length="2000" />
+		<property name="image" column="image" type="java.lang.String" length="50" />
+		<property name="province" column="province" type="java.lang.String" length="20" />
+		<property name="city" column="city" type="java.lang.String" length="20" />
+		
+		<set name="meetingSpecialtySet" table="meeting_specialty_relative" inverse="true">
+			<key column="local_specialty_id"></key>
+			<many-to-many column="meeting_specialty_id" class="com.wondertek.meeting.model.reception.MeetingSpecialty"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

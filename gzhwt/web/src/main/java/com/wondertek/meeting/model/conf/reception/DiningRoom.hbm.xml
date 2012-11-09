@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.reception.DiningRoom"
+		table="dining_room">
+		<id name="id" type="java.lang.Long">
+			<column name="id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="businessHours" column="business_hours" type="java.lang.String" />
+		<property name="tableCnt" column="table_cnt" type="java.lang.Integer" />
+		<property name="capability" column="capability" type="java.lang.Integer" />
+		<property name="additionalInfo" column="additional_info"
+			type="java.lang.String" />
+		<property name="floor" column="floor" type="java.lang.String" />
+		<property name="state" column="state" type="java.lang.Integer" />
+		<property name="createTime" column="create_time" type="java.util.Date" />
+		<property name="modifyTime" column="modify_time" type="java.util.Date" />
+
+		<many-to-one name="hotel" column="hotel_id" lazy="false"
+			class="com.wondertek.meeting.model.reception.Hotel" not-found="ignore"></many-to-one>
+
+		<set name="meetings" table="meeting_dining_room" lazy="false">
+			<key column="dining_room_id" />
+			<many-to-many column="meeting_id"
+				class="com.wondertek.meeting.model.Meeting" />
+		</set>
+	</class>
+</hibernate-mapping>

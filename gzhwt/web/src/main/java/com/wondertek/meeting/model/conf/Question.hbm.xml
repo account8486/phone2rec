@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.Question" table="question"
+		dynamic-update="true" dynamic-insert="true">
+
+		<id name="id" type="java.lang.Long">
+			<column name="id" not-null="true" />
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="question" column="question" type="java.lang.String" />
+		<property name="answer"  type="java.lang.String" />
+		<property name="state"  type="java.lang.Integer" />
+		<property name="type"  type="java.lang.Integer" />
+		<property name="createTime" column="create_time" type="java.util.Date" />
+		
+		<many-to-one name="paper"  class="com.wondertek.meeting.model.Paper" lazy="false">
+        	<column name="paperId" ></column>
+        </many-to-one>
+		<many-to-one name="creator"  class="com.wondertek.meeting.model.AdminUser" lazy="false">
+        	<column name="adminUserId" ></column>
+        </many-to-one>
+        
+        <set name="items" inverse="true"  cascade="delete" lazy="false">
+			<key column="questionId"/>
+			<one-to-many class="com.wondertek.meeting.model.QuestionItem"/>
+		</set>
+
+	</class>
+</hibernate-mapping>

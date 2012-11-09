@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="com.wondertek.meeting.model.Meeting" %>
+<%@ page import="java.text.*" %>
+<%@ page import="java.util.*" %>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <title>安徽电信会议云平台</title>
+    <style>
+	/* Reset Css */
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}img,body,html{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul {list-style:none;}caption,th {text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;}q:before,q:after{content:'';}
+	
+    </style>
+</head>
+
+<body>
+
+<div id="errorMsgDiv" class="huiyi_detail">
+<h3 id="errorMsg">
+   </h3>
+</div>
+
+
+<!-- 会议内容 -->
+<%
+	if(request.getAttribute("meeting")!=null){
+		Map<String,Object> meetingMap=(HashMap<String,Object>)request.getAttribute("meeting");
+		
+%>	
+
+<div class="huiyi_detail" id="meetingContentDiv">
+	<h3 id="meetingName">
+	<%=meetingMap.get("name")%>
+    </h3>
+    <dl>
+        
+     <dt>开始：</dt>
+        <dd id="startTime"><%=meetingMap.get("startTime") %></dd>
+    </dl>
+    <dl>
+        <dt>结束：</dt>
+        <dd id="endTime"><%=meetingMap.get("endTime") %></dd>
+    </dl>
+    
+  	<dl>
+        <dt>地点：</dt>
+        <dd id="location"><%=meetingMap.get("location") %></dd>
+    </dl>
+    
+    <hr size="1" noshade>
+    <div class="cont" id="topic">
+    <%=(String.valueOf(meetingMap.get("topic"))).replace("\n","<br/>") %>
+    </div>
+</div>
+	<%
+	}
+	%>
+
+<style type="text/css">
+	.huiyi_detail { width:100%; font-size:17px; line-height:160%;}
+	.huiyi_detail h3 { background:#98d0ed; font-weight:bold; line-height:40px; font-size:18px; color:#046; text-align:center; margin-bottom:10px;}
+	.huiyi_detail dl { display:inline-block; clear:both; margin:auto 10px;}
+	.huiyi_detail dl dt { float:left; display:block;}
+	.huiyi_detail dl dd { float:left; display:block;}
+	.huiyi_detail hr { height:1px; background:#ccc; clear:both; margin:5px 10px;}	
+	.huiyi_detail .cont { clear:both; margin:0px 10px;line-height:32px; display:inline-block;}
+</style>
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="private-admin-interaction" extends="struts-base" namespace="/admin/pri/interaction">
+		<action name="postAdd" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postAdd">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/interaction/postadd.jsp</result>
+			
+		</action>
+		<action name="commentAdd" class="com.wondertek.meeting.action.meeting.MeetingCommentAction"
+			method="commentAdd">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>		
+		<action name="postList" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postList_admin">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/interaction/postlist.jsp</result>
+			<result name="step7">/pages/admin/pri/guide/step7_postlist.jsp</result>
+		</action>
+		
+		<action name="commentList" class="com.wondertek.meeting.action.meeting.MeetingCommentAction"
+			method="commentList_admin">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/interaction/commentlist.jsp</result>
+		</action>
+		
+		<action name="postDelete" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postDelete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="commentDelete" class="com.wondertek.meeting.action.meeting.MeetingCommentAction"
+			method="commentDelete">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="postCreate" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postCreate">
+			<param name="savePath">interaction/upload/</param>
+			<result name="success">/pages/admin/pri/interaction/postlist.jsp</result>
+			<result name="step7">/pages/admin/pri/guide/step7_postlist.jsp</result>
+		</action>
+	</package>
+
+	<package name="private-portal-interaction" extends="struts-base" namespace="/portal/pri/interaction">
+		<action name="postList" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postList_admin">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/interaction/postportal.jsp</result>
+			<result name="fullScreen">/pages/admin/pri/interaction/fullScreen.jsp</result>
+			
+		</action>
+		
+		<action name="commentList" class="com.wondertek.meeting.action.meeting.MeetingCommentAction"
+			method="commentList_admin">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/interaction/commentportal.jsp</result>
+		</action>
+		
+		<action name="postAdd" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postAdd">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/admin/pri/interaction/postadd.jsp</result>
+		</action>
+		
+		<action name="postCreate" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postCreate">
+			<param name="savePath">interaction/upload/</param>
+			<result name="success">/pages/admin/pri/interaction/postportal.jsp</result>
+		</action>
+		
+		<action name="commentAdd" class="com.wondertek.meeting.action.meeting.MeetingCommentAction"
+			method="commentAdd">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		
+		<action name="fullScreen" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postListFullScreen">
+			<result name="success">/pages/admin/pri/interaction/fullScreenAjax.jsp</result>
+		</action>
+	</package>
+	
+	<package name="private-client-interaction" extends="struts-base" namespace="/client/pri/meeting">
+		<action name="checkNewPost" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="checkNewPost">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+
+		<action name="postAdd" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postCreate4Client">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="postList" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postList">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+
+		<action name="postImgUpload" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postImgUpload">
+			<param name="savePath">interaction/upload/</param>
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="postViewCounter" class="com.wondertek.meeting.action.meeting.MeetingPostAction"
+			method="postViewCounter">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>		
+
+		<action name="commentAdd" class="com.wondertek.meeting.action.meeting.MeetingCommentAction"
+			method="commentAdd">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+
+		<action name="commentList" class="com.wondertek.meeting.action.meeting.MeetingCommentAction"
+			method="commentList">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	</package>
+</struts>

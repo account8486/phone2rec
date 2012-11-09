@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+<package name="private-client-meeting" extends="struts-base" namespace="/client/pri/meeting">
+	
+	<action name="agendaList" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+		method="agendaList">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+
+	<action name="groupDetail" class="com.wondertek.meeting.action.meeting.MeetingAgendaAction"
+		method="groupDetail_client">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+			
+	<action name="meetingContent" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+		method="meetingContent">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+	<action name="meetingContentList" class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+		method="meetingContentList">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+	
+	 <action name="getFilesAssortListByClient"
+		class="com.wondertek.meeting.action.meeting.MeetingFilesAssortAction"
+		method="getFilesAssortListByClient">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>	
+    <action name="getMeetingFilesList"
+		class="com.wondertek.meeting.action.meeting.MeetingFilesAction"
+		method="getMeetingFilesList">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+	<action name="doFileUpload4Client"
+			class="com.wondertek.meeting.action.meeting.MeetingFilesAction"
+			method="doFileUpload4Client">
+			  <param name="savePath">upload</param>
+			  <result type="json">
+				  <param name="root">resultMap</param>		 
+			  </result>
+	</action>
+
+	<action name="signIn" class="com.wondertek.meeting.action.meeting.SignInAction"
+		method="clientSignIn">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+   <action name="getMeetingInfo" class="com.wondertek.meeting.action.meeting.MeetingExpandAction"
+		method="getMeetingInfo">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+	<!-- 用餐信息 -->
+	<action name="getDinnerInfo" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+		method="getDinnerInfo">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+	<!-- 用餐分组人员信息 -->
+	<action name="getGroupInfoForDinner" class="com.wondertek.meeting.action.meeting.MeetingDinnerAction"
+		method="getGroupInfo">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+	<action name="showPlanDetail" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+		method="showPlanDetail">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+	<action name="showGroupMemberDetail" class="com.wondertek.meeting.action.meeting.GroupPlanAction"
+		method="showGroupMemberDetail">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+	<action name="getCustomeMenu"
+		class="com.wondertek.meeting.action.meeting.MeetingContentAction"
+		method="getMeetingContentById">
+		 <result name="success">/pages/client/content.jsp</result>
+  	 </action>
+  	 
+  	 <!-- 发短信页面 -->
+  	 <action name="gotoAdminPage" class="com.wondertek.meeting.action.sms.MeetingSmsAction"
+		method="gotoAdminPage">
+		<result name="success">/pages/client/sms.jsp</result>
+	</action>
+  	 <!-- 发短信 -->
+  	 <action name="sendSms" class="com.wondertek.meeting.action.sms.MeetingSmsAction"
+		method="sendSms">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+	<action name="checkSmsSendStatus"
+			class="com.wondertek.meeting.action.message.MessageManagerAction"
+			method="checkSmsSendStatus">
+		  	<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+	</action>
+	
+  	 <action name="analyticsLog" class="com.wondertek.meeting.action.meeting.AnalyticsLogAction"
+		method="analyticsLog">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+	
+</package>
+
+<package name="client-file" extends="struts-base" namespace="/client/base">
+	<action name="previewfile" class="com.wondertek.meeting.action.meeting.MeetingFilesAction"
+			method="preview">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+	</action>
+	
+	<action name="modifyPwd" class="com.wondertek.meeting.action.user.UserAction"
+		method="clientModifyPwd">
+		<result type="json">
+			<param name="root">resultMap</param>
+		</result>
+	</action>
+</package>
+
+<!-- 会议申请 -->
+<package name="client-apply" extends="struts-base" namespace="/client/apply">
+	<action name="addUserApply" class="com.wondertek.meeting.action.user.UserApplyAction"
+			method="addUserApply">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+	</action>
+</package>
+
+<package name="client-meeting-user" extends="struts-base" namespace="/client/pri">
+
+<!-- 会议列表-->
+	<action name="getMeetingList" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="getMeetingListForClient">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+	</action>
+	
+<!-- 参会人员 -->
+	<action name="getMeetingUser" class="com.wondertek.meeting.action.meeting.MeetingAction"
+			method="getMeetingUsersForClient">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+	</action>
+	
+</package>
+
+
+<package name="client" extends="struts-base" namespace="/client">
+<!-- 天气预报 当日天气 -->
+	<action name="getTodayWeather" class="com.wondertek.meeting.action.meeting.MeetingExpandAction"
+			method="getTodayWeather">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+	</action>
+<!-- 天气预报 页面-->
+	<action name="getWeatherInfo" class="com.wondertek.meeting.action.meeting.MeetingExpandAction"
+			method="getWeatherInfo">
+		 <result name="success">/pages/client/weather.jsp</result>
+	</action>
+</package>
+
+<!--投票管理-->
+<package name="client-vote" extends="struts-base" namespace="/client/pri/vote">
+	<action name="vote_*" class="com.wondertek.meeting.action.vote.VoteBaseAction"
+				method="{1}">
+			<result name="findEnableVote">/pages/client/pri/vote/voteList.jsp</result>
+			<result name="lookVoteResult">/pages/client/pri/vote/lookVoteResult.jsp</result>
+	</action>
+		
+	<action name="voteItem_*" class="com.wondertek.meeting.action.vote.VoteItemAction"
+				method="{1}">
+			<result name="enterClientVote">/pages/client/pri/vote/enterVote.jsp</result>
+			<result name="hasVote" type="chain">
+				<param name="actionName">vote_findEnableVote</param>
+			</result>
+	</action>
+</package>
+
+<!--会场建议-->
+<package name="client-paper" extends="struts-base" namespace="/client/pri/paper">
+	<action name="paper_*" class="com.wondertek.meeting.action.paper.PaperAction"
+			method="{1}">
+		<result name="findEnablePaper">/pages/client/pri/paper/paperList.jsp</result>
+	</action>
+	
+	<action name="question_*" class="com.wondertek.meeting.action.paper.QuestionAction"
+			 method="{1}"> 
+		<result name="enterClientExam">/pages/client/pri/paper/enterExam.jsp</result>
+		<result name="myAnswerPaper">/pages/client/pri/paper/myAnswerPaper.jsp</result>
+		<result name="enablePaper" type="chain">
+			<param name="actionName">paper_findEnablePaper</param>
+		</result>
+	</action>
+</package>
+
+<package name="client-journey" extends="struts-base" namespace="/client/pri/journey">
+	<action name="getJourneyList" class="com.wondertek.meeting.action.journey.JourneyAction"
+			method="getJourneyList">
+			<result name="success">/pages/client/pri/journey/journey_list.jsp</result>
+	</action>
+</package>
+
+
+</struts>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="private-wap-message" extends="struts-base"
+		namespace="/wap/pri/message">
+		<action name="messagebox"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="wapMessagebox">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/message/messagebox.jsp</result>
+		</action>
+		<action name="selectUser"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="selectUser">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/message/selectuser.jsp</result>
+		</action>
+		<action name="send"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="wapSendMessage">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/message/prompt.jsp</result>
+		</action>
+		<action name="delete"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="wapDeleteMessage">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/wap/pri/message/prompt.jsp</result>
+		</action>
+	</package>
+
+	<package name="private-portal-message" extends="struts-base"
+		namespace="/portal/pri/message">
+		<action name="selectUser"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="selectUser">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/portal/pri/message/selectuser.jsp</result>
+		</action>
+
+		<action name="list"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="list">
+			<result name="error">error.jsp</result>
+			<result name="success">/pages/portal/pri/message/messagebox.jsp</result>
+		</action>
+		
+		<action name="send"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="sendMessage">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="delete"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="deleteById">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+	   <action name="checkNewMessage"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="checkNewMessageByWeb">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		
+	</package>
+
+	<package name="private-client-message" extends="struts-base"
+		namespace="/client/pri/message">
+		<action name="send"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="sendMessage">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="inbox"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="inbox">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="outbox"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="outbox">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="setReadFlag"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="setReadFlag">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="delete"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="deleteById">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="cleanup"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="deleteAllByUserId">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<action name="checkNewMessage"
+			class="com.wondertek.meeting.action.message.PrivateMessageAction"
+			method="checkNewMessage">
+			<result type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+	</package>
+</struts>

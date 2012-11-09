@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.MeetingSeatImage" table="meeting_seat_image" dynamic-update="true">
+
+		<id name="meetingId" type="java.lang.Integer">
+			<column name="meeting_id" not-null="true" />
+		</id>
+		<property name="image" column="image" type="java.sql.Blob" />
+		<property name="offsetX" column="offset_x" type="java.lang.String" />
+		<property name="offsetY" column="offset_y" type="java.lang.String" />
+	</class>
+</hibernate-mapping>

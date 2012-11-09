@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wondertek.meeting.model.RolePermission" table="role_permission"
+		dynamic-update="true" dynamic-insert="true">
+
+		<composite-id>
+			<key-property name="roleId" column="role_id" type="java.lang.Integer" />
+			<key-property name="permissionId" column="permission_id"
+				type="java.lang.Integer" />
+		</composite-id>
+
+		<property name="roleName" column="role_name" type="java.lang.String" />
+		<property name="permissionName" column="permission_name"
+			type="java.lang.String" />
+		<property name="createTime" column="create_time" type="java.util.Date" />
+		<property name="modifyTime" column="modify_time" type="java.util.Date" />
+		<property name="createId" column="create_id" type="java.lang.String" />
+		<property name="createName" column="create_name" type="java.lang.Integer" />
+		<property name="modifyId" column="modify-id" type="java.lang.String" />
+		<property name="modifyName" column="modify_name" type="java.lang.String" />
+	</class>
+</hibernate-mapping>
