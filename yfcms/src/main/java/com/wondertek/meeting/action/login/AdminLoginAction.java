@@ -66,6 +66,35 @@ public class AdminLoginAction extends BaseAction {
 		resultMap.put("message", getText("user.login.success"));
 		return SUCCESS;
 	}
+	
+	
+	public String ssologin() {
+		
+		String mobile = this.getParameter("mobile");// 用户名
+		String passwd = this.getParameter("password");// 密码
+		AdminUser user = new AdminUser();
+		user.setMobile(mobile);
+		user.setPassword(passwd);
+
+		// 登录
+		AdminUser loginUser = null;
+		try {
+			loginUser = adminUserService.adminLogin(user, this.getLoginIP());
+		} catch (ServiceException e) {
+			String errCode = e.getMessage();
+			log.debug("user login failed!errCode:" + errCode);
+			return INPUT;
+		}
+
+		// 将用户信息存入session
+		this.putToSession(SessionKeeper.SESSION_ADMIN_USER, loginUser);
+		
+		// 修改验证码
+		this.putToSession(SessionKeeper.CheckCode, new Random().nextInt(9999));
+		log.debug(getText("user.login.success"));
+		
+		return SUCCESS;
+	}
 
 	/**
 	 * 后台注销
