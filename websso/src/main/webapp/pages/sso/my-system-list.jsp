@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
 <%@ include file="/pages/common/taglibs.jsp" %>
 
-
 <html>
 <head>
-
 <title>我的系统列表</title>
 ${jquery_js}                          
 ${jquery_form_js}   
@@ -17,7 +15,6 @@ ${jquery_form_js}
     <td width="147">点击进入</td>
   </tr>
   <tr>
-  
     <td>会务系统</td>
     <td><label>
     <a href="#" onclick="jump('admin','111111','http://127.0.0.1/yf/admin/base/ssologin.action');">
@@ -25,16 +22,16 @@ ${jquery_form_js}
     </a>
     </label></td>
   </tr>
-  
-  
-  <form name="ssoFrm" id="ssoFrm" method="post" target="_blank">
+</table>
+
+
+<form name="ssoFrm" id="ssoFrm" method="post" target="_blank">
   <input type="hidden" name="userName" id="userName" />
   <input type="hidden" name="username" id="username" />
   <input type="hidden" name="password" id="password" />
   <input type="hidden" name="mobile"   id="mobile" />
-  </form>
+</form>
   
-</table>
 </body>
 </html>
 
