@@ -34,6 +34,7 @@
     <bean id="jdbcService"
 	    class="com.wirelesscity.service.impl.JdbcServiceImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
 	<bean id="spService"
@@ -49,5 +50,14 @@
 		    class="com.wirelesscity.service.impl.AutoPushServiceImpl">
 		<property name="generalStatActionBean" ref="generalStatActionBean" />
 	</bean>
+	
+		
+	<bean id="ssoSystemConfigService"
+		    class="com.sso.service.SsoSystemConfigServiceImpl">
+		<property name="ssoSystemConfigDao" ref="ssoSystemConfigDao" />
+	</bean>
+	
+	
+	
 </beans>
 

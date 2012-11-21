@@ -7,6 +7,11 @@
 <struts>
     
 	<package name="websso" extends="struts-default" namespace="/sso">
-		
+		<action name="integrateLogin" class="com.sso.action.IntegrateLoginAction" method="integrateLogin"> 
+			<result name="input">/pages/sso/ssoLogin.jsp</result>
+			<result name="success">/pages/sso/my-system-list.jsp</result>
+		</action>
 	</package>
+	
+	
 </struts>

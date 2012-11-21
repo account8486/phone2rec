@@ -16,6 +16,10 @@
 
 	<include file="struts/struts-demo.xml"></include>
 	<include file="struts/struts-statistic.xml"></include>
+	<include file="struts/struts-sso.xml"></include>
+	<include file="struts/struts-admin.xml"></include>
+	
+	
 	
 	
 </struts>
