@@ -28,6 +28,26 @@ public class BaseAction extends ActionSupport {
 	
 	public FtpService ftpService;
 	
+	protected int currentPage = 1;
+
+	protected int pageSize = 10;
+	
+	public int getCurrentPage() {
+		return currentPage;
+	}
+
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
 	public FtpService getFtpService() {
 		return ftpService;
 	}

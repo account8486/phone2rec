@@ -15,7 +15,7 @@
 		<property name="passwordCfg" column="PASSWORD_CFG" type="java.lang.String" />
 		<property name="comments" column="COMMENTS" type="java.lang.String" />
 		<property name="logoUrl" column="LOGO_URL" type="java.lang.String" />
-		
+		<property name="accountColumnName" column="ACCOUNT_COLUMN_NAME" type="java.lang.String" />
 		<property name="createTime" column="create_time" type="java.util.Date" />
 		<property name="updateTime" column="UPDATE_TIME" type="java.util.Date" />
 		

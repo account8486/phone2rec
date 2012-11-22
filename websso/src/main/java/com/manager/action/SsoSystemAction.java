@@ -54,17 +54,27 @@ public class SsoSystemAction extends BaseAction {
 	 */
 	@SuppressWarnings("rawtypes")
 	public String getSsoSystemList() throws HibernateDaoSupportException {
-		
+		// String pageSize=this.getParameter("pageSize");
+		// String currentPage=this.getParameter("currentPage");
+
+		String appName = StringUtil.trim(this.getParameter("appName"));
 		StringBuffer querySql = new StringBuffer();
 		StringBuffer conditionSql = new StringBuffer();
-		
+
 		querySql.append(" select t.appid,t.appname,t.apploginurl from tf_sso_sso t ");
 		conditionSql.append("  where 1=1  ");
+
+		if (StringUtil.isNotEmpty(appName)) {
+			conditionSql.append("  and t.appname like '%" + appName + "%'");
+		}
+
+		Pager pager = JdbcService.findPagerBySql(querySql.toString(),
+				conditionSql.toString(), currentPage, pageSize);
 		
-		Pager pager=JdbcService.findPagerBySql(querySql.toString(),conditionSql.toString() , 5, 10);
+		this.setAttribute("appName", appName);
 		this.setAttribute("pager", pager);
-		
-		//this.setAttribute("result", lstResult);
+
+		// this.setAttribute("result", lstResult);
 
 		return SUCCESS;
 	}
@@ -86,7 +96,7 @@ public class SsoSystemAction extends BaseAction {
 		querySql.append(" select t.appid,t.appname,t.apploginurl from tf_sso_sso t ");
 		conditionSql.append(" where t.appid='"+appId+"'");
 		
-		List lstResult = JdbcService.getList(querySql.toString());
+		List lstResult = JdbcService.getList(querySql.append(conditionSql).toString());
 
 		if(lstResult!=null&&lstResult.size()>0){
 			Map ssoSystemMap=(HashMap)lstResult.get(0);
@@ -94,7 +104,7 @@ public class SsoSystemAction extends BaseAction {
 			
 			//查找对应信息
 		    StringBuffer hql=new StringBuffer();
-		    hql.append(" select po from  SsoSystemConfig po where po.ssoId="+appId);
+		    hql.append(" from  SsoSystemConfig po where po.ssoId='"+appId+"'");
 		    
 		    List<SsoSystemConfig> configList= ssoSystemConfigService.queryList(hql.toString(), null);
 		    if(configList!=null&&configList.size()>0){
@@ -118,20 +128,23 @@ public class SsoSystemAction extends BaseAction {
 		String userName=getRequest().getParameter("userName");
 		String password=getRequest().getParameter("password");
 		String appid=getRequest().getParameter("appid");
+		String accountColumnName=getRequest().getParameter("accountColumnName");
 		String systemCofigId=getRequest().getParameter("systemCofigId");
 		
-		log.debug("appid:"+appid+",userName:"+userName+",password:"+password+",systemCofigId:"+systemCofigId);
+		log.debug("appid:"+appid+",userName:"+userName+",password:"+password+",systemCofigId:"+systemCofigId+",accountColumnName:"+accountColumnName);
 		if(StringUtil.isNotEmpty(systemCofigId)){
 			SsoSystemConfig config= ssoSystemConfigService.findById(systemCofigId);
+			config.setSsoId(appid);
 			config.setUserNameCfg(userName);
 			config.setPasswordCfg(password);
-			config.setUpdateTime(new Date());
+			config.setCreateTime(new Date());
 			config.setLogoUrl(null);
+			config.setAccountColumnName(accountColumnName);
 			ssoSystemConfigService.saveOrUpdate(config);
 		}else{
 			//查找对应信息
 		    StringBuffer hql=new StringBuffer();
-		    hql.append(" select po from  SsoSystemConfig po where po.ssoId="+appid);
+		    hql.append(" from  SsoSystemConfig po where po.ssoId='"+appid+"'");
 		    List<SsoSystemConfig> configList= ssoSystemConfigService.queryList(hql.toString(), null);
 		    if(configList!=null&&configList.size()>0){
 		    	//看是否为空
@@ -140,14 +153,17 @@ public class SsoSystemAction extends BaseAction {
 				config.setPasswordCfg(password);
 				config.setUpdateTime(new Date());
 				config.setLogoUrl(null);
+				config.setAccountColumnName(accountColumnName);
 				ssoSystemConfigService.saveOrUpdate(config);
 				
 		    }else{
 		    	SsoSystemConfig config=new SsoSystemConfig();
 				config.setUserNameCfg(userName);
 				config.setPasswordCfg(password);
-				config.setUpdateTime(new Date());
+				config.setSsoId(appid);
+				config.setCreateTime(new Date());
 				config.setLogoUrl(null);
+				config.setAccountColumnName(accountColumnName);
 				ssoSystemConfigService.saveOrUpdate(config);
 		    }
 		}

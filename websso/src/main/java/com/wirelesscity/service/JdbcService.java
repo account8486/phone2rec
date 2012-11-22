@@ -15,6 +15,8 @@ public interface JdbcService{
 	public List getList(String sql) ;
 	
 	
+	public List test(String sql,Object[] args);
+	
 	public Pager findPagerBySql(String querySql, String queryCondtion,
 			int currentPage, int pageSize) throws HibernateDaoSupportException;
 	

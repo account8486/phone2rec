@@ -8,5 +8,9 @@
 <c:set var="main_css" value="<link href='${cssdir}/main.css' rel='stylesheet' type='text/css' />"/>
 <c:set var="jquery_js" value="<script type='text/javascript' src='${ctx}/js/jquery-1.5.min.js'></script>"  />
 <c:set var="jquery_form_js" value="<script type='text/javascript' src='${ctx}/js/jquery.form.js'></script>"  />
+<c:set var="util_js" value="<script type='text/javascript' src='${ctx}/js/util.js'></script>"  />
+<c:set var="admin_css" value="<link href='${ctx}/css/admin.css' rel='stylesheet' type='text/css' />"/>
 
-<%@ page trimDirectiveWhitespaces="true" %>
+
+
+<%@ page trimDirectiveWhitespaces="true"%>

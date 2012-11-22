@@ -59,6 +59,13 @@ public class JdbcServiceImpl extends HibernateDaoSupport implements JdbcService 
 		return list;
 	}
 	
+	
+	
+	public List test(String sql,Object[] args){
+		List lstResult=jdbcTemplate.queryForList(sql, args);
+		return lstResult;
+	}
+	
 	public Pager findPagerBySql(String querySql, String queryCondtion,
 			int currentPage, int pageSize) throws HibernateDaoSupportException{
 		
@@ -89,6 +96,9 @@ public class JdbcServiceImpl extends HibernateDaoSupport implements JdbcService 
 		pager.setCurrentPage(currentPage);
 		pager.setPageSize(pageSize);
 		pager.setTotal(total);
+		pager.setPageCount((int) Math.ceil(Float.parseFloat(String
+				.valueOf(total)) / Float.parseFloat(String.valueOf(pageSize))));
+	
 
 		List list = null;
 		list = this.queryListSql((querySql + queryCondtion), (currentPage - 1)

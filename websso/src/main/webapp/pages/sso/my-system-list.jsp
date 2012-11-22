@@ -22,6 +22,23 @@ ${jquery_form_js}
     </a>
     </label></td>
   </tr>
+  
+  
+  <c:if test="${not empty mySystemLoginLst }">
+  <c:forEach var="sys" items="${mySystemLoginLst}" varStatus="status">
+  
+   <tr>
+    <td>${sys.appname}</td>
+    <td><label>
+    <a href="#" onclick="jump('admin','111111','${sys.apploginurl}');">
+      <input type="button" name="进入" id="进入" value="进入系统" />
+    </a>
+    </label></td>
+  </tr>
+  </c:forEach>
+  </c:if>
+  
+  
 </table>
 
 

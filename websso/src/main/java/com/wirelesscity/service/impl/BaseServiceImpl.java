@@ -90,7 +90,7 @@ public class BaseServiceImpl<T, PK extends Serializable> implements
 	public List<T> queryList(String hql,
 			 Map<String, Object> properties)
 			throws ServiceException{
-		return basicDao.queryList(hql, 1, 100, entityClass, properties);
+		return basicDao.queryList(hql, 0, 10000, null, properties);
 	}
 			
 	public List<T> queryList(String hql, int startRecord, int pageSize,

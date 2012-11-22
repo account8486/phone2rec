@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <c:if test="${pager.pageCount > 1}">
-<div class="manu" style="text-align:center;align:center;">
+<div class="manu" style="text-align:left;align:left;">
 	<table width="96%" align="center" border="0" id="table29">
 	    <tr align="center">
 	        <td id="pageDesc" align="center">

@@ -10,7 +10,14 @@ public class SsoSystemConfig {
 	private String passwordCfg;
 	private String comments;
 	private String logoUrl;
-	
+	private String accountColumnName;
+
+	public String getAccountColumnName() {
+		return accountColumnName;
+	}
+	public void setAccountColumnName(String accountColumnName) {
+		this.accountColumnName = accountColumnName;
+	}
 	private Date createTime;
 	private Date updateTime;
 	

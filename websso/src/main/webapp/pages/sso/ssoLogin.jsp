@@ -23,7 +23,7 @@ ${jquery_form_js}
       <td width="427"><input type="text" name="userName" id="userName" /></td></tr>
     <tr>
       <td>密码</td>
-      <td><input type="text" name="password" id="password" /></td>
+      <td><input type="password" name="password" id="password" /></td>
     </tr>
     
     <tr>
