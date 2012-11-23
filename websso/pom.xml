@@ -34,8 +34,6 @@
     <jdk.version>1.5</jdk.version>
    </properties>
   
-  
-	
 	<dependencies>
 	     <dependency>
             <groupId>${jdbc.groupId}</groupId>
@@ -43,7 +41,7 @@
             <version>${jdbc.version}</version>
         </dependency>
         
-          <dependency>
+       <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>${servlet.version}</version>
@@ -66,7 +64,6 @@
         </dependency>
 
 		<!-- Servlet & Jsp -->
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -151,6 +148,33 @@
        	<type>jar</type>
        	<scope>compile</scope>
        </dependency>
+       
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        
+        <dependency>
+        	<groupId>cglib</groupId>
+        	<artifactId>cglib</artifactId>
+        	<version>2.1</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.springframework.security</groupId>
+        	<artifactId>spring-security-web</artifactId>
+        	<version>3.0.5.RELEASE</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
 	</dependencies>
 	
     <build>
@@ -171,6 +195,42 @@
     				<scanIntervalSeconds>10</scanIntervalSeconds>
     			</configuration>
     		</plugin>
+    		
+    			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>prepare-dependencies-repackage-copy</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<copy
+									todir="target/classes/com/sso/model" overwrite="true">
+									<fileset
+										dir="src/main/java/com/sso/model">
+										<include name="**/*.hbm.xml" />
+									</fileset>
+								</copy>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
     	</plugins>
+    	
     </build>
+
+
+    
+    
+    
+    
+    
+    
 </project>
