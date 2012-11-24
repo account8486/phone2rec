@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apps>
+  <app name="2">
+	<value1 name="日产生凭证数">无数据</value1>
+	<value2 name="日产生单据数">无数据</value2>
+  </app>
+  <app name="51">
+    <value1 name="日新增工单总数">无数据</value1>
+    <value2 name="日办结工单总数">无数据</value2>
+  </app>
+  <app name="32">
+    <value1 name="日报表生成数">无数据</value1>
+  </app>
+  <app name="53">
+    <value1 name="输电缺陷流程启动率">无数据</value1>
+    <value2 name="输电缺陷录入及时率">无数据</value2>
+    <value3 name="变电缺陷流程启动率">无数据</value3>
+    <value4 name="变电缺陷录入及时率">无数据</value4>
+    <value5 name="配电缺陷流程启动率">无数据</value5>
+    <value6 name="配电缺陷录入及时率">无数据</value6>
+    <value7 name="配电线路必填字段完整率">无数据</value7>
+    <value8 name="输电工作票归档率">无数据</value8>
+    <value9 name="变电工作票归档率">无数据</value9>
+  </app>
+  <app name="33">
+    <value1 name="日安全文件总数">无数据</value1>
+  </app>
+  <app name="34">
+    <value1 name="应急事件总数">无数据</value1>
+  </app>
+  <app name="62">
+    <value1 name="日新增公文数">无数据</value1>
+  </app>
+  <app name="36">
+    <value1 name="累计学习总时长">无数据</value1>
+    <value2 name="累计学习总次数">无数据</value2>
+  </app>
+  <app name="3">
+    <value1 name="月报表上报单位数">无数据</value1>
+  </app>
+  <app name="31">
+    <value1 name="日基建项目流程处理成功节点数">无数据</value1>
+  </app>
+  <app name="73">
+    <value1 name="累计项目总数">无数据</value1>
+  </app>
+  <app name="39">
+    <value1 name="累计农电指标总数">无数据</value1>
+    <value2 name="累计数据交换次数">无数据</value2>
+  </app>
+  <app name="21">
+    <value1 name="月新增合同总数">无数据</value1>
+  </app>
+  <app name="41">
+    <value1 name="累计数据记录总数">无数据</value1>
+  </app>
+  <app name="35">
+    <value1 name="累计规划项目总数">无数据</value1>
+  </app>
+  <app name="37">
+    <value1 name="累计支持性文件总数">无数据</value1>
+  </app>
+  <app name="38">
+    <value1 name="累计业务总数">无数据</value1>
+  </app>
+  <app name="4">
+    <value1 name="日待办接收总数">无数据</value1>
+    <value2 name="日待办完成总数">无数据</value2>
+    <value3 name="支持单点登录的系统总数">无数据</value3>
+    <value4 name="目录中的用户总数">无数据</value4>
+  </app>
+  <app name="63">
+    <value1 name="昨日新增新闻条数">无数据</value1>
+  </app>
+  <app name="16">
+    <value1 name="累计数据记录总数">无数据</value1>
+  </app>
+  <app name="29">
+    <value1 name="月平均交换次数">无数据</value1>
+  </app>    
+  <app name="27">
+    <value1 name="日集成凭证的比率">无数据</value1>
+    <value2 name="日发票校验的比率">无数据</value2>
+    <value3 name="采购订单完成率">无数据</value3>
+    <value4 name="采购申请完成率">无数据</value4>
+    <value5 name="收发货凭证录入时间差异">无数据</value5>
+    <value6 name="日物料凭证数">无数据</value6>
+  </app>
+</apps>

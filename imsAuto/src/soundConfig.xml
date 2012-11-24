@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods>
+  <mod name="应用">
+    <value name="在线用户历史峰值">0</value>
+    <value name="健康运行时长">1</value>
+    <value name="专业指标">0</value>
+    <value name="在线用户数">0</value>
+    <value name="日登陆人数">0</value>
+    <value name="注册用户总数">0</value>
+    <value name="业务系统探测">1</value>
+  </mod>
+  <mod name="桌面">
+    <value name="违规外联(IMS)">0</value>
+    <value name="违规外联">1</value>
+    <value name="终端注册率">0</value>
+    <value name="杀毒软件安装率">0</value>
+  </mod>  
+</mods>

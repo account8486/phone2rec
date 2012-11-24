@@ -1,0 +1,46 @@
+<!-- The contents of this file will be loaded for each web application -->
+<Context>
+<Resource
+      name="ims"
+      type="javax.sql.DataSource"
+      password="system"
+      driverClassName="oracle.jdbc.OracleDriver"
+	  initialSize="5"
+      maxIdle="10"
+	  minIdle="3"
+      maxWait="5000"
+      username="system"
+      url="jdbc:oracle:thin:@10.138.1.9:1521:imscmdb1"
+      maxActive="50" 
+	  testOnBorrow="true" testWhileIdle="true" validationQuery="select 1 from dual" />
+<Resource
+      name="soc"
+      type="javax.sql.DataSource"
+      password="isone2000"
+      driverClassName="oracle.jdbc.OracleDriver"
+      maxIdle="5"
+      maxWait="5000"
+      username="soc_sa_ap"
+      url="jdbc:oracle:thin:@10.138.1.107:1521:soc"
+      maxActive="50" />
+<Resource
+      name="vrv"
+      type="javax.sql.DataSource"
+      password="test"
+      driverClassName="com.microsoft.jdbc.sqlserver.SQLServerDriver"
+      maxIdle="5"
+      maxWait="5000"
+      username="sa"
+      url="jdbc:microsoft:sqlserver://localhost:1433;databaseName=Test"
+      maxActive="50" />
+<Resource
+      name="test"
+      type="javax.sql.DataSource"
+      password="test"
+      driverClassName="com.microsoft.jdbc.sqlserver.SQLServerDriver"
+      maxIdle="5"
+      maxWait="5000"
+      username="sa"
+      url="jdbc:microsoft:sqlserver://localhost:1433;databaseName=test"
+      maxActive="50" />            
+</Context>

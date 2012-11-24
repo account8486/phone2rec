@@ -1,0 +1,43 @@
+html,body,a,h1,h2,h3,h4,h5,h6,p,div,ul,li,ol,dl,dt,dd,img,form,input,textarea,select,fieldset { margin:0; padding:0; }
+
+/* 统一标题公共样式 */
+h1,h2,h3,h4,h5,h6 { font-family:Arial,Verdana,sans-serif; font-size-adjust:none; font-stretch:normal; font-style:normal; font-variant:normal; font-weight:bold;}
+
+/* 控制英文字符连续自动换行 */
+div,span,th,td,dt,dd,h1,h2,h3,h4,h5,h6,em,strong,i,a,b,a,p { word-break:break-all; word-wrap:break-word; }
+
+ul,ol,dl { list-style-type:none; }
+select,input,select { vertical-align:middle; }
+img { border:0 none; text-align:absmiddle; background-color:transparent; }
+
+/* 表格居中显示 */
+table { margin-left:auto; margin-right:auto; border-width:0; }
+
+/* 网页中默认链接的样式设置 */
+a {text-decoration:none;behavior:url(line.htc);}
+a:hover { text-decoration:none; }
+a:focus { outline:0; }
+.underline { text-decoration:none; }
+
+/* 网页公用的属性: 字体、文字颜色、背景色等 */
+body,table,input,select,textarea { font-family:Arial,SimSun,'宋体',sans-serif; font-size:12px; }
+
+.fl { float:left;}
+.fr { float:right;}
+/* 清浮动 */
+.clear { font-size:0px; line-height:0; clear:both; height:0; }
+/* 溢出 */
+.ofh{ overflow:hidden}
+/* 框架定位 */
+.mauto{ margin:0 auto;}
+
+/* 框架尺寸 */
+.w1440{ width:1440px;}
+.w900 { width:900px !important; }
+
+/* 打印时样式 */
+@media print{	body *{ color:#000 !important; border-color:#ccc !important } }
+
+.ti5k { text-indent:-5000px; }
+
+.alpha50{ filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5; }

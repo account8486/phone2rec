@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corps>
+  <corp name="合肥">
+    <value name="155">10.138.236.12,10.138.238.243</value>
+    <value name="622">10.138.244.14,10.138.247.243</value>
+  </corp>
+  <corp name="安庆">
+    <value name="155">10.138.236.5,10.138.238.250</value>
+    <value name="622">10.138.244.7,10.138.247.250</value>
+  </corp>
+  <corp name="淮北">
+    <value name="155">10.138.236.4,10.138.238.251</value>
+    <value name="622">10.138.244.6,10.138.247.251</value>
+  </corp>
+  <corp name="淮南">
+    <value name="155">10.138.236.3,10.138.238.252</value>
+    <value name="622">10.138.244.5,10.138.247.252</value>
+  </corp>
+  <corp name="芜湖">
+    <value name="155">10.138.236.6,10.138.238.249</value>
+    <value name="622">10.138.244.8,10.138.247.249</value>
+  </corp>
+  <corp name="马鞍山">
+    <value name="155">10.138.236.7,10.138.238.248</value>
+    <value name="622">10.138.244.9,10.138.247.248</value>
+  </corp>
+  <corp name="阜阳">
+    <value name="155">10.138.236.8,10.138.238.247</value>
+    <value name="622">10.138.244.10,10.138.247.247</value>
+  </corp>
+  <corp name="亳州">
+    <value name="155">10.138.236.9,10.138.238.246</value>
+    <value name="622">10.138.244.11,10.138.247.246</value>
+  </corp>
+  <corp name="宿州">
+    <value name="155">10.138.236.10,10.138.238.245</value>
+    <value name="622">10.138.244.12,10.138.247.245</value>
+  </corp>
+  <corp name="蚌埠">
+    <value name="155">10.138.236.11,10.138.238.244</value>
+    <value name="622">10.138.244.13,10.138.247.244</value>
+  </corp>
+  <corp name="六安">
+    <value name="155">10.138.236.13,10.138.238.242</value>
+    <value name="622">10.138.244.15,10.138.247.242</value>
+  </corp>
+  <corp name="滁州">
+    <value name="155">10.138.244.14,10.138.238.241</value>
+    <value name="622">10.138.244.16,10.138.247.241</value>
+  </corp>
+  <corp name="巢湖">
+    <value name="155">10.138.236.15,10.138.238.240</value>
+    <value name="622">10.138.244.17,10.138.247.240</value>
+  </corp>
+  <corp name="池州">
+    <value name="155">10.138.236.16,10.138.238.239</value>
+    <value name="622">10.138.244.18,10.138.247.239</value>
+  </corp>
+  <corp name="铜陵">
+    <value name="155">10.138.236.17,10.138.238.238</value>
+    <value name="622">10.138.244.19,10.138.247.248</value>
+  </corp>
+  <corp name="黄山">
+    <value name="155">10.138.236.18,10.138.238.237</value>
+    <value name="622">10.138.244.20,10.138.247.237</value>
+  </corp>
+  <corp name="宣城">
+    <value name="155">10.138.236.19,10.138.238.236</value>
+    <value name="622">10.138.244.21,10.138.247.236</value>
+  </corp>
+</corps>

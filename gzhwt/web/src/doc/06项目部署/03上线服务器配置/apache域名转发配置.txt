@@ -1,7 +1,0 @@
-apache转发规则
-
-http://ip -> http://ip/meeting/login.jsp
-http://ip/portal -> http://ip/meeting/pages/portal/login.jsp
-http://ip/wap -> http://ip/meeting/pages/wap/login.jsp
-http://ip/portal/xx -> http://ip/meeting/portal/pri/meeting/getMeetingById.action?returnType=portal&from=portal&meeting.id=xx
-http://ip/wap/xx -> http://ip/meeting/wap/pri/meeting/getMeetingById.action?returnType=wap_index&amp;meeting.id=xx

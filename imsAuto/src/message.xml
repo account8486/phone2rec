@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>告警消息</comment>
+<entry key="SMS_NET">网络监管出现异常</entry>
+<entry key="SMS_APP">应用监管出现异常</entry>
+<entry key="SMS_DESK">桌面监管出现异常</entry>
+<entry key="SMS_SECU">安全监管出现异常</entry>
+<entry key="SMS_ALA">告警监管出现异常</entry>
+<entry key="SMS_MID">15655106085</entry>
+
+<entry key="bandwidth_msg">网络带宽利用率告警</entry>
+<entry key="packetloss_msg">网络丢包率告警</entry>
+<entry key="delaymax_msg">网络延时峰值告警</entry>
+<entry key="delayavg_msg">网络延时均值告警</entry>
+<entry key="runtime_msg">系统健康运行时长告警</entry>
+
+<entry key="winxp_msg">winxp终端数量告警</entry>
+<entry key="win2000_msg">win2000终端数量告警</entry>
+<entry key="win2003_msg">win2003终端数量告警</entry>
+<entry key="winvista_msg">winvista终端数量告警</entry>
+<entry key="buding_msg">补丁安装率告警</entry>
+<entry key="zhongduan_msg">终端使用率率告警</entry>
+<entry key="zhuomian_msg">在线桌面终端告警</entry>
+<entry key="weizhuce_msg">未注册数量告警</entry>
+<entry key="wailian_msg">违规外联告警</entry>
+<entry key="denglu_msg">登录终端数告警</entry>
+<entry key="yingzhuce_msg">应注册终端数告警</entry>
+<entry key="zhuce_msg">注册终端数告警</entry>
+<entry key="zhucelv_msg">终端注册率告警</entry>
+
+<entry key="riskmax_msg">风险最大值告警</entry>
+<entry key="leakcount_msg">漏洞总数告警</entry>
+<entry key="leakstatus_msg">漏洞状态告警</entry>
+<entry key="fitfratal_msg">配置脆弱性告警</entry>
+<entry key="savevt_msg">新接入安全事件告警</entry>
+<entry key="alarm_msg">未关闭告警信息告警</entry>
+
+<entry key="OnLineCount_MSG">系统在线用户数告警</entry>
+<entry key="OnLineCountH_MSG">系统在线用户历史峰值告警</entry>
+<entry key="DayLoginNum_MSG">系统日登录人数告警</entry>
+<entry key="DayLoginNumH_MSG">系统日登录用户历史峰值告警</entry>
+<entry key="RegCount_MSG">系统注册用户总数告警</entry>
+<entry key="ZHUANYE_MSG">系统专业指标告警</entry>
+</properties>
+

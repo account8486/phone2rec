@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <description>网络监管</description>
+    <servlet-name>NetMonitor</servlet-name>
+    <servlet-class>servlet.NetMonitor</servlet-class>
+  </servlet>
+  <servlet>
+    <description>应用监管</description>
+    <servlet-name>AppMonitor</servlet-name>
+    <servlet-class>servlet.AppMonitor</servlet-class>
+  </servlet>
+  <servlet>
+    <description>桌面监管</description>
+    <servlet-name>DeskMonitor</servlet-name>
+    <servlet-class>servlet.DeskMonitor</servlet-class>
+  </servlet>
+  <servlet>
+    <description>安全监管</description>
+    <servlet-name>SecuMonitor</servlet-name>
+    <servlet-class>servlet.SecuMonitor</servlet-class>
+  </servlet>
+  <servlet>
+    <description>告警监管</description>
+    <servlet-name>AlarmMonitor</servlet-name>
+    <servlet-class>servlet.AlarmMonitor</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <description>机房监管</description>
+    <servlet-name>DevMonitor</servlet-name>
+    <servlet-class>servlet.DevMonitor</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <description>LOG日志初始化</description>
+    <servlet-name>LogInit</servlet-name>
+    <servlet-class>servlet.LogInit</servlet-class>
+    <init-param>
+		<param-name>log4j-init-file</param-name>
+		<param-value>log4j.properties</param-value>
+	</init-param>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet>
+    <description>机房供电监管</description>
+    <servlet-name>PowMonitor</servlet-name>
+    <servlet-class>servlet.PowMonitor</servlet-class>
+  </servlet>
+  <servlet>
+    <description>温度监管</description>
+    <servlet-name>TempMonitor</servlet-name>
+    <servlet-class>servlet.TempMonitor</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Powhs</servlet-name>
+    <servlet-class>servlet.Powhs</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Powhse</servlet-name>
+    <servlet-class>servlet.Powhse</servlet-class>
+  </servlet>
+
+
+
+  <servlet-mapping>
+    <servlet-name>NetMonitor</servlet-name>
+    <url-pattern>/servlet/NetMonitor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AppMonitor</servlet-name>
+    <url-pattern>/servlet/AppMonitor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeskMonitor</servlet-name>
+    <url-pattern>/servlet/DeskMonitor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SecuMonitor</servlet-name>
+    <url-pattern>/servlet/SecuMonitor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AlarmMonitor</servlet-name>
+    <url-pattern>/servlet/AlarmMonitor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PowMonitor</servlet-name>
+    <url-pattern>/servlet/PowMonitor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TempMonitor</servlet-name>
+    <url-pattern>/servlet/TempMonitor</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>DevMonitor</servlet-name>
+    <url-pattern>/servlet/DevMonitor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Powhs</servlet-name>
+    <url-pattern>/servlet/Powhs</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Powhse</servlet-name>
+    <url-pattern>/servlet/Powhse</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <resource-env-ref>
+    	<resource-env-ref-name>test</resource-env-ref-name>
+    	<resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
+  </resource-env-ref>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <listener>
+    <listener-class>common.TaskListener</listener-class>
+  </listener>
+</web-app>

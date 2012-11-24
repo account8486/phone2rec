@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devs>
+  <dev name="地下室1号UPS">
+	<value name="2101036">A相负载</value>
+	<value name="2101037">B相负载</value>
+	<value name="2101038">C相负载</value>
+	<value name="2101004">A相电压</value>
+	<value name="2101005">B相电压</value>
+	<value name="2101006">C相电压</value>
+	<value name="2101021">旁路A相电压</value>
+	<value name="2101022">旁路B相电压</value>
+	<value name="2101023">旁路C相电压</value>
+	<value name="2101071">不同步</value>
+	<value name="2101072">市电异常</value>
+	<value name="2101073">整流器故障</value>
+	<value name="2101074">逆变器故障</value>
+	<value name="2101075">旁路输入异常</value>
+  </dev>
+  <dev name="地下室2号UPS">
+	<value name="2101036">A相负载</value>
+	<value name="2101037">B相负载</value>
+	<value name="2101038">C相负载</value>
+	<value name="2101004">A相电压</value>
+	<value name="2101005">B相电压</value>
+	<value name="2101006">C相电压</value>
+	<value name="2101021">旁路A相电压</value>
+	<value name="2101022">旁路B相电压</value>
+	<value name="2101023">旁路C相电压</value>
+	<value name="2101071">不同步</value>
+	<value name="2101072">市电异常</value>
+	<value name="2101073">整流器故障</value>
+	<value name="2101074">逆变器故障</value>
+	<value name="2101075">旁路输入异常</value>
+  </dev>  
+</devs>

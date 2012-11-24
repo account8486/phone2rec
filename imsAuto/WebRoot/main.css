@@ -1,0 +1,17 @@
+body{
+	margin: 0px;
+	font-family: "宋体";
+	font-size: 12px;
+}
+
+.pic_title {
+	line-height: 24px;
+	color: #0A0A0A;
+}
+
+.alarm {
+	color: red;
+}
+.normal {
+	color: green;
+}

@@ -1,0 +1,137 @@
+package servlet;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
+import bean.DeskMonitorBean;
+import bean.VRVData;
+import common.CommonUtil;
+import common.DBUtil2;
+import dao.DeskMonitorDao;
+
+public class DeskMonitor extends HttpServlet {
+
+	private static final long serialVersionUID = 6644203005174865614L;
+	private static Logger logger = Logger.getLogger(DeskMonitor.class);
+
+	/**
+	 * Constructor of the object.
+	 */
+	public DeskMonitor() {
+		super();
+	}
+
+	/**
+	 * Destruction of the servlet. <br>
+	 */
+	public void destroy() {
+		super.destroy(); // Just puts "destroy" string in log
+		// Put your code here
+	}
+
+	/**
+	 * The doGet method of the servlet. <br>
+	 *
+	 * This method is called when a form has its tag value method equals to get.
+	 * 
+	 * @param request the request send by the client to the server
+	 * @param response the response send by the server to the client
+	 * @throws ServletException if an error occurred
+	 * @throws IOException if an error occurred
+	 */
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		doPost(request, response);
+	}
+
+	/**
+	 * The doPost method of the servlet. <br>
+	 *
+	 * This method is called when a form has its tag value method equals to post.
+	 * 
+	 * @param request the request send by the client to the server
+	 * @param response the response send by the server to the client
+	 * @throws ServletException if an error occurred
+	 * @throws IOException if an error occurred
+	 */
+	public void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+
+		
+		String handle = req.getParameter("handle");
+		String status = "normal";
+		List<DeskMonitorBean> list = null;
+		DeskMonitorDao deskDao = new DeskMonitorDao();
+		List<VRVData> vrvList = deskDao.getVRVData();
+		
+		if (handle != null){
+			list = new ArrayList<DeskMonitorBean>();
+			//复位操作，将巡检记录清空
+			if (handle.equals("reset")){
+				for (Integer id :CommonUtil.deptId){
+					if (id != 12) {
+						DeskMonitorBean deskBean = new DeskMonitorBean();
+						deskBean.setCorpId(id);
+						deskBean.setCorpName(CommonUtil.Dept.get(id));
+						String sta = deskDao.setBean2(deskBean, vrvList);
+						if (sta.equals("")){
+							status = "alarm";
+						}
+						list.add(deskBean);
+					}
+				}
+			}
+		}
+		else {
+			//首次打开页面，初始化巡检记录
+			if (req.getSession().getAttribute("desklist") == null){
+				list = new ArrayList<DeskMonitorBean>();
+				for (Integer id :CommonUtil.deptId){
+					if (id != 12) {
+						DeskMonitorBean deskBean = new DeskMonitorBean();
+						deskBean.setCorpId(id);
+						deskBean.setCorpName(CommonUtil.Dept.get(id));
+						String sta = deskDao.setBean2(deskBean, vrvList);
+						if (sta.equals("")){
+							status = "alarm";
+						}
+						list.add(deskBean);
+					}
+				}
+			}
+			//巡检记录已存在，根据巡检结果修改记录
+			else {
+				list = (List<DeskMonitorBean>) req.getSession().getAttribute("desklist");
+				for (DeskMonitorBean bean : list){
+					String sta = deskDao.setBean2(bean, vrvList);
+					if (sta.equals("")){
+						status = "alarm";
+					}
+				}
+			}
+		}
+		
+		logger.info("桌面监管巡检");
+		req.getSession().setAttribute("desklist", list);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/deskMonitor.jsp");
+		dispatcher.forward(req, resp);
+	}
+	
+	/**
+	 * Initialization of the servlet. <br>
+	 *
+	 * @throws ServletException if an error occurs
+	 */
+	public void init() throws ServletException {
+		// Put your code here
+	}
+
+}

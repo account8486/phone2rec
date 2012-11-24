@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>配置信息</comment>
+<entry key="minute">0</entry>
+<entry key="second">300</entry>
+<entry key="soundAlarm">1</entry>
+<entry key="bandwidth">-1</entry>
+<entry key="packetloss">-1</entry>
+<entry key="delaymax">-1</entry>
+<entry key="delayavg">-1</entry>
+<entry key="runtime_l">200</entry>
+<entry key="runtime_h">600</entry>
+<entry key="SMS_NET">0</entry>
+<entry key="SMS_APP">0</entry>
+<entry key="SMS_DESK">0</entry>
+<entry key="SMS_SECU">0</entry>
+<entry key="SMS_ALA">0</entry>
+
+<entry key="TASK_HOUR">3</entry>
+<entry key="TASK_MIN">0</entry>
+
+<entry key="bandwidth_msg">网络带宽利用率告警</entry>
+<entry key="packetloss_msg">网络丢包率告警</entry>
+<entry key="delaymax_msg">网络延时峰值告警</entry>
+<entry key="delayavg_msg">网络延时均值告警</entry>
+<entry key="runtime_msg">系统健康运行时长告警</entry>
+
+<entry key="winxp_msg">winxp终端数量告警</entry>
+<entry key="win2000_msg">win2000终端数量告警</entry>
+<entry key="win2003_msg">win2003终端数量告警</entry>
+<entry key="winvista_msg">winvista终端数量告警</entry>
+<entry key="buding_msg">补丁安装率告警</entry>
+<entry key="zhongduan_msg">终端使用率率告警</entry>
+<entry key="zhuomian_msg">在线桌面终端告警</entry>
+<entry key="weizhuce_msg">未注册数量告警</entry>
+<entry key="wailian_msg">违规外联告警</entry>
+<entry key="denglu_msg">登录终端数告警</entry>
+<entry key="yingzhuce_msg">应注册终端数告警</entry>
+<entry key="zhuce_msg">注册终端数告警</entry>
+<entry key="zhucelv_msg">终端注册率告警</entry>
+
+<entry key="riskmax_msg">风险最大值告警</entry>
+<entry key="leakcount_msg">漏洞总数告警</entry>
+<entry key="leakstatus_msg">漏洞状态告警</entry>
+<entry key="fitfratal_msg">配置脆弱性告警</entry>
+<entry key="savevt_msg">新接入安全事件告警</entry>
+<entry key="savevt_msg_real">新接入安全事件(实时)告警</entry>
+<entry key="alarm_msg">未关闭告警信息告警</entry>
+
+<entry key="SMS_USERID">imsgl</entry>
+<entry key="SMS_PASSWORD">imsgl</entry>
+<entry key="SMS_IPADDRESS">http://10.138.1.48:81/adm/ext/sendsms.jsp</entry>
+<entry key="SMS_PORT">81</entry>
+<entry key="SMS_TIMEOUT">10</entry>
+
+<entry key="URL_VRV">jdbc:microsoft:sqlserver://10.138.1.47:1433;databaseName=vrveis</entry>
+<entry key="UID_VRV">sa</entry>
+<entry key="PWD_VRV">sg186186#</entry>
+
+<entry key="URL_BETA">jdbc:microsoft:sqlserver://10.138.1.82:1433;databaseName=btim118</entry>
+<entry key="UID_BETA">btim118</entry>
+<entry key="PWD_BETA">btim118</entry>
+
+<!--
+<entry key="URL_CENT">jdbc:sqlserver://10.138.214.2:1433;DatabaseName=center</entry>
+<entry key="UID_CENT">sa</entry>
+<entry key="PWD_CENT">12345678</entry>
+
+-->
+
+<!--jiaziding-->
+<!--
+<entry key="URL_CENT">jdbc:sqlserver://localhost:1433;DatabaseName=Test</entry>
+<entry key="UID_CENT">sa</entry>
+<entry key="PWD_CENT">111</entry>
+-->
+
+<entry key="URL_CENT">jdbc:sqlserver://localhost:1433;DatabaseName=Test</entry>
+<entry key="UID_CENT">sa</entry>
+<entry key="PWD_CENT">111</entry>
+
+
+<entry key="PRO_NODE">省公司NE80-1,省公司NE80-2,省公司_NE80-3,省公司_NE40_E,10.138.4.250,10.138.4.251,10.138.4.229,10.138.4.233,10.138.20.120,10.138.20.121,10.138.20.122,10.138.20.123,10.138.1.190,10.138.1.200,10.138.1.252,10.138.1.253</entry>
+<entry key="STATE_URL">http://10.1.102.200</entry>
+<entry key="FILTER_LINK">10.138.1.154,10.138.1.253;1000,2000</entry>
+
+<entry key="DEVICE">地下室1号UPS,地下室2号UPS</entry>
+</properties>

@@ -1,4 +1,0 @@
-alter table `meeting_guizhou`.`meeting_files_assort` 
-   add column `apply_department` varchar(50) NULL COMMENT '申报单位' 
-   add column `is_img_fold` tinyint NULL COMMENT '是否是图片文件夹' 
-   add column `page_img_url` varchar(100) NULL COMMENT '封面图片URL' 
