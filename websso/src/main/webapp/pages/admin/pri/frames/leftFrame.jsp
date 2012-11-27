@@ -11,10 +11,11 @@ ${jquery_form_js}
 </head>
 
 <body>
-<div style="left:1000px">
+<div style="left:1000px;text-align:right">
 
 <a href="${ctx}/pri/admin/getSsoSystemList.action" target="mainFrame">参数配置</a> <br>
 <a href="${ctx}/pages/admin/pri/manager/change_data_source.jsp" target="mainFrame">切换数据源</a> <br>
+<a href="${ctx}/pages/admin/pri/manager/change_data_source.jsp" target="mainFrame">应急状态</a> <br>
 
 </div>
 
