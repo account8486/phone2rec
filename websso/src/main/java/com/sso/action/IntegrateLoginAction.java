@@ -67,7 +67,7 @@ public class IntegrateLoginAction extends BaseAction {
 			// 如果账户存在并且密码正确的话，查询此用户对应的系统权限及对应的账号信息
 			StringBuffer searchSysSql = new StringBuffer();
 			searchSysSql
-					.append(" select sso.appid, sso.appname,sso.apploginurl, sso.APPLOGINFORMPARANAMES,config.user_name_cfg,config.password_cfg,config.logo_url ");
+					.append(" select sso.appid, sso.appname,sso.apploginurl, sso.APPLOGINFORMPARANAMES,config.user_name_cfg,config.password_cfg,config.logo_url,ACCOUNT_COLUMN_NAME ");
 			searchSysSql
 					.append(" from tf_sso_sso sso left join sso_system_config config on config.sso_id = sso.appid ");
 			// 我的登录对应的信息
@@ -80,13 +80,11 @@ public class IntegrateLoginAction extends BaseAction {
 				System.out.println(map.get("APPLOGINFORMPARANAMES"));
 				String appLoginFormParaNames = String.valueOf(map
 						.get("APPLOGINFORMPARANAMES"));
-
 				if ("uid".equals(appLoginFormParaNames)) {
 					mySystemLoginLst.add(map);
 				} else {
 					String systemPri = (String) userMap
 							.get(appLoginFormParaNames.toUpperCase());
-					System.out.println("systemPri:" + systemPri);
 					if ("true".equals(systemPri)) {
 						mySystemLoginLst.add(map);
 					}
@@ -94,6 +92,8 @@ public class IntegrateLoginAction extends BaseAction {
 			}
 			
 			this.setAttribute("mySystemLoginLst", mySystemLoginLst);
+			this.setAttribute("password", password);
+			this.setAttribute("userName", userName);
 			
 			return SUCCESS;
 		} else {
@@ -104,10 +104,44 @@ public class IntegrateLoginAction extends BaseAction {
 	
 	
 	
-	
-	public void validateUser(){
+	/**
+	 * 获取用户的登录信息
+	 * @return
+	 */
+	public String getUserLoginInfo(){
+		//String 
+		String appId=getRequest().getParameter("appId");
+		String accountColumnName=getRequest().getParameter("accountColumnName");
+		String userAccount=getRequest().getParameter("userAccount");
 		
+	    if(StringUtil.isEmpty(accountColumnName)){
+	    	this.resultMap.put("msg", "此业务系统在单点集成中尚未配置字段名参数！");
+			this.resultMap.put("result", false);
+			return SUCCESS;
+	    }
+	    
+	    if(StringUtil.isEmpty(userAccount)){
+	    	this.resultMap.put("msg", "账号参数为空，请稍后再试！");
+			this.resultMap.put("result", false);
+			return SUCCESS;
+	    }
 		
+		StringBuffer sql=new StringBuffer();
+		sql.append(" select  "+accountColumnName);
+		sql.append(" from t_idm_user t  ");
+		sql.append(" where t.cn='"+userAccount+"'");
+		log.warn("sql:"+sql);
+		
+		List resultLst=jdbcService.getList(sql.toString());
+		if(resultLst!=null&&resultLst.size()>0){
+			HashMap columnNameMap=(HashMap)resultLst.get(0);
+			String columnNameValue=(String)columnNameMap.get(accountColumnName);
+			this.resultMap.put("columnNameValue", columnNameValue);
+			this.resultMap.put("result", true);
+		}
+		
+		return SUCCESS;
 	}
+
 
 }

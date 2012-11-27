@@ -20,6 +20,22 @@
 	<include file="struts/struts-admin.xml"></include>
 	
 	
+	<package name="struts-base" extends="struts-default">
+		<result-types>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult" />
+		</result-types>
+		
+		<interceptors>
+			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+		</interceptors>
+
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>		
+		
+	</package>
+	
+	
 	
 	
 </struts>

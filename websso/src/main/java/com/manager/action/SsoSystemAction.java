@@ -125,11 +125,11 @@ public class SsoSystemAction extends BaseAction {
 	 * @throws ServiceException 
 	 */
 	public String configSsoSystem() throws ServiceException{
-		String userName=getRequest().getParameter("userName");
-		String password=getRequest().getParameter("password");
-		String appid=getRequest().getParameter("appid");
-		String accountColumnName=getRequest().getParameter("accountColumnName");
-		String systemCofigId=getRequest().getParameter("systemCofigId");
+		String userName=StringUtil.trim(getRequest().getParameter("userName"));
+		String password=StringUtil.trim(getRequest().getParameter("password"));
+		String appid=StringUtil.trim(getRequest().getParameter("appid"));
+		String accountColumnName=StringUtil.trim(getRequest().getParameter("accountColumnName"));
+		String systemCofigId=StringUtil.trim(getRequest().getParameter("systemCofigId"));
 		
 		log.debug("appid:"+appid+",userName:"+userName+",password:"+password+",systemCofigId:"+systemCofigId+",accountColumnName:"+accountColumnName);
 		if(StringUtil.isNotEmpty(systemCofigId)){
