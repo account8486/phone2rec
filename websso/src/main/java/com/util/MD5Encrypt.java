@@ -40,7 +40,7 @@ public final class MD5Encrypt {
 
 	public static void main(String arg[]) {
 
-		System.out.println(MD5Encrypt.getEncrypt().encode("111111"));
+		System.out.println(MD5Encrypt.getEncrypt().encode("abcd1234"));
 	}
 	
 	

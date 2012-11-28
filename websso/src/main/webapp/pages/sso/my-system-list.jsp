@@ -21,7 +21,7 @@ ${jquery_form_js}
    <tr>
     <td>${sys.appname}</td>
     <td><label>
-    <a href="#" onclick="getUserLoginInfo('${sys.appId}','${userName}','${sys.account_Column_Name}','${sys.user_Name_Cfg}','${sys.password_Cfg}','${password}','${sys.apploginurl}');">
+    <a href="#" onclick="getUserLoginInfo('${sys.appId}','${userName}','${sys.account_Column_Name}','${sys.user_Name_Cfg}','${sys.password_Cfg}','${password}','${sys.form_action_url}');">
       <input type="button" name="进入" id="进入" value="进入系统" />
     </a>
     </label></td>

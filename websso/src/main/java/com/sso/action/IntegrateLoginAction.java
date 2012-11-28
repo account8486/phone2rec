@@ -67,7 +67,7 @@ public class IntegrateLoginAction extends BaseAction {
 			// 如果账户存在并且密码正确的话，查询此用户对应的系统权限及对应的账号信息
 			StringBuffer searchSysSql = new StringBuffer();
 			searchSysSql
-					.append(" select sso.appid, sso.appname,sso.apploginurl, sso.APPLOGINFORMPARANAMES,config.user_name_cfg,config.password_cfg,config.logo_url,ACCOUNT_COLUMN_NAME ");
+					.append(" select sso.appid, sso.appname,sso.apploginurl, sso.APPLOGINFORMPARANAMES,config.user_name_cfg,config.password_cfg,config.logo_url,ACCOUNT_COLUMN_NAME,FORM_ACTION_URL ");
 			searchSysSql
 					.append(" from tf_sso_sso sso left join sso_system_config config on config.sso_id = sso.appid ");
 			// 我的登录对应的信息

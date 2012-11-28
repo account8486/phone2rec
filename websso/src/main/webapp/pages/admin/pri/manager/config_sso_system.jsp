@@ -21,7 +21,7 @@ ${jquery_form_js}
      <tr>
       <td align="center">系统名称</td>
       <td>
-       <input type="hidden" name="hiddenField" id="hiddenField" />
+         <input type="hidden" name="hiddenField" id="hiddenField" />
         <input type="hidden" name="appid" id="appid" value="${systemEntity.appid}" />
       ${systemEntity.appname}</td>
     </tr>
@@ -42,6 +42,12 @@ ${jquery_form_js}
       <td align="center">配置参数(密码)</td>
       <td><input type="text" name="password" id="password" value="${systemConfig.passwordCfg}" /></td>
     </tr>
+    
+    <tr>
+      <td align="center">实际登录FORM(URL)</td>
+      <td><input type="text" name="formActionUrl" id="formActionUrl" value="${systemConfig.formActionUrl}" /></td>
+    </tr>
+    
     
     
     <c:if test="${not empty systemConfig }">

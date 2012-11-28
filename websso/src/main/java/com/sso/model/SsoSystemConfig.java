@@ -11,7 +11,15 @@ public class SsoSystemConfig {
 	private String comments;
 	private String logoUrl;
 	private String accountColumnName;
-
+	//FORM_ACTION_URL
+	private String formActionUrl;
+	
+	public String getFormActionUrl() {
+		return formActionUrl;
+	}
+	public void setFormActionUrl(String formActionUrl) {
+		this.formActionUrl = formActionUrl;
+	}
 	public String getAccountColumnName() {
 		return accountColumnName;
 	}
