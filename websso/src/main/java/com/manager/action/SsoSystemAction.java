@@ -130,6 +130,8 @@ public class SsoSystemAction extends BaseAction {
 		String appid=StringUtil.trim(getRequest().getParameter("appid"));
 		String accountColumnName=StringUtil.trim(getRequest().getParameter("accountColumnName"));
 		String systemCofigId=StringUtil.trim(getRequest().getParameter("systemCofigId"));
+		String formActionUrl=StringUtil.trim(getRequest().getParameter("formActionUrl"));
+		
 		
 		log.debug("appid:"+appid+",userName:"+userName+",password:"+password+",systemCofigId:"+systemCofigId+",accountColumnName:"+accountColumnName);
 		if(StringUtil.isNotEmpty(systemCofigId)){
@@ -140,6 +142,7 @@ public class SsoSystemAction extends BaseAction {
 			config.setCreateTime(new Date());
 			config.setLogoUrl(null);
 			config.setAccountColumnName(accountColumnName);
+			config.setFormActionUrl(formActionUrl);
 			ssoSystemConfigService.saveOrUpdate(config);
 		}else{
 			//查找对应信息
@@ -154,6 +157,7 @@ public class SsoSystemAction extends BaseAction {
 				config.setUpdateTime(new Date());
 				config.setLogoUrl(null);
 				config.setAccountColumnName(accountColumnName);
+				config.setFormActionUrl(formActionUrl);
 				ssoSystemConfigService.saveOrUpdate(config);
 				
 		    }else{
@@ -163,6 +167,7 @@ public class SsoSystemAction extends BaseAction {
 				config.setSsoId(appid);
 				config.setCreateTime(new Date());
 				config.setLogoUrl(null);
+				config.setFormActionUrl(formActionUrl);
 				config.setAccountColumnName(accountColumnName);
 				ssoSystemConfigService.saveOrUpdate(config);
 		    }
