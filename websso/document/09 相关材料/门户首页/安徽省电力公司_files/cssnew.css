@@ -1,0 +1,147 @@
+.box {
+	BORDER-BOTTOM: #0c948a 1px solid; BORDER-LEFT: #0c948a 1px solid; BORDER-RIGHT: #0c948a 1px solid
+}
+.news_right_list {
+	MARGIN-TOP: 10px; WIDTH: 167px; CLEAR: both
+}
+.lb12:link {
+	LINE-HEIGHT: 17px; COLOR: #007977; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.news_right_line {
+	BACKGROUND-IMAGE: url(line.gif); WIDTH: 130px; BACKGROUND-POSITION: center 50%; FLOAT: right; HEIGHT: 1px; OVERFLOW: hidden
+}
+.bg_picnews {
+	BORDER-BOTTOM: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BORDER-TOP: #ffffff 1px solid; BORDER-RIGHT: #ffffff 1px solid; PADDING-TOP: 0px
+}
+.bg_picnews2 {
+	BORDER-BOTTOM: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BORDER-TOP: #ffffff 1px solid; BORDER-RIGHT: #ffffff 1px solid; PADDING-TOP: 5px
+}
+A.h {
+	BORDER-BOTTOM: #ff0000 1px solid; BORDER-LEFT: #ff0000 1px solid; BORDER-TOP: #ff0000 1px solid; BORDER-RIGHT: #ff0000 1px solid
+}
+A.h:hover {
+	BORDER-BOTTOM: #ff0000 1px solid; BORDER-LEFT: #ff0000 1px solid; BORDER-TOP: #ff0000 1px solid; BORDER-RIGHT: #ff0000 1px solid
+}
+.headerMenu {
+	BORDER-COLLAPSE: collapse; FONT-FAMILY: "????"; COLOR: #ffffff; FONT-SIZE: 12px
+}
+.headerMenu A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.headerMenu A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.headerMenu A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.ny_title {
+	BACKGROUND-IMAGE: url(nya-btlk.jpg); TEXT-ALIGN: center; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left center; COLOR: #ffffff; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.nya-tile_bg {
+	BACKGROUND-IMAGE: url(22222222.jpg); TEXT-INDENT: 58px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: 40px center; COLOR: #666666; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.ny_box {
+	BORDER-BOTTOM: #c6c6c6 1px solid; BORDER-LEFT: #c6c6c6 1px solid; BORDER-RIGHT: #c6c6c6 1px solid
+}
+.pic_news {
+	BORDER-BOTTOM: #a8a8a6 1px solid; BORDER-LEFT: #a8a8a6 1px solid; FLOAT: left; BORDER-TOP: #0b826f 3px solid; BORDER-RIGHT: #a8a8a6 1px solid
+}
+.center_L {
+	PADDING-LEFT: 5px; WIDTH: 70px; FLOAT: left; COLOR: #656766; FONT-WEIGHT: bold
+}
+.center_C {
+	WIDTH: 430px; FLOAT: left
+}
+.center_C A:link {
+	COLOR: #990000; FONT-SIZE: 13px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.center_C A:hover {
+	COLOR: #990000; FONT-SIZE: 13px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.center_C A:visited {
+	COLOR: #990000; FONT-SIZE: 13px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.news_right_title {
+	LINE-HEIGHT: 28px; PADDING-LEFT: 20px; WIDTH: 147px; BACKGROUND: url(left1_title.gif) no-repeat; HEIGHT: 28px; COLOR: #ffffff; FONT-WEIGHT: bold
+}
+.xl_bg {
+	BACKGROUND-IMAGE: url(xl_bg.jpg); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left top
+}
+.font_16px {
+	COLOR: #04745e; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+.font_xl_14px {
+	LINE-HEIGHT: 24px; FONT-SIZE: 15px
+}
+.gao_whire {
+	LINE-HEIGHT: 21px; COLOR: #ffffff
+}
+A.whire {
+	COLOR: #ffffff; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.whire:hover {
+	COLOR: #ffffff; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+A.anav_1 {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+A.anav {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+A.anav:hover {
+	COLOR: #333333; TEXT-DECORATION: underline
+}
+A.anav_1:hover {
+	COLOR: #333333; TEXT-DECORATION: underline
+}
+A.top {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.top:hover {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+.dian {
+	BACKGROUND-IMAGE: url(dian.jpg); BACKGROUND-REPEAT: repeat-x; BACKGROUND-POSITION: center bottom
+}
+.title_bg_1 {
+	BACKGROUND-IMAGE: url(b_4.jpg); TEXT-INDENT: 15px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left center; COLOR: #ffffff; FONT-WEIGHT: bold
+}
+.you_bg {
+	BACKGROUND-IMAGE: url(y.jpg); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: right center
+}
+.box_bk {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; HEIGHT: 16px; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid
+}
+.bs {
+	BACKGROUND-IMAGE: url(bx.jpg); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: right center
+}
+.font_22px {
+	FONT-FAMILY: "????"; COLOR: #0e4a40; FONT-SIZE: 22px; FONT-WEIGHT: bold
+}
+.font_xy_17px {
+	FONT-FAMILY: "????"; COLOR: #0e4a40; FONT-SIZE: 17px; FONT-WEIGHT: bold
+}
+.left1-bg {
+	BACKGROUND-IMAGE: url(left1_bg.gif); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left top
+}
+.left2-bg {
+	BACKGROUND-IMAGE: url(left1_bg.jpg); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left top
+}
+.yy_bk {
+	BORDER-BOTTOM: #007974 1px solid; BORDER-LEFT: #007974 1px solid; BORDER-TOP: #007974 1px solid; BORDER-RIGHT: #007974 1px solid
+}
+.xu_dian {
+	BACKGROUND-IMAGE: url(line_point_3.gif); BACKGROUND-REPEAT: repeat-x; BACKGROUND-POSITION: center bottom
+}
+.title_top_12 {
+	COLOR: #005c4d; FONT-WEIGHT: bold
+}
+.bottom_box1 {
+	BACKGROUND-IMAGE: url(120.jpg); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left center
+}
+.title_bg_1_1 {
+	TEXT-INDENT: 15px; COLOR: #ffffff; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.nya-tile_bg_font {
+	TEXT-INDENT: 58px; COLOR: #666666; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}

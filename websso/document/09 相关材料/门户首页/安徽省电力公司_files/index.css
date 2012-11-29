@@ -1,0 +1,87 @@
+BODY {
+	MARGIN: 0px
+}
+TABLE {
+	MARGIN: 0px; BORDER-SPACING: 0; BORDER-COLLAPSE: collapse
+}
+TH {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+TD {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.headerMenu {
+	BORDER-COLLAPSE: collapse; FONT-FAMILY: "????"; COLOR: #ffffff; FONT-SIZE: 12px
+}
+.headerMenu A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.headerMenu A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.headerMenu A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#mainTable {
+	WIDTH: 100%
+}
+#headTable {
+	BACKGROUND-IMAGE: url(header_bg.gif); TEXT-ALIGN: center; WIDTH: 100%; HEIGHT: 104px
+}
+.headTopTd {
+	TEXT-ALIGN: center; VERTICAL-ALIGN: top
+}
+#headTopTable {
+	WIDTH: 950px; HEIGHT: 104px
+}
+.contentTD {
+	TEXT-ALIGN: center; VERTICAL-ALIGN: top
+}
+.content {
+	WIDTH: 950px; HEIGHT: 32px
+}
+.navTitle {
+	TEXT-ALIGN: right; WIDTH: 138px; FONT-FAMILY: "??????"; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.navContent {
+	TEXT-ALIGN: left; FONT-FAMILY: "??????"; COLOR: #ff9900; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.contentTextStyle {
+	FONT-FAMILY: "????"; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.yaowenDate {
+	TEXT-ALIGN: right; FONT-FAMILY: "????"; COLOR: #007a77; FONT-SIZE: 12px
+}
+.zhuantiTitle {
+	FONT-FAMILY: "????"; COLOR: #007977; FONT-SIZE: 12px
+}
+.appl {
+	TEXT-ALIGN: left; FONT-FAMILY: "????"; COLOR: #007977; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.applblack {
+	TEXT-ALIGN: left; FONT-FAMILY: "????"; COLOR: #656766; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.applbai {
+	TEXT-ALIGN: left; FONT-FAMILY: "????"; COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.applll {
+	TEXT-ALIGN: left; FONT-FAMILY: "????"; COLOR: #007977; FONT-SIZE: 13px; TEXT-DECORATION: none
+}
+.news2 {
+	BACKGROUND: url(../images/news2.jpg) 50% bottom; HEIGHT: 366px
+}
+#t1 .s1 {
+	WIDTH: 532px
+}
+#t1 .s1 .headlines {
+	BORDER-BOTTOM: #047d7a 1px solid; BORDER-LEFT: #047d7a 1px solid; HEIGHT: 298px; BORDER-TOP: #047d7a 1px solid; BORDER-RIGHT: #047d7a 1px solid
+}
+#t1 .s1 P {
+	LINE-HEIGHT: 1.4em; TEXT-INDENT: 2em
+}
+#t1 .s1 .more {
+	TEXT-ALIGN: center; WIDTH: 71px; BACKGROUND: url(../images/index/more.gif) no-repeat right 50%; HEIGHT: 20px; PADDING-TOP: 6px
+}
+#t1 .s1 H2 {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #7a7c7c; COLOR: #fff; FONT-SIZE: 14px; FONT-WEIGHT: bold; PADDING-TOP: 5px
+}

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)http://portal.ah.sgcc.com.cn/images/Search_edit.htm -->
+<!-- saved from url=(0048)http://portal.sgcc.com.cn/include_new/Search.htm --><HTML><HEAD><TITLE>搜索</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<STYLE type=text/css>BODY {
+	MARGIN: 0px; FONT-SIZE: 12px
+}
+INPUT {
+	MARGIN: 0px; FONT-SIZE: 12px
+}
+A {
+	COLOR: #014a49; TEXT-DECORATION: none
+}
+A {
+	FONT-SIZE: 14px
+}
+TD {
+	FONT-SIZE: 14px
+}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 8.00.7600.16385"></HEAD>
+<BODY scroll=no>
+<SCRIPT language=javascript>
+function getSearch(){
+	var searchType = getMultiSelectSelectedValue("searchType");
+	if(searchType==2){
+		window.open("http://sou.ah.sgcc.com.cn/ahsos/main.jsp");
+	}else{
+		window.open('http://unisearch.sgcc.com.cn/search?text='+encodeURI(document.searchForm.searchWord.value));
+	}
+}
+
+function getMultiSelectSelectedValue(multiSelectObject){
+	//转换形参
+	if(null==multiSelectObject.options){
+		multiSelectObject = document.getElementById(multiSelectObject);
+	}
+	var str = "";
+	var s = 0;
+	for(i=0;i<multiSelectObject.options.length;i++){   
+		if(multiSelectObject.options[i].selected == true){   
+			s = s + 1;
+			if(s > 1){
+				str = str + "," + multiSelectObject.options[i].value;
+			}else{
+				str = multiSelectObject.options[i].value;
+			}
+		}   
+	}
+	return str;
+}
+</SCRIPT>
+
+<FORM id=searchForm onsubmit="return false;" method=post name=searchForm 
+action=http://unisearch.sgcc.com.cn/search><INPUT id=text type=hidden name=text> 
+
+<TABLE border=0 cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR>
+    <TD style="PADDING-RIGHT: 4px"><A 
+      href="http://unisearch.sgcc.com.cn/search?cmd=queryNews&amp;text=*&amp;kw=&amp;proto=on" 
+      target=_blank><B>新闻</B></A></TD>
+    <TD style="PADDING-RIGHT: 4px"><A href="http://km.sgcc.com.cn:8080/km/ask" 
+      target=_blank><B>问答</B></A></TD>
+    <TD style="PADDING-RIGHT: 4px"><A 
+      href="http://km.sgcc.com.cn:8080/km/postbars" target=_blank><B>贴吧</B></A> 
+    </TD>
+    <TD style="PADDING-RIGHT: 4px"><SELECT id=searchType name=searchType> 
+        <OPTION selected value=1>国网</OPTION> <OPTION 
+    value=2>安徽省</OPTION></SELECT></TD>
+    <TD 
+    style="BORDER-BOTTOM: #026c6a 1px solid; BORDER-LEFT: #026c6a 1px solid; BORDER-TOP: #026c6a 1px solid; BORDER-RIGHT: medium none"><INPUT 
+      style="BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; WIDTH: 130px; BORDER-TOP: medium none; BORDER-RIGHT: medium none" 
+      id=searchWord onkeypress="if(event.keyCode == 13){getSearch()}" 
+      maxLength=255 size=50 name=searchWord> </TD>
+    <TD 
+    style="BORDER-BOTTOM: #026c6a 1px solid; BORDER-LEFT: medium none; BORDER-TOP: #026c6a 1px solid; BORDER-RIGHT: #026c6a 1px solid"><INPUT 
+      onclick=getSearch() alt=搜索 src="Search_edit_files/search.gif" 
+    type=image></TD></TR></TBODY></TABLE></FORM></BODY></HTML>
