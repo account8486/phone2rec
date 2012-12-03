@@ -17,6 +17,14 @@
 				<param name="root">resultMap</param>
 			</result>
 		</action>
+		
+		<action name="checkSystemStatus" class="com.sso.CheckAction" method="checkSystemStatus">
+		    <result name="success" type="json">
+		        <param name="root">resultMap</param>
+		        <param name="callbackParameter">jsoncallback</param> 
+		    </result>
+		</action>
+		
 	</package>
 	
 	
