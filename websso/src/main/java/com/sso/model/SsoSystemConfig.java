@@ -13,7 +13,31 @@ public class SsoSystemConfig {
 	private String accountColumnName;
 	//FORM_ACTION_URL
 	private String formActionUrl;
+	//USING_ENABLED
+	private boolean usingEnabled;
+	//PASSWORD_ENCODE
+	private String  passwordEncode;
+	private String encodeStyle;
+
 	
+	public boolean isUsingEnabled() {
+		return usingEnabled;
+	}
+	public void setUsingEnabled(boolean usingEnabled) {
+		this.usingEnabled = usingEnabled;
+	}
+	public String getPasswordEncode() {
+		return passwordEncode;
+	}
+	public void setPasswordEncode(String passwordEncode) {
+		this.passwordEncode = passwordEncode;
+	}
+	public String getEncodeStyle() {
+		return encodeStyle;
+	}
+	public void setEncodeStyle(String encodeStyle) {
+		this.encodeStyle = encodeStyle;
+	}
 	public String getFormActionUrl() {
 		return formActionUrl;
 	}

@@ -48,6 +48,42 @@ ${jquery_form_js}
       <td><input type="text" name="formActionUrl" id="formActionUrl" value="${systemConfig.formActionUrl}" /></td>
     </tr>
     
+     <tr>
+      <td align="center">是否启用</td>
+      <td>
+        <select name="usingEnabled" id="usingEnabled">
+         <option>未设定</option>
+         <option value="true">启用</option>
+         <option value="false">禁用</option>
+        </select>
+      </td>
+    </tr>
+    
+     <tr>
+      <td align="center">是否加密</td>
+      <td>
+        <select name="passwordEncode" id="passwordEncode">
+         <option>未设定</option>
+         <option value="Y">加密</option>
+         <option value="N">不加密</option>
+        </select>
+      </td>
+    </tr>
+    
+        
+     <tr>
+      <td align="center">加密方式</td>
+      <td>
+        <select name="encodeStyle" id="encodeStyle">
+         <option>未设定</option>
+         <option value="md5">MD5</option>
+         <option value="base64">BASE64</option>
+         
+        </select>
+      </td>
+    </tr>
+    
+    
     
     
     <c:if test="${not empty systemConfig }">
@@ -80,4 +116,15 @@ function backToList(){
 	var url="${ctx}/pri/admin/getSsoSystemList.action";
 	document.location.href=url;
 }
+
+
+$(document).ready(function(){
+	alert('${systemConfig.usingEnabled}');
+	$("#usingEnabled").val('${systemConfig.usingEnabled}');
+	$("#passwordEncode").val('${systemConfig.passwordEncode}');
+	$("#encodeStyle").val('${systemConfig.encodeStyle}');
+});
+
+
+
 </script>

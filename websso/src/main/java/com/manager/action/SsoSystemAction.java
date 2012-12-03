@@ -131,6 +131,16 @@ public class SsoSystemAction extends BaseAction {
 		String accountColumnName=StringUtil.trim(getRequest().getParameter("accountColumnName"));
 		String systemCofigId=StringUtil.trim(getRequest().getParameter("systemCofigId"));
 		String formActionUrl=StringUtil.trim(getRequest().getParameter("formActionUrl"));
+		String usingEnabled=StringUtil.trim(getRequest().getParameter("usingEnabled"));
+		String passwordEncode=StringUtil.trim(getRequest().getParameter("passwordEncode"));
+		String encodeStyle=StringUtil.trim(getRequest().getParameter("encodeStyle"));
+		
+		
+		boolean isUsingEnable=true;
+		if(StringUtil.isNotEmpty(usingEnabled)){
+			isUsingEnable=Boolean.valueOf(usingEnabled).booleanValue();
+		}
+	
 		
 		
 		log.debug("appid:"+appid+",userName:"+userName+",password:"+password+",systemCofigId:"+systemCofigId+",accountColumnName:"+accountColumnName);
@@ -143,6 +153,11 @@ public class SsoSystemAction extends BaseAction {
 			config.setLogoUrl(null);
 			config.setAccountColumnName(accountColumnName);
 			config.setFormActionUrl(formActionUrl);
+		    config.setUsingEnabled(isUsingEnable);
+			config.setPasswordEncode(passwordEncode);
+	        config.setEncodeStyle(encodeStyle);
+			
+			
 			ssoSystemConfigService.saveOrUpdate(config);
 		}else{
 			//查找对应信息
@@ -158,6 +173,12 @@ public class SsoSystemAction extends BaseAction {
 				config.setLogoUrl(null);
 				config.setAccountColumnName(accountColumnName);
 				config.setFormActionUrl(formActionUrl);
+				
+				config.setUsingEnabled(isUsingEnable);
+				config.setPasswordEncode(passwordEncode);
+		        config.setEncodeStyle(encodeStyle);
+		        
+		        
 				ssoSystemConfigService.saveOrUpdate(config);
 				
 		    }else{
@@ -169,6 +190,10 @@ public class SsoSystemAction extends BaseAction {
 				config.setLogoUrl(null);
 				config.setFormActionUrl(formActionUrl);
 				config.setAccountColumnName(accountColumnName);
+				config.setUsingEnabled(isUsingEnable);
+				config.setPasswordEncode(passwordEncode);
+		        config.setEncodeStyle(encodeStyle);
+		        
 				ssoSystemConfigService.saveOrUpdate(config);
 		    }
 		}

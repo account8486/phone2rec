@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.sso.model.SsoSystemConfig;
+import com.sso.service.SsoSystemConfigService;
+import com.util.EncodeUtil;
 import com.util.MD5Encrypt;
 import com.wirelesscity.action.base.BaseAction;
 import com.wirelesscity.common.StringUtil;
+import com.wirelesscity.exception.ServiceException;
 import com.wirelesscity.service.JdbcService;
 
 public class IntegrateLoginAction extends BaseAction {
@@ -14,7 +18,19 @@ public class IntegrateLoginAction extends BaseAction {
 	private static final long serialVersionUID = 2483103544033809632L;
 
 	JdbcService jdbcService;
+	SsoSystemConfigService ssoSystemConfigService;
 	
+	
+	
+	public SsoSystemConfigService getSsoSystemConfigService() {
+		return ssoSystemConfigService;
+	}
+
+	public void setSsoSystemConfigService(
+			SsoSystemConfigService ssoSystemConfigService) {
+		this.ssoSystemConfigService = ssoSystemConfigService;
+	}
+
 	public JdbcService getJdbcService() {
 		return jdbcService;
 	}
@@ -39,7 +55,7 @@ public class IntegrateLoginAction extends BaseAction {
 			return INPUT;
 		}
 
-		String md5Password = MD5Encrypt.getEncrypt().encode(password);
+		String md5Password = EncodeUtil.md5Encode(password, EncodeUtil.UPPER_CASE_FORMATTER);
 		log.debug("md5Password:" + md5Password);
 
 		// TODO
@@ -68,6 +84,7 @@ public class IntegrateLoginAction extends BaseAction {
 			StringBuffer searchSysSql = new StringBuffer();
 			searchSysSql
 					.append(" select sso.appid, sso.appname,sso.apploginurl, sso.APPLOGINFORMPARANAMES,config.user_name_cfg,config.password_cfg,config.logo_url,ACCOUNT_COLUMN_NAME,FORM_ACTION_URL ");
+			searchSysSql.append("  ,config.id as configId");
 			searchSysSql
 					.append(" from tf_sso_sso sso left join sso_system_config config on config.sso_id = sso.appid ");
 			// 我的登录对应的信息
@@ -113,6 +130,9 @@ public class IntegrateLoginAction extends BaseAction {
 		String appId=getRequest().getParameter("appId");
 		String accountColumnName=getRequest().getParameter("accountColumnName");
 		String userAccount=getRequest().getParameter("userAccount");
+		String password=getRequest().getParameter("password");
+		String configId=getRequest().getParameter("configId");
+		String formatter=StringUtil.trim(getRequest().getParameter("formatter"));
 		
 	    if(StringUtil.isEmpty(accountColumnName)){
 	    	this.resultMap.put("msg", "此业务系统在单点集成中尚未配置字段名参数！");
@@ -125,6 +145,14 @@ public class IntegrateLoginAction extends BaseAction {
 			this.resultMap.put("result", false);
 			return SUCCESS;
 	    }
+	    
+	    if(StringUtil.isEmpty(password)){
+	    	this.resultMap.put("password", "密码值为空，请重新登陆后再试！");
+			this.resultMap.put("result", false);
+			return SUCCESS;
+	    }
+	    
+	   
 		
 		StringBuffer sql=new StringBuffer();
 		sql.append(" select  "+accountColumnName);
@@ -138,6 +166,28 @@ public class IntegrateLoginAction extends BaseAction {
 			String columnNameValue=(String)columnNameMap.get(accountColumnName);
 			this.resultMap.put("columnNameValue", columnNameValue);
 			this.resultMap.put("result", true);
+		}
+		
+		
+		try {
+			SsoSystemConfig ssoSystemConfig=ssoSystemConfigService.findById(configId);
+			String encodeStle=ssoSystemConfig.getEncodeStyle();
+			if (StringUtil.isNotEmpty(encodeStle)) {
+				if ("md5".equals(encodeStle)) {
+					this.resultMap.put("password",
+							EncodeUtil.md5Encode(password,formatter));
+				}
+				if ("base64".equals(encodeStle)) {
+					this.resultMap.put("password",
+							EncodeUtil.base64Encode(password,formatter));
+				}
+
+			}else{
+				this.resultMap.put("password", password);
+			}
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return SUCCESS;

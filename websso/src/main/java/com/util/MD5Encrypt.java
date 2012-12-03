@@ -34,9 +34,11 @@ public final class MD5Encrypt {
 
 		Md5PasswordEncoder md5 = new Md5PasswordEncoder();
 
-		return md5.encodePassword(s, null).toUpperCase();
+		return md5.encodePassword(s, null);
 
 	}
+	
+	
 
 	public static void main(String arg[]) {
 

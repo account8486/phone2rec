@@ -11,6 +11,3 @@
 <c:set var="util_js" value="<script type='text/javascript' src='${ctx}/js/util.js'></script>"  />
 <c:set var="admin_css" value="<link href='${ctx}/css/admin.css' rel='stylesheet' type='text/css' />"/>
 
-
-
-<%@ page trimDirectiveWhitespaces="true"%>
