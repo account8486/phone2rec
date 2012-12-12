@@ -1,4 +1,4 @@
-package com.sso.action;
+	package com.sso.action;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,7 +40,7 @@ public class IntegrateLoginAction extends BaseAction {
 	}
 
 	/**
-	 * 门户应急信息统一登陆
+	 * 门户应急统一登陆
 	 * @return
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -180,6 +180,8 @@ public class IntegrateLoginAction extends BaseAction {
 				if ("base64".equals(encodeStle)) {
 					this.resultMap.put("password",
 							EncodeUtil.base64Encode(password,formatter));
+				}else{
+					this.resultMap.put("password", password);
 				}
 
 			}else{
