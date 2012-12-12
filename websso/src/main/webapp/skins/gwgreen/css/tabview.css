@@ -1,0 +1,30 @@
+.show{
+background-color:white;
+cursor:pointer;
+background-image:url(../images/icon/tabactive.jpg);
+background-repeat:repeat-x;
+text-align:center;
+border:1px solid #aabcae;
+border-top:0px solid #aabcae;
+border-bottom:0px solid #aabcae;
+
+
+}
+.hide{
+background-color:#CCCCCC;
+cursor:pointer;
+background-image:url(../images/icon/tab.jpg);
+border:1px solid #aabcae;
+
+text-align:center;
+}
+.tabborder{
+ border:1px solid #aabcae;
+ border-top:0px solid #aabcae;
+ 
+}
+.tdborder{
+ border:1px solid #aabcae;
+ border-top:0px solid #aabcae;
+ 
+}

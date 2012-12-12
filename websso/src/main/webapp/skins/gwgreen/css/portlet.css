@@ -1,0 +1,40 @@
+/*
+//  css/portlet.css
+
+*/
+
+
+*.portlet-font
+{
+  color:  rgb(0, 0, 0);
+}
+
+
+*.portlet-font, *.portlet-font-dim
+{
+  font-family:  arial, tahoma, sans-serif;
+  font-size:  small;
+}
+
+
+*.portlet-section-body
+{
+}
+
+
+*.portlet-font-dim
+{
+  color:  rgb(153, 153, 153);
+}
+
+
+*.portlet-section-header
+{
+  color:  rgb(51, 51, 153);
+  border-style:  dotted;
+  font-size:  120%;
+  font-weight:  none;
+  padding:  2px 0px;
+  border-width:  1px 0px;
+}
+

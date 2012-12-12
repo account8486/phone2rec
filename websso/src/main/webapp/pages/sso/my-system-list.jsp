@@ -103,30 +103,8 @@ function getUserLoginInfo(appId,userAccount,accountColumnName,userNameCfg,passwo
 	
 	
   //创建input:text 
-   
-  
-  
-    
-
-
-	
 }
 
 
-/**
- * 跳转页面
- */
-function jump(userName,password,url){
-	
-	/**
-	//var url="http://127.0.0.1/yf/admin/base/ssologin.action";
-	$("#userName").val(userName);
-	$("#username").val(userName);
-	$("#mobile").val(userName);
-	$("#password").val(password);
-	//alert("dddddd");
-	$("#ssoFrm").attr("action",url);
-	$("#ssoFrm").submit();*/
-	
-}
+
 </script>

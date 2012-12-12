@@ -1,0 +1,185 @@
+
+form
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+input, select, textarea
+{
+    margin: 2px;
+    font-size: small;
+}
+
+.green12 
+{  
+    font-family: "宋体"; 
+    font-size: 12px; 
+    color: #146D65; 
+    text-decoration: none
+}
+
+.black12 {
+    font-family: "宋体"; 
+    color: #000000; 
+    text-decoration: none; 
+    font-size: 12px; 
+    line-height: 150%
+}
+a.black14:link{  
+    font-family: "宋体"; 
+    color: #000000; 
+    text-decoration: none; 
+    font-size: 12px; 
+    line-height: 150%
+}
+
+.black12sdw {
+    font-family: "宋体"; 
+    font-size: 12px; 
+    color: #000000; 
+    text-decoration: none; 
+    background-repeat: repeat-x; 
+    background-position: 2px
+}
+
+.black12sx {  
+    font-family: "宋体"; 
+    color: #000000; 
+    text-decoration: none; 
+    font-size: 12px; 
+    line-height: 100%
+}
+
+.bkbox {  
+    border: #000000; 
+    border-style: solid; 
+    border-top-width: 1px; 
+    border-unified-width: 1px; 
+    border-bottom-width: 1px; 
+    border-left-width: 1px
+}
+
+.red14b {  
+    font-family: "宋体"; 
+    font-size: 14px; 
+    font-weight: bold; 
+    color: #993300; 
+    text-decoration: none
+}
+
+.txt14 {  
+    font-family: "宋体"; 
+    font-size: 14px; 
+    line-height: 150%; 
+    color: #000000; 
+    text-decoration: none
+}
+
+.hbox {  
+    border: #B4B4B4; 
+    border-style: solid; 
+    border-top-width: 1px; 
+    border-unified-width: 1px; 
+    border-bottom-width: 1px; 
+    border-left-width: 1px
+}
+
+.w12,.w12 a:visited,.w12 a:link {  
+    font-family: "宋体"; 
+    font-size: 12px; 
+    line-height: 130%; 
+    color: #FFFFFF; 
+    text-decoration: none;
+    font-weight: bold; 
+}
+
+.g12 {  
+    font-family: "宋体"; 
+    font-size: 12px; 
+    color: #05736F; 
+    text-decoration: none
+}
+
+.tt18 {  
+    font-family: "黑体"; 
+    font-size: 18px; 
+    color: #000000; 
+    text-decoration: none
+}
+
+.tt16 {  
+    font-family: "宋体"; 
+    font-size: 13px; 
+    color: #000000; 
+    text-decoration: none
+}
+
+.e{	
+    font-family: "宋体"; 
+    font-size: 12px; 
+    font-style: normal; 
+    color: #CC6600; 
+    text-decoration: none;
+}
+
+a.black14:link{  
+    font-family: "宋体"; 
+    color: #000000; 
+    text-decoration: none; 
+    font-size: 12px; 
+    line-height: 150%
+}
+
+a.black14:visited{  
+    font-family: "宋体"; 
+    color: #000000; 
+    text-decoration: none; 
+    font-size: 12px; 
+    line-height: 150%
+}
+
+#Layer1 {position:absolute;
+	width:327px;
+	height:210px;
+	z-index:1;
+	left: 14px;
+	top: 390px;
+}
+
+.style7 {
+    font-family: "黑体"; 
+    font-size: 18px; 
+    color: #660000; 
+    text-decoration: none; 
+}
+
+.style20 {
+    color: #FFFFFF
+}
+
+.style24 {
+    font-family: "宋体"; 
+    font-size: 14px; 
+    line-height: 150%; 
+    color: #000000; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+
+/* Selected tab on Place bar */
+.singleMenuUnSelected, .singleMenuUnSelected:visited, .singleMenuUnSelected:hover, .singleMenuUnSelected:active {
+    font-family: 宋体;
+    font-size:9pt;
+    font-weight: bold;
+    background-color: #0A776E;
+    text-decoration: none;
+//    cursor:hand;
+
+    border-left: 0px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    border-top: 0px solid #FFFFFF;
+    border-bottom: 0px solid #FFFFFF;
+    padding: 0px 0px;
+    margin: 0px;
+}

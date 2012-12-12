@@ -1,0 +1,72 @@
+/*
+// --------------------------------------------------------------------------------------------------------------------
+// Window
+// --------------------------------------------------------------------------------------------------------------------
+*/
+
+
+.bea-portal-hubei-window
+{
+    margin-left:5px;
+    margin-right:5px;
+    margin-top:5px;
+    padding: 0px;
+      border-width: 0px;
+        /*background-color: #ffe5e5;*/
+    /* Fix for IE height problem; uses Mozilla's recognition of and IE's ignorance of C-style line comment... */
+    //height: 100%;
+    background-color: #fff;
+}
+
+.bea-portal-noborder-window-content
+{
+    margin: 4px;
+    padding: 0px;
+    background-color: #fff;
+    text-align: left;
+    border:1px  #4482C0 solid;
+    
+    
+}
+
+/*
+// --------------------------------------------------------------------------------------------------------------------
+// Window Titlebar
+// --------------------------------------------------------------------------------------------------------------------
+*/
+
+.bea-portal-noborder-window-titlebar
+{
+    padding:5px;
+    margin: 5px;
+}
+
+.bea-portal-noborder-window-titlebar-container
+{
+    padding:5px;
+    width: 100%;
+}
+
+.bea-portal-noborder-window-icon
+{
+    text-align: center;
+    margin: 0px;
+}
+
+.bea-portal-noborder-window-titlebar-title
+{
+    color: #663333;
+    text-align: left;
+    padding: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.bea-portal-noborder-window-titlebar-buttons
+{
+    text-align: right;
+    padding: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+

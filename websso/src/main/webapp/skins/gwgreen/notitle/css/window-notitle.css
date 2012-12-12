@@ -1,0 +1,66 @@
+/*
+// --------------------------------------------------------------------------------------------------------------------
+// Window
+// --------------------------------------------------------------------------------------------------------------------
+*/
+
+
+.bea-portal-notitle-window
+{
+     margin-left:5px;
+    margin-right:5px;
+    margin-top:5px;
+    padding: 0px;
+}
+
+.bea-portal-notitle-window-content
+{
+    margin: 0px;
+    padding:0px;
+}
+
+/*
+// --------------------------------------------------------------------------------------------------------------------
+// Window Titlebar
+// --------------------------------------------------------------------------------------------------------------------
+*/
+
+.bea-portal-notitle-window-titlebar
+{
+    background-color: #ffffff;
+    padding: 0px;
+    margin: 0px;
+    font-size: small;
+    font-weight: bold;
+}
+
+.bea-portal-notitle-window-titlebar-container
+{
+    padding: 0px;
+    width: 100%;
+}
+
+.bea-portal-notitle-window-icon
+{
+    text-align: center;
+    margin: 0px;
+}
+
+.bea-portal-notitle-window-titlebar-title
+{
+    color: #000000;
+    text-align: left;
+    padding: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+     background-color: #ffffff;
+}
+
+.bea-portal-notitle-window-titlebar-buttons
+{
+    text-align: right;
+    padding: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+

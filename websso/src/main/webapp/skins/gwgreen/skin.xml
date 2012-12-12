@@ -1,0 +1,51 @@
+<ns:skin xmlns:ns="http://www.bea.com/servers/portal/framework/laf/1.0.0">
+    <ns:target-skeleton>
+        <ns:skeleton-id>Green</ns:skeleton-id>
+        <ns:skeleton-path>/framework/skeletons</ns:skeleton-path>
+    </ns:target-skeleton>
+    <ns:images>
+        <ns:search-path>
+            <ns:path-element>images</ns:path-element>
+        </ns:search-path>
+    </ns:images>
+    <ns:render-dependencies>
+        <ns:html>
+            <ns:links>
+                <ns:search-path>
+                    <ns:path-element>.</ns:path-element>
+                </ns:search-path>
+                <ns:link href="css/body.css" rel="stylesheet" type="text/css"/>
+                <ns:link href="css/book.css" rel="stylesheet" type="text/css"/>
+                <ns:link href="css/button.css" rel="stylesheet" type="text/css"/>
+                <ns:link href="css/form.css" rel="stylesheet" type="text/css"/>
+                <ns:link href="css/layout.css" rel="stylesheet" type="text/css"/>
+                <ns:link href="css/portlet.css" rel="stylesheet" type="text/css"/>
+                <ns:link href="css/window.css" rel="stylesheet" type="text/css"/>
+                <ns:link href="center/css/window-center.css" rel="stylesheet" type="text/css"/>
+                <ns:link href="noborder/css/window-noborder.css" rel="stylesheet" type="text/css"/>
+	<ns:link href="notitle/css/window-notitle.css" rel="stylesheet" type="text/css"/>
+            </ns:links>
+            <ns:metas/>
+            <ns:scripts>
+                <ns:search-path>
+                    <ns:path-element>../shared/js</ns:path-element>
+                    <ns:path-element>js</ns:path-element>
+                </ns:search-path>
+                <ns:script src="console.js" type="text/javascript"/>
+                <ns:script src="cookies.js" type="text/javascript"/>
+                <ns:script src="state.js" type="text/javascript"/>
+                <ns:script src="util.js" type="text/javascript"/>
+                <ns:script src="skin.js" type="text/javascript"/>
+                <ns:script src="delete.js" type="text/javascript"/>
+                <ns:script src="float.js" type="text/javascript"/>
+                <ns:script src="menu.js" type="text/javascript"/>
+                <ns:script src="menufx.js" type="text/javascript"/>
+            </ns:scripts>
+        </ns:html>
+    </ns:render-dependencies>
+    <ns:script-dependencies>
+        <ns:script-fragments>
+            <ns:fragment event-handler="onload">initSkin()</ns:fragment>
+        </ns:script-fragments>
+    </ns:script-dependencies>
+</ns:skin>

@@ -1,0 +1,25 @@
+.show{
+	background-color:white;
+	cursor:pointer;
+	background-image:url(/EP/framework/skins/Green/images/icon/listactive.gif);
+	background-repeat:repeat-x;
+	text-align:center;
+}
+.hide{
+background-color:#CCCCCC;
+cursor:pointer;
+background-image:url(/EP/framework/skins/Green/images/icon/listview.gif);
+border:0px solid #aabcae;
+
+text-align:center;
+}
+.tabborder{
+ border:1px solid #aabcae;
+ border-top:0px solid #aabcae;
+ 
+}
+.tdborder{
+ border:1px solid #aabcae;
+ border-top:1px solid #aabcae;
+ 
+}

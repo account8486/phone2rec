@@ -9,7 +9,7 @@
 	<package name="websso"  namespace="/sso" extends="struts-base">
 		<action name="integrateLogin" class="com.sso.action.IntegrateLoginAction" method="integrateLogin"> 
 			<result name="input">/pages/sso/ssoLogin.jsp</result>
-			<result name="success">/pages/sso/my-system-list.jsp</result>
+			<result name="success">/pages/sso/main.jsp</result>
 		</action>
 		
 		<action name="getUserLoginInfo" class="com.sso.action.IntegrateLoginAction" method="getUserLoginInfo"> 

@@ -1,0 +1,95 @@
+/*
+// --------------------------------------------------------------------------------------------------------------------
+// Window ΩÁ√Ê“ª÷¬
+// --------------------------------------------------------------------------------------------------------------------
+*/
+
+.bea-portal-center-window
+{
+    margin-left:5px;
+    margin-right:5px;
+    margin-top:5px;
+    padding: 0px;
+     /* Fix for IE height problem; uses Mozilla's recognition of and IE's ignorance of C-style line comment... */
+   }
+
+.bea-portal-center-window-content
+{
+    padding:0px ;
+    margin:0px;
+    background-attachment: fixed;
+	background-repeat: repeat-y;
+	background-position: left top;
+    text-align: left;
+    margin-top:0px;
+    border:1px  #cdd2cb solid;
+    border-top:0px;
+    width:100%;
+ 
+}
+
+/*
+// --------------------------------------------------------------------------------------------------------------------
+// middle-Window Titlebar
+// --------------------------------------------------------------------------------------------------------------------
+*/
+
+.bea-portal-center-window-titlebar
+{
+    /*background-color: #ff9999;*/
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.bea-portal-center-window-titlebar-container
+{
+	 /* background-image: url(../../images/right-title-bg.gif);*/
+	  width:100%;
+	  height:26px;
+	  pdding:0px;
+	  
+}
+
+.bea-portal-center-window-icon
+{
+    text-align: center;
+    margin: 0px;
+}
+
+.bea-portal-center-window-titlebar-title
+{
+  background-image: url(../images/title_center.jpg);
+  background-repeat:repeat -x;
+    color: #006661;
+	font-size:12px;
+	font-weight:bold;
+    text-align: left;
+    overflow: hidden;
+    padding-left:15px;
+}
+
+.bea-portal-center-window-titlebar-buttons
+{
+    text-align: right;
+    padding: 0px;
+    overflow: hidden;
+    background-image: url(../images/title_center.jpg);
+    color:#000;
+}
+.bea-portal-center-window-titlebar-buttons a
+{
+    text-align: right;
+    padding: 0px;
+    color:#006661;
+}
+.bea-portal-center-window-title-left{
+ background-image: url(../images/title_left.jpg);
+ width:7px;
+ height:26px;
+}
+.bea-portal-center-window-title-right{
+ background-image: url(../images/title_right.jpg);
+width:7px;
+}

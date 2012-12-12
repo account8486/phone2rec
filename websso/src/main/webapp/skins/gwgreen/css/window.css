@@ -1,0 +1,92 @@
+/*
+// --------------------------------------------------------------------------------------------------------------------
+// Window ΩÁ√Ê“ª÷¬
+// --------------------------------------------------------------------------------------------------------------------
+*/
+
+.bea-portal-window
+{
+    margin:5px 0px 0px 0px;
+    padding: 0px;
+    /* Fix for IE height problem; uses Mozilla's recognition of and IE's ignorance of C-style line comment... */
+   }
+
+.bea-portal-window-content
+{
+    padding:0px;
+    margin:0px;
+    background-attachment: fixed;
+	background-repeat: repeat-y;
+	background-position: left top;
+    text-align: left;
+    margin-top:0px;
+    border:1px  #31625c solid;
+    border-top:0px;
+    width:100%;
+    background-color:#e6f4f9;
+ 
+}
+
+/*
+// --------------------------------------------------------------------------------------------------------------------
+// middle-Window Titlebar
+// --------------------------------------------------------------------------------------------------------------------
+*/
+
+.bea-portal-window-titlebar
+{
+    /*background-color: #ff9999;*/
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.bea-portal-window-titlebar-container
+{
+	  width:100%;
+	  height:23px;
+	  pdding:5px;
+	  
+}
+
+.bea-portal-window-icon
+{
+    text-align: center;
+    margin: 0px;
+}
+
+.bea-portal-window-titlebar-title
+{
+  background-image: url(../images/title_center.jpg);
+  background-repeat:repeat -x;
+    color: #fff;
+	font-size:12px;
+	font-weight:bold;
+    text-align: left;
+    overflow: hidden;
+}
+
+.bea-portal-window-titlebar-buttons
+{
+    text-align: right;
+    padding: 0px;
+    overflow: hidden;
+    color:#000;
+     background-image: url(../images/title_center.jpg);
+}
+.bea-portal-window-titlebar-buttons a
+{
+    text-align: right;
+    padding: 0px;
+    color:#fff;
+}
+.bea-portal-window-title-left{
+ background-image: url(../images/title_left.jpg);
+ width:28px;
+ height:23px;
+}
+.bea-portal-window-title-right{
+ background-image: url(../images/title_right.jpg);
+ width:7px;
+}
