@@ -61,7 +61,7 @@ public class JdbcServiceImpl extends HibernateDaoSupport implements JdbcService 
 	
 	
 	
-	public List test(String sql,Object[] args){
+	public List getResultWithArgs(String sql,Object[] args){
 		List lstResult=jdbcTemplate.queryForList(sql, args);
 		return lstResult;
 	}

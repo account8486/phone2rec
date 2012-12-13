@@ -14,8 +14,13 @@ public interface JdbcService{
 	@SuppressWarnings({ "rawtypes" })
 	public List getList(String sql) ;
 	
-	
-	public List test(String sql,Object[] args);
+	/**
+	 * 带有数组参数的查询
+	 * @param sql
+	 * @param args
+	 * @return
+	 */
+	public List getResultWithArgs(String sql,Object[] args);
 	
 	public Pager findPagerBySql(String querySql, String queryCondtion,
 			int currentPage, int pageSize) throws HibernateDaoSupportException;

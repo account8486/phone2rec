@@ -1,13 +1,10 @@
-	package com.sso.action;
-
+package com.sso.action;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import com.sso.model.SsoSystemConfig;
 import com.sso.service.SsoSystemConfigService;
 import com.util.EncodeUtil;
-import com.util.MD5Encrypt;
 import com.wirelesscity.action.base.BaseAction;
 import com.wirelesscity.common.StringUtil;
 import com.wirelesscity.exception.ServiceException;
@@ -74,7 +71,7 @@ public class IntegrateLoginAction extends BaseAction {
 		objArr[0] = userName;
 		objArr[1] = md5Password;
 
-		List lstResult = jdbcService.test(searchSql.toString(), objArr);
+		List lstResult = jdbcService.getResultWithArgs(searchSql.toString(), objArr);
 
 		if (lstResult != null && lstResult.size() == 1) {
 
@@ -111,6 +108,10 @@ public class IntegrateLoginAction extends BaseAction {
 			this.setAttribute("mySystemLoginLst", mySystemLoginLst);
 			this.setAttribute("password", password);
 			this.setAttribute("userName", userName);
+			
+			
+			this.getSession().setAttribute("userName", userName);
+			this.getSession().setAttribute("password", password);
 			
 			return SUCCESS;
 		} else {
