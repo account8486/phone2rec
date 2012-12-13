@@ -79,7 +79,7 @@
         <td   class="bea-portal-book-primary-menu-single-item-active"  nowrap="true" align="center"><span>&nbsp;工作平台</span></td>
         <td class=bea-portal-book-menu-single-item-line></td><td class=bea-portal-book-menu-single-item-line></td>
         <td class="bea-portal-book-primary-menu-single-item"  nowrap="nowrap" align="center"><a href="http://eip.ah.sgcc.com.cn/SG186Portal/appmanager/portal/PersonDesk?_nfpb=true&amp;_pageLabel=SG186_portal_book_11">&nbsp;常用查询</a></td >
-        <td class=bea-portal-book-menu-single-item-line></td><td class="bea-portal-book-primary-menu-single-item"  nowrap="nowrap" align="center"><a href="http://eip.ah.sgcc.com.cn/SG186Portal/appmanager/portal/PersonDesk?_nfpb=true&amp;_pageLabel=SG186_portal_book_13">&nbsp;系统管理</a></td >
+        <td class=bea-portal-book-menu-single-item-line></td><td class="bea-portal-book-primary-menu-single-item"  nowrap="nowrap" align="center"><a href="${ctx}/pri/admin/getSsoSystemList.action">&nbsp;系统管理</a></td >
         <td class=bea-portal-book-menu-single-item-line></td>
             <td class="bea-portal-book-primary-menu-single-children"></td>
  </tr>

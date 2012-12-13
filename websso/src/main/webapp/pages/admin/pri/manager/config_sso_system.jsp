@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/pages/common/taglibs.jsp" %>
+<%@ include file="/pages/sso/top.jsp" %>
+
 ${jquery_js}                          
 ${jquery_form_js}  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
@@ -13,42 +14,39 @@ ${jquery_form_js}
 <body>
 
 <form id="configFrm" name="configFrm" method="post" action="${ctx}/pri/admin/configSsoSystem.action">
-  <table width="582" border="1">
-    <tr>
-      <td colspan="2" align="center">配置系统登录参数</td>
-    </tr>
-   
-     <tr>
+ <table width="98%" height="500" border="0" cellspacing="0" cellpadding="0"  class="mhjl-style" style="margin:0px;">
+  
+    <tr class=tab-add height="40">
       <td align="center">系统名称</td>
-      <td>
+      <td align="left">
          <input type="hidden" name="hiddenField" id="hiddenField" />
         <input type="hidden" name="appid" id="appid" value="${systemEntity.appid}" />
       ${systemEntity.appname}</td>
     </tr>
     
      
-    <tr>
-      <td width="148" align="center">配置T_IDM_USER账号字段名</td>
-      <td width="418"><input type="text" name="accountColumnName" id="accountColumnName" value="${systemConfig.accountColumnName}" /></td>
+    <tr class=tab-even height="40" >
+      <td width="148" align="left">配置T_IDM_USER账号字段名</td>
+      <td align="left"><input type="text" name="accountColumnName" id="accountColumnName" value="${systemConfig.accountColumnName}" /></td>
     </tr>
     
     
-    <tr>
+   <tr class=tab-even height="40" >
       <td width="148" align="center">配置参数(用户名)</td>
       <td width="418"><input type="text" name="userName" id="userName" value="${systemConfig.userNameCfg }" /></td>
     </tr>
 
-    <tr>
+   <tr class=tab-even height="40" >
       <td align="center">配置参数(密码)</td>
       <td><input type="text" name="password" id="password" value="${systemConfig.passwordCfg}" /></td>
     </tr>
     
-    <tr>
+  <tr class=tab-even height="40" >
       <td align="center">实际登录FORM(URL)</td>
       <td><input type="text" name="formActionUrl" id="formActionUrl" value="${systemConfig.formActionUrl}" /></td>
     </tr>
     
-     <tr>
+    <tr class=tab-even height="40" >
       <td align="center">是否启用</td>
       <td>
         <select name="usingEnabled" id="usingEnabled">
@@ -59,7 +57,7 @@ ${jquery_form_js}
       </td>
     </tr>
     
-     <tr>
+    <tr class=tab-even height="40" >
       <td align="center">是否加密</td>
       <td>
         <select name="passwordEncode" id="passwordEncode">
@@ -71,7 +69,7 @@ ${jquery_form_js}
     </tr>
     
         
-     <tr>
+    <tr class=tab-even height="40" >
       <td align="center">加密方式</td>
       <td>
         <select name="encodeStyle" id="encodeStyle">
@@ -98,7 +96,7 @@ ${jquery_form_js}
     
   </table>
 </form>
-
+<%@ include file="/pages/sso/bottom.jsp" %>
 </body>
 </html>
 
@@ -119,7 +117,7 @@ function backToList(){
 
 
 $(document).ready(function(){
-	alert('${systemConfig.usingEnabled}');
+	//alert('${systemConfig.usingEnabled}');
 	$("#usingEnabled").val('${systemConfig.usingEnabled}');
 	$("#passwordEncode").val('${systemConfig.passwordEncode}');
 	$("#encodeStyle").val('${systemConfig.encodeStyle}');

@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/pages/common/taglibs.jsp" %>
+<%@ include file="/pages/sso/top.jsp" %>
 
 <html>
 <head>
@@ -20,7 +21,7 @@ ${jquery_form_js}
 </head>
 <body>
 
-<div class="page_tools">
+<div>
 		<form id="sbFrm" action="${ctx}/pri/admin/getSsoSystemList.action">
 			<input type="hidden" id="totalPage" name="totalPage" value="${pager.pageCount}"/>
 			<input type="hidden" name="currentPage" id="currentPage" value="${pager.currentPage}"/>
@@ -38,12 +39,12 @@ ${jquery_form_js}
 			</table>
 			
 		</form>
-		</div>
+</div>
 		
 		
 		
-<table width="480" height="132" border="1" style="text-align:center;align:center;">
-  <tr>
+<table width="98%" height="400" border="0" cellspacing="0" cellpadding="0" align=center class="mhjl-style" style="margin:0px;">
+  <tr class=tab-add height="40">
     <td>序号</td>
     <td>系统名称</td>
     <td>操作</td>
@@ -53,7 +54,15 @@ ${jquery_form_js}
  
   <c:set var="rn" value="1" />
   <c:forEach var="ssosys" items="${pager.pageRecords}" varStatus="status">
-    <tr>
+  <c:choose>
+  <c:when test="${status.index%2==0}">
+  <tr class=tab-even height="40">
+  </c:when>
+  <c:otherwise>
+   <tr class=tab-add height="40">
+  </c:otherwise>
+  </c:choose>
+  
     <td>
    	<input type="hidden" name="" id="" value="${ssosys[0]}"> 
    	${rn}
@@ -72,6 +81,8 @@ ${jquery_form_js}
 </table>
 <%@ include file="/pages/common/page.jsp"  %>
 
+
+<%@ include file="/pages/sso/bottom.jsp" %>
 </body>
 </html>
 
@@ -82,4 +93,7 @@ function doEdit(appId){
 	 window.location.href=url;
 }
 </script>
+
+
+
 
