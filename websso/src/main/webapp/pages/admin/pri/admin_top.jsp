@@ -22,7 +22,6 @@
 <!--头部开始-->
 <div class="bea-portal-body-header"  >
 <!-- 个性化begin -->
-
 <table width="950" cellpadding="0" cellspacing="0" border="0">
       <tr>
          <td width="236" class=logo></td>
@@ -33,20 +32,7 @@
 			<td align="right" >
   				<table border="0" cellspacing="0" cellpadding="0" width="100%" height="26">
 				<tr valign="middle"  height="25">
-			
-				
-					<!-- 个性化begin -->
-                	
-
-                     
-					<div id=boysoft style=" VISIBILITY: hidden; Z-INDEX: 1;position:relative;top:2px;left:-32px;" onMouseMove="javascript:toExit('show','boysoft')" onMouseOut="javascript:toExit('hidden','boysoft')">
-					<div style="float:none;position:absolute;width:70px;height:72px;">
-				
-      				 </div>
-       				</div> 
-					</td>
 					<!--个性化end  -->
-				
 					<td width=50 align=center class="header-link"><a href="javascript:guanbi2()" >注销</a></td>
 			  		
 				</tr>
@@ -65,10 +51,9 @@
             <td class="bea-portal-book-primary-menu-single-container" align="left" nowrap="nowrap">
       <table cellpadding="0" cellspacing="0" border="0">
        <tr>  
-        <td   class="bea-portal-book-primary-menu-single-item-active"  nowrap="true" align="center"><span>&nbsp;工作平台</span></td>
-        <td class=bea-portal-book-menu-single-item-line></td>
-        <td class="bea-portal-book-primary-menu-single-children"></td>
- </tr>
+        <td class="bea-portal-book-primary-menu-single-item-active"  nowrap="true" align="center"><span><a href="${ctx}/pri/admin/getSsoSystemList.action">&nbsp;系统管理</a></span></td>
+   
+       </tr>
     </table>
       </td>  
            <td class='bea-portal-book-primary-menu-right'>&nbsp;</td>

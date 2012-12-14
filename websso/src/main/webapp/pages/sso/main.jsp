@@ -8,7 +8,7 @@ ${jquery_form_js}
        <table width="950" border="0" align="center" cellpadding="0"
 						cellspacing="0">
 						<tr>
-						  <td width="248" height="572" valign="top">
+						  <td width="248" height="300" valign="top">
 							<table class="bea-portal-window-titlebar-container" width="94%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 5px;">
                                     <tr>
                                      <td align="left" class="bea-portal-window-title-left" >&nbsp;</td>
@@ -24,38 +24,8 @@ ${jquery_form_js}
 											<TABLE cellSpacing=0 cellPadding=0 width=100%  height="154" border=0 class=tabstyle >
                                                 <tr><td align="center" height='20'>欢迎您：检查</td></tr>
                                                 <tr><td align="center" height='19'>科技信通部（智能电网办公室）</td></tr>
-                                                <tr><td align="center" height='19'>本月共登录：<font color="red">29</font>次</td></tr>
-                                                
-                                                <tr>
-                                                  <td align="center">
-                                                    <table width=95% cellSpacing=0 cellPadding=0>
-                                                      <tr class=tab-even>
-                                                        <td width=20></td>
-                                                        <td class="info-arrow">&nbsp;</td>
-                                                        <td align="left"><a href="javascript:openXX(1)">密码修改</a></td>
-                                                        <td class="info-arrow">&nbsp;</td>
-                                                        <td align="left"><a href="javascript:openXX(2)">短信定制</a></td>
-                                                      </tr>
-                                                      <tr class=tab-add>
-                                                        <td width=20></td>
-                                                        <td class="info-arrow">&nbsp;</td>
-                                                        <td align="left"><a href="javascript:openXX(3)">定制风格</a></td>
-                                                        <td class="info-arrow">&nbsp;</td>
-                                                        <td align="left"><a href="javascript:openXX(4)">定制内容</a></td>
-                                                      </tr>
-                                                      <tr class=tab-even>
-                                                        <td width=20></td>
-                                                        <td class="info-arrow">&nbsp;</td>
-                                                        <td align="left"><a href="javascript:openXX(5)">初始布局</a></td>
-                                                        <td class="info-arrow">&nbsp;</td>
-                                                        <td align="left"><a href="javascript:guanbi()">退出门户</a></td>
-                                                      </tr>
-                                                      <tr class=tab-add>
-                                                        <td colspan="5"></td>
-                                                      </tr>
-                                                    </table>
-                                                  </td>
-                                                </tr>
+                                                 <tr><td align="center" height='19'>退出</td></tr>
+                                              
                                           </table> 
 										</td>
 									</tr>

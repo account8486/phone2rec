@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/pages/common/taglibs.jsp" %>
-<%@ include file="/pages/sso/top.jsp" %>
+<%@ include file="/pages/admin/pri/admin_top.jsp" %>
 
 <html>
 <head>
@@ -82,7 +82,7 @@ ${jquery_form_js}
 <%@ include file="/pages/common/page.jsp"  %>
 
 
-<%@ include file="/pages/sso/bottom.jsp" %>
+<%@ include file="/pages/admin/pri/admin_bottom.jsp" %>
 </body>
 </html>
 
