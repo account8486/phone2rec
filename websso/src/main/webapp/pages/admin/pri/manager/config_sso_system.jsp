@@ -12,7 +12,7 @@ ${jquery_form_js}
 <body>
 
 <form id="configFrm" name="configFrm" method="post" action="${ctx}/pri/admin/configSsoSystem.action">
- <table width="98%" height="500" border="0" cellspacing="0" cellpadding="0"  class="mhjl-style" style="margin:0px;">
+ <table width="98%" height="500" border="0" cellspacing="0" cellpadding="0"  class="mhjl-style" style="margin:0px;" >
   
     <tr class=tab-add height="40">
       <td align="center">系统名称</td>
@@ -25,29 +25,29 @@ ${jquery_form_js}
      
     <tr class=tab-even height="40" >
       <td width="148" align="left">配置T_IDM_USER账号字段名</td>
-      <td align="left"><input type="text" name="accountColumnName" id="accountColumnName" value="${systemConfig.accountColumnName}" /></td>
+      <td align="left"><input type="text" style="width:300px;" name="accountColumnName" id="accountColumnName" value="${systemConfig.accountColumnName}" /></td>
     </tr>
     
     
    <tr class=tab-even height="40" >
       <td width="148" align="center">配置参数(用户名)</td>
-      <td width="418"><input type="text" name="userName" id="userName" value="${systemConfig.userNameCfg }" /></td>
+      <td width="418"><input type="text" style="width:300px;" name="userName" id="userName" value="${systemConfig.userNameCfg }" /></td>
     </tr>
 
    <tr class=tab-even height="40" >
       <td align="center">配置参数(密码)</td>
-      <td><input type="text" name="password" id="password" value="${systemConfig.passwordCfg}" /></td>
+      <td align="left"><input type="text" name="password" id="password" value="${systemConfig.passwordCfg}" style="width:300px;" /></td>
     </tr>
     
   <tr class=tab-even height="40" >
       <td align="center">实际登录FORM(URL)</td>
-      <td><input type="text" name="formActionUrl" id="formActionUrl" value="${systemConfig.formActionUrl}" /></td>
+      <td align="left"><input type="text" name="formActionUrl" id="formActionUrl" value="${systemConfig.formActionUrl}" style="width:600px;" /></td>
     </tr>
     
     <tr class=tab-even height="40" >
       <td align="center">是否启用</td>
       <td>
-        <select name="usingEnabled" id="usingEnabled">
+        <select name="usingEnabled" id="usingEnabled" style="width:300px;">
          <option>未设定</option>
          <option value="true">启用</option>
          <option value="false">禁用</option>
@@ -58,7 +58,7 @@ ${jquery_form_js}
     <tr class=tab-even height="40" >
       <td align="center">是否加密</td>
       <td>
-        <select name="passwordEncode" id="passwordEncode">
+        <select name="passwordEncode" id="passwordEncode" style="width:300px;">
          <option>未设定</option>
          <option value="Y">加密</option>
          <option value="N">不加密</option>
@@ -70,7 +70,7 @@ ${jquery_form_js}
     <tr class=tab-even height="40" >
       <td align="center">加密方式</td>
       <td>
-        <select name="encodeStyle" id="encodeStyle">
+        <select name="encodeStyle" id="encodeStyle" style="width:300px;">
          <option>未设定</option>
          <option value="md5">MD5</option>
          <option value="base64">BASE64</option>

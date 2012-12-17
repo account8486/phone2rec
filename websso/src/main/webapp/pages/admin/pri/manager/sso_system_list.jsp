@@ -69,7 +69,7 @@ ${jquery_form_js}
     </td>
     <td>${ssosys[1]}</td>
     <td>
-    <a href="#" id="configParameter" onClick="doEdit('${ssosys[0]}');">配置参数</a>
+    <a href="#" id="configParameter" onClick="doEdit('${ssosys[0]}');">基础配置</a>
     </td>
     
    </tr>

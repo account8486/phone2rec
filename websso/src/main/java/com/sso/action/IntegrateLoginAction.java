@@ -5,6 +5,7 @@ import java.util.List;
 import com.sso.model.SsoSystemConfig;
 import com.sso.service.SsoSystemConfigService;
 import com.util.EncodeUtil;
+import com.util.webSecurity.UserSecurity;
 import com.wirelesscity.action.base.BaseAction;
 import com.wirelesscity.common.StringUtil;
 import com.wirelesscity.exception.ServiceException;
@@ -51,9 +52,10 @@ public class IntegrateLoginAction extends BaseAction {
 		if (StringUtil.isEmpty(userName) || StringUtil.isEmpty(password)) {
 			return INPUT;
 		}
-
-		String md5Password = EncodeUtil.md5Encode(password, EncodeUtil.UPPER_CASE_FORMATTER);
-		log.debug("md5Password:" + md5Password);
+		//String md5Password = EncodeUtil.md5Encode(password, EncodeUtil.UPPER_CASE_FORMATTER);
+		String portalPassword =UserSecurity.Encrypt(password);
+		
+		log.debug("portalPassword:" + portalPassword);
 
 		// TODO
 		// 此处进行数据库的查找与比对,查找数据库t_idm_user中的字段
@@ -69,7 +71,7 @@ public class IntegrateLoginAction extends BaseAction {
 				.append(" select * from t_idm_user t where t.cn=? and t.password=? ");
 		Object[] objArr = new Object[2];
 		objArr[0] = userName;
-		objArr[1] = md5Password;
+		objArr[1] = portalPassword;
 
 		List lstResult = jdbcService.getResultWithArgs(searchSql.toString(), objArr);
 
@@ -84,6 +86,9 @@ public class IntegrateLoginAction extends BaseAction {
 			searchSysSql.append("  ,config.id as configId");
 			searchSysSql
 					.append(" from tf_sso_sso sso left join sso_system_config config on config.sso_id = sso.appid ");
+			
+			//筛选启用的系统
+			searchSysSql.append(" where config.USING_ENABLED=1 ");
 			// 我的登录对应的信息
 			List<HashMap> mySystemLoginLst = new ArrayList<HashMap>();
 
@@ -189,7 +194,6 @@ public class IntegrateLoginAction extends BaseAction {
 				this.resultMap.put("password", password);
 			}
 		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

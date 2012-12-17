@@ -3,7 +3,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>个人工作台</title>
+<title>后台管理</title>
 <link rel="stylesheet" type="text/css" href="/websso/skins/gwgreen/css/body.css">
 <link rel="stylesheet" type="text/css" href="/websso/skins/gwgreen/css/book.css">
 <link rel="stylesheet" type="text/css" href="/websso/skins/gwgreen/css/button.css">

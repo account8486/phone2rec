@@ -144,6 +144,17 @@ public class SsoSystemAction extends BaseAction {
 		
 		
 		log.debug("appid:"+appid+",userName:"+userName+",password:"+password+",systemCofigId:"+systemCofigId+",accountColumnName:"+accountColumnName);
+		
+		//查询系统表appid
+		StringBuffer querySql = new StringBuffer(" select t.appid,t.appname,t.apploginurl from tf_sso_sso t  where t.appid='"+appid+"'");
+		List lstResult = JdbcService.getList(querySql.toString());
+		String appName="";
+		if(lstResult!=null&&lstResult.size()>0){
+			Map ssoSystemMap=(HashMap)lstResult.get(0);
+			appName=(String)ssoSystemMap.get("appname");
+		}
+		
+		
 		if(StringUtil.isNotEmpty(systemCofigId)){
 			SsoSystemConfig config= ssoSystemConfigService.findById(systemCofigId);
 			config.setSsoId(appid);
@@ -156,7 +167,7 @@ public class SsoSystemAction extends BaseAction {
 		    config.setUsingEnabled(isUsingEnable);
 			config.setPasswordEncode(passwordEncode);
 	        config.setEncodeStyle(encodeStyle);
-			
+	        config.setComments(appName);
 			
 			ssoSystemConfigService.saveOrUpdate(config);
 		}else{
@@ -177,7 +188,7 @@ public class SsoSystemAction extends BaseAction {
 				config.setUsingEnabled(isUsingEnable);
 				config.setPasswordEncode(passwordEncode);
 		        config.setEncodeStyle(encodeStyle);
-		        
+		        config.setComments(appName);
 		        
 				ssoSystemConfigService.saveOrUpdate(config);
 				
@@ -193,6 +204,7 @@ public class SsoSystemAction extends BaseAction {
 				config.setUsingEnabled(isUsingEnable);
 				config.setPasswordEncode(passwordEncode);
 		        config.setEncodeStyle(encodeStyle);
+		        config.setComments(appName);
 		        
 				ssoSystemConfigService.saveOrUpdate(config);
 		    }
