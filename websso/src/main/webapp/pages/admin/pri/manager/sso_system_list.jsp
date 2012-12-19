@@ -6,20 +6,47 @@
 <html>
 <head>
 <title>系统列表</title>
-
+<link rel="stylesheet" type="text/css" href="${ctx}/js/easyui/themes/default/tabs.css">
+<script type="text/javascript" src="${ctx}/js/easyui/jquery.easyui.js"></script>
 ${util_js}
 ${jquery_js}                          
 ${jquery_form_js}  
 
 <script>
 	function query(){
-		
 		$("#sbFrm").submit();
 	}
+	
+	$(document).ready(function() {
+		
+		$(".easyui-tabs").tabs({  
+			onSelect:function(title){ 
+				alert(title);
+				var tab = $(this).tabs("getTab", title); 
+				var href = tab.attr("link");
+				if (href) {
+					location.href = href;
+					return false;
+				}
+			}  
+		});
+	});
+		
+		
+		
 </script>
 
 </head>
 <body>
+
+<div class="easyui-tabs" border="false" style="padding:10px;">	
+    <div  title="用户列表" style="padding:10px;"></div>
+	<div  title="添加用户" link="${ctx}/pages/admin/pri/meeting/getMeetingById.action?returnType=manage_members&meeting.id=${meeting.id}" style="padding:10px;"></div>
+	<div title="导入用户" link="${ctx}/admin/pri/import/preImportUser.action?meetingId=${meeting.id}" style="padding:10px;"></div>
+	<div title="临时加入审批" link="${ctx}/admin/pri/apply/getUserApplyPager.action?meetingId=${meeting.id}" style="padding:10px;"></div>	
+</div>
+
+
 
 <div>
 		<form id="sbFrm" action="${ctx}/pri/admin/getSsoSystemList.action">

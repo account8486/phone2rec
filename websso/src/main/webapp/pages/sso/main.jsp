@@ -136,10 +136,21 @@ ${jquery_form_js}
  											   </c:if>
  											   
 											   <td>
-											    <a href="#" onclick="getUserLoginInfo('${sys.appId}','${userName}','${sys.account_Column_Name}','${sys.user_Name_Cfg}','${sys.password_Cfg}','${password}','${sys.form_action_url}','${sys.configId}');">
+											    
+										          
+										     <c:choose>
+										     <c:when test="${not empty sys.logo_url }" >
+										      <img style="width:30px;height:22px;" src="${ctx}/${sys.logo_url}" alt="${sys.appname}" onclick="getUserLoginInfo('${sys.appId}','${userName}','${sys.account_Column_Name}','${sys.user_Name_Cfg}','${sys.password_Cfg}','${password}','${sys.form_action_url}','${sys.configId}');"  /> <br />
+										     </c:when>
+										     <c:otherwise>
+										      <img style="width:30px;height:22px;" src="${ctx}/icon/system19.png" alt="${sys.appname}" onclick="getUserLoginInfo('${sys.appId}','${userName}','${sys.account_Column_Name}','${sys.user_Name_Cfg}','${sys.password_Cfg}','${password}','${sys.form_action_url}','${sys.configId}');" /> <br />
+										     </c:otherwise>
+										     </c:choose>
+											   
+											 <a href="#" onclick="getUserLoginInfo('${sys.appId}','${userName}','${sys.account_Column_Name}','${sys.user_Name_Cfg}','${sys.password_Cfg}','${password}','${sys.form_action_url}','${sys.configId}');">
 											     ${sys.appname}  
 											    </a>
-											   </td>
+											 </td>
 											   
 											   <c:if test=" ${status.index%4==0}">
  											      </tr>

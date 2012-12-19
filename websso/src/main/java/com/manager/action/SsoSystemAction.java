@@ -1,4 +1,4 @@
-package com.manager.action;
+ package com.manager.action;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -124,76 +124,91 @@ public class SsoSystemAction extends BaseAction {
 	 * @return
 	 * @throws ServiceException 
 	 */
-	public String configSsoSystem() throws ServiceException{
-		String userName=StringUtil.trim(getRequest().getParameter("userName"));
-		String password=StringUtil.trim(getRequest().getParameter("password"));
-		String appid=StringUtil.trim(getRequest().getParameter("appid"));
-		String accountColumnName=StringUtil.trim(getRequest().getParameter("accountColumnName"));
-		String systemCofigId=StringUtil.trim(getRequest().getParameter("systemCofigId"));
-		String formActionUrl=StringUtil.trim(getRequest().getParameter("formActionUrl"));
-		String usingEnabled=StringUtil.trim(getRequest().getParameter("usingEnabled"));
-		String passwordEncode=StringUtil.trim(getRequest().getParameter("passwordEncode"));
-		String encodeStyle=StringUtil.trim(getRequest().getParameter("encodeStyle"));
+	public String configSsoSystem() throws ServiceException {
+		String userName = StringUtil
+				.trim(getRequest().getParameter("userName"));
+		String password = StringUtil
+				.trim(getRequest().getParameter("password"));
+		String appid = StringUtil.trim(getRequest().getParameter("appid"));
+		String accountColumnName = StringUtil.trim(getRequest().getParameter(
+				"accountColumnName"));
+		String systemCofigId = StringUtil.trim(getRequest().getParameter(
+				"systemCofigId"));
+		String formActionUrl = StringUtil.trim(getRequest().getParameter(
+				"formActionUrl"));
+		String usingEnabled = StringUtil.trim(getRequest().getParameter(
+				"usingEnabled"));
+		String passwordEncode = StringUtil.trim(getRequest().getParameter(
+				"passwordEncode"));
+		String encodeStyle = StringUtil.trim(getRequest().getParameter(
+				"encodeStyle"));
 		
-		
-		boolean isUsingEnable=true;
-		if(StringUtil.isNotEmpty(usingEnabled)){
-			isUsingEnable=Boolean.valueOf(usingEnabled).booleanValue();
+		String logoUrl=StringUtil.trim(getRequest().getParameter("logoUrl"));
+
+		boolean isUsingEnable = true;
+		if (StringUtil.isNotEmpty(usingEnabled)) {
+			isUsingEnable = Boolean.valueOf(usingEnabled).booleanValue();
 		}
-	
-		
-		
-		log.debug("appid:"+appid+",userName:"+userName+",password:"+password+",systemCofigId:"+systemCofigId+",accountColumnName:"+accountColumnName);
-		
-		//查询系统表appid
-		StringBuffer querySql = new StringBuffer(" select t.appid,t.appname,t.apploginurl from tf_sso_sso t  where t.appid='"+appid+"'");
+
+		log.debug("appid:" + appid + ",userName:" + userName + ",password:"
+				+ password + ",systemCofigId:" + systemCofigId
+				+ ",accountColumnName:" + accountColumnName);
+
+		// 查询系统表appid
+		StringBuffer querySql = new StringBuffer(
+				" select t.appid,t.appname,t.apploginurl from tf_sso_sso t  where t.appid='"
+						+ appid + "'");
 		List lstResult = JdbcService.getList(querySql.toString());
-		String appName="";
-		if(lstResult!=null&&lstResult.size()>0){
-			Map ssoSystemMap=(HashMap)lstResult.get(0);
-			appName=(String)ssoSystemMap.get("appname");
+		String appName = "";
+		if (lstResult != null && lstResult.size() > 0) {
+			Map ssoSystemMap = (HashMap) lstResult.get(0);
+			appName = (String) ssoSystemMap.get("appname");
 		}
-		
-		
-		if(StringUtil.isNotEmpty(systemCofigId)){
-			SsoSystemConfig config= ssoSystemConfigService.findById(systemCofigId);
+
+		if (StringUtil.isNotEmpty(systemCofigId)) {
+			SsoSystemConfig config = ssoSystemConfigService
+					.findById(systemCofigId);
 			config.setSsoId(appid);
 			config.setUserNameCfg(userName);
 			config.setPasswordCfg(password);
-			config.setCreateTime(new Date());
+			config.setUpdateTime(new Date());
 			config.setLogoUrl(null);
 			config.setAccountColumnName(accountColumnName);
 			config.setFormActionUrl(formActionUrl);
-		    config.setUsingEnabled(isUsingEnable);
+			config.setUsingEnabled(isUsingEnable);
 			config.setPasswordEncode(passwordEncode);
-	        config.setEncodeStyle(encodeStyle);
-	        config.setComments(appName);
-			
+			config.setEncodeStyle(encodeStyle);
+			config.setComments(appName);
+			config.setLogoUrl(logoUrl);
+
 			ssoSystemConfigService.saveOrUpdate(config);
-		}else{
-			//查找对应信息
-		    StringBuffer hql=new StringBuffer();
-		    hql.append(" from  SsoSystemConfig po where po.ssoId='"+appid+"'");
-		    List<SsoSystemConfig> configList= ssoSystemConfigService.queryList(hql.toString(), null);
-		    if(configList!=null&&configList.size()>0){
-		    	//看是否为空
-		    	SsoSystemConfig config=configList.get(0);
-		    	config.setUserNameCfg(userName);
+		} else {
+			// 查找对应信息
+			StringBuffer hql = new StringBuffer();
+			hql.append(" from  SsoSystemConfig po where po.ssoId='" + appid
+					+ "'");
+			List<SsoSystemConfig> configList = ssoSystemConfigService
+					.queryList(hql.toString(), null);
+			if (configList != null && configList.size() > 0) {
+				// 看是否为空
+				SsoSystemConfig config = configList.get(0);
+				config.setUserNameCfg(userName);
 				config.setPasswordCfg(password);
 				config.setUpdateTime(new Date());
 				config.setLogoUrl(null);
 				config.setAccountColumnName(accountColumnName);
 				config.setFormActionUrl(formActionUrl);
-				
+				config.setUpdateTime(new Date());
 				config.setUsingEnabled(isUsingEnable);
 				config.setPasswordEncode(passwordEncode);
-		        config.setEncodeStyle(encodeStyle);
-		        config.setComments(appName);
-		        
-				ssoSystemConfigService.saveOrUpdate(config);
+				config.setEncodeStyle(encodeStyle);
+				config.setComments(appName);
+				config.setLogoUrl(logoUrl);
 				
-		    }else{
-		    	SsoSystemConfig config=new SsoSystemConfig();
+				ssoSystemConfigService.saveOrUpdate(config);
+
+			} else {
+				SsoSystemConfig config = new SsoSystemConfig();
 				config.setUserNameCfg(userName);
 				config.setPasswordCfg(password);
 				config.setSsoId(appid);
@@ -203,14 +218,15 @@ public class SsoSystemAction extends BaseAction {
 				config.setAccountColumnName(accountColumnName);
 				config.setUsingEnabled(isUsingEnable);
 				config.setPasswordEncode(passwordEncode);
-		        config.setEncodeStyle(encodeStyle);
-		        config.setComments(appName);
-		        
+				config.setEncodeStyle(encodeStyle);
+				config.setComments(appName);
+				config.setCreateTime(new Date());
+				config.setLogoUrl(logoUrl);
+
 				ssoSystemConfigService.saveOrUpdate(config);
-		    }
+			}
 		}
 
-		
 		return this.getSsoSystemList();
 	}
 	

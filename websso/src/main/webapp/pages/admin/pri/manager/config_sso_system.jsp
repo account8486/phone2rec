@@ -44,6 +44,12 @@ ${jquery_form_js}
       <td align="left"><input type="text" name="formActionUrl" id="formActionUrl" value="${systemConfig.formActionUrl}" style="width:600px;" /></td>
     </tr>
     
+    
+   <tr class=tab-even height="40">
+    <td align="center" style="width:600px;">图片地址</td>
+      <td><input type="text" name="logoUrl" id="logoUrl" value="${systemConfig.logoUrl}" style="width:600px;"/></td>
+    </tr>
+    
     <tr class=tab-even height="40" >
       <td align="center">是否启用</td>
       <td>
@@ -78,6 +84,8 @@ ${jquery_form_js}
         </select>
       </td>
     </tr>
+    
+
     
     
     
