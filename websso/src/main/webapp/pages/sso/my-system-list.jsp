@@ -53,7 +53,7 @@ ${jquery_form_js}
  */
 function getUserLoginInfo(appId,userAccount,accountColumnName,userNameCfg,passwordCfg,passwordValue,appLoginUrl,configId){
 	//alert(appId+","+userAccount+","+accountColumnName+","+userNameCfg+","+passwordCfg+","+passwordValue+","+appLoginUrl);
-	alert(configId);
+	//alert(configId);
 	
 	var columnNameValue="";
 	//
@@ -70,7 +70,7 @@ function getUserLoginInfo(appId,userAccount,accountColumnName,userNameCfg,passwo
             function (data, textStatus) {
                 if (textStatus == "success") {
                     if (data.result) {
-                    	alert(data.password);
+                    	//alert(data.password);
                     	//alert("columnNameValue:"+data.columnNameValue);
                     	columnNameValue=data.columnNameValue;
                     	//alert(userNameCfg);

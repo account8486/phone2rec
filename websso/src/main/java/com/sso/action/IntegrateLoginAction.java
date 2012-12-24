@@ -77,6 +77,8 @@ public class IntegrateLoginAction extends BaseAction {
 
 		if (lstResult != null && lstResult.size() == 1) {
 
+			
+			
 			HashMap userMap = (HashMap) lstResult.get(0);
 
 			// 如果账户存在并且密码正确的话，查询此用户对应的系统权限及对应的账号信息
@@ -117,6 +119,7 @@ public class IntegrateLoginAction extends BaseAction {
 			
 			this.getSession().setAttribute("userName", userName);
 			this.getSession().setAttribute("password", password);
+			this.getSession().setAttribute("fullName", userMap.get("fullName"));
 			
 			return SUCCESS;
 		} else {

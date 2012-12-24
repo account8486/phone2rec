@@ -22,9 +22,9 @@ ${jquery_form_js}
 									<tr>
 										<td >
 											<TABLE cellSpacing=0 cellPadding=0 width=100%  height="154" border=0 class=tabstyle >
-                                                <tr><td align="center" height='20'>欢迎您：检查</td></tr>
-                                                <tr><td align="center" height='19'>科技信通部（智能电网办公室）</td></tr>
-                                                 <tr><td align="center" height='19'>退出</td></tr>
+                                                <tr><td align="center" height='20'>欢迎您：${fullName}</td></tr>
+                                               
+                                                 <tr><td align="center" height='19'><a onclick="logout();">退出</a></td></tr>
                                               
                                           </table> 
 										</td>
@@ -206,7 +206,7 @@ ${jquery_form_js}
  */
 function getUserLoginInfo(appId,userAccount,accountColumnName,userNameCfg,passwordCfg,passwordValue,appLoginUrl,configId){
 	//alert(appId+","+userAccount+","+accountColumnName+","+userNameCfg+","+passwordCfg+","+passwordValue+","+appLoginUrl);
-	alert(configId);
+	//alert(configId);
 	
 	var columnNameValue="";
 	//
@@ -223,7 +223,7 @@ function getUserLoginInfo(appId,userAccount,accountColumnName,userNameCfg,passwo
             function (data, textStatus) {
                 if (textStatus == "success") {
                     if (data.result) {
-                    	alert(data.password);
+                    	//alert(data.password);
                     	//alert("columnNameValue:"+data.columnNameValue);
                     	columnNameValue=data.columnNameValue;
                     	//alert(userNameCfg);
@@ -256,6 +256,16 @@ function getUserLoginInfo(appId,userAccount,accountColumnName,userNameCfg,passwo
 	
 	
   //创建input:text 
+}
+
+
+/**
+ * 登出
+ */
+function logout(){
+	if(confirm("是否注销系统？")){
+		window.close();
+	}
 }
 
 

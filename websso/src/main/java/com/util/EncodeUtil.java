@@ -12,7 +12,12 @@ public class EncodeUtil {
 		// TODO Auto-generated method stub
 		//System.out.println(md5Encode("111111"));
 		//System.out.println(base64Encode("111111"));
-		System.out.println(md5Encode("abcd2234",UPPER_CASE_FORMATTER));
+		//System.out.println(md5Encode("abcd2234",LOWER_CASE_FORMATTER));
+		
+		System.out.println(base64Encode("abcd2234",null));
+		
+		
+		
 	}
 	
 	@SuppressWarnings("unused")
