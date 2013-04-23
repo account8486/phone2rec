@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="getDb">
+      
+     <typeAlias alias="User" type="com.simpleWork.ibatis.model.User" />
+     <resultMap class="User" id="userMap">
+         <result property="systemUserId" column="system_User_Id"/>
+         <result property="staffId" column="staff_Id"/>
+         <result property="staffName" column="staff_Name"/>
+     </resultMap>
+     
+	
+	<select id="getAllUsers" resultMap="userMap">
+		<![CDATA[	
+		 select t.system_User_Id,t.staff_Id,t.staff_Name from system_user t
+         where  rownum<20
+		]]>
+	</select>
+	
+	
+	
+	
+	
+</sqlMap>
