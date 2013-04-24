@@ -5,11 +5,11 @@ import java.io.Reader;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-import com.simpleWork.ibatis.model.User;
 
 public class UserDaoImpl {
 
@@ -27,11 +27,12 @@ public class UserDaoImpl {
 	}
 
 	
-	public List getUserList() {
+	public List getUserList(Map map) {
 		List lst = new ArrayList();
 		try {
 			sqlMapClient.startTransaction();
-			lst = sqlMapClient.queryForList("getDb.getAllUsers");
+			//lst = sqlMapClient.queryForList("getDb.getAllUsers");
+			lst = sqlMapClient.queryForList("getDb.getAllUsers", map);
 			sqlMapClient.commitTransaction();
 		} catch (SQLException e) {
 			e.printStackTrace();

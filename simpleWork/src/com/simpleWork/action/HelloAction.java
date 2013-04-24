@@ -38,13 +38,18 @@ public class HelloAction implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		
-		logger.debug("aaaaaaaaaaaaaaaaaaaaaa");
+		
 		Map<String, Object> model = new HashMap<String, Object>();
 		String t1=request.getParameter("helloWorld");
 		model.put("helloWorld", t1); // 将helloWorld属性存入model中
 		
 		UserDaoImpl userDaoImpl=new UserDaoImpl();
-		List lstUser=userDaoImpl.getUserList();
+		HashMap<String,Object> parameterMap=new HashMap<String, Object>();
+		parameterMap.put("staffName", t1);
+		parameterMap.put("staffId", "10395");
+		
+		
+		List lstUser=userDaoImpl.getUserList(parameterMap);
 		
 	    model.put("lstUser", lstUser);
 		return new ModelAndView(getViewPage(), model); // 调用getViewPage获取要返回的页面

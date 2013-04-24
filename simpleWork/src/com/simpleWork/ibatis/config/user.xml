@@ -4,6 +4,7 @@
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="getDb">
       
+
      <typeAlias alias="User" type="com.simpleWork.ibatis.model.User" />
      <resultMap class="User" id="userMap">
          <result property="systemUserId" column="system_User_Id"/>
@@ -11,16 +12,15 @@
          <result property="staffName" column="staff_Name"/>
      </resultMap>
      
-	
-	<select id="getAllUsers" resultMap="userMap">
+	<select id="getAllUsers" resultMap="userMap" parameterClass="java.util.Map">
 		<![CDATA[	
 		 select t.system_User_Id,t.staff_Id,t.staff_Name from system_user t
-         where  rownum<20
+         where  rownum<20  and t.system_User_Id =$staffId$
+         
+         and t.staff_Name like '%$staffName$%'
 		]]>
 	</select>
 	
-	
-	
-	
+
 	
 </sqlMap>

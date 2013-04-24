@@ -17,4 +17,5 @@
 	</transactionManager>
 	
 	<sqlMap resource="/com/simpleWork/ibatis/config/user.xml" />
+	
 </sqlMapConfig>
